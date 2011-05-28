@@ -1,0 +1,25 @@
+<%= form_for [@oier,@ojee] do |f| %>
+  <% if @ojee.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ojee.errors.count, "error") %> prohibited this ojee from being saved:</h2>
+
+      <ul>
+      <% @ojee.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :ojtype %><br />
+    <%= f.text_field :ojtype %>
+  </div>
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

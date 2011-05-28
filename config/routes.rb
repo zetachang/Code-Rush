@@ -1,4 +1,8 @@
 Blog::Application.routes.draw do
+  resources :oiers do
+    resources :ojees, :except => [:show] 
+  end
+  
   devise_for :users
 
   post "books/borrow_book"

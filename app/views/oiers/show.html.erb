@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @oier.name %>
+</p>
+
+<p>
+  <b>Grade:</b>
+  <%= @oier.grade %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @oier.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_oier_path(@oier) %> |
+<%= link_to 'Back', oiers_path %>

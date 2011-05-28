@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 gem 'devise','1.3.4'
 gem 'rails', '3.0.7'
-
+gem 'haml'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 

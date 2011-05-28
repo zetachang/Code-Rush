@@ -1,0 +1,12 @@
+<h1>Oier in PSCD</h1>
+<table>
+  <% @oiers.each do |oier| %>
+    <tr>
+      <td><%= oier.name %></td>
+      <% oier.ojees.each do |ojee| %>
+        <td><%= ojee.ojtype + "("+ojee.solved_problem.length.to_s+")" %></td>
+      <% end %>
+      <td><%= link_to "Show all OJ stats",oier_ojees_path(oier) %></td>
+    </tr>
+  <% end  %>
+</table>

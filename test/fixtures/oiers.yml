@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  grade: 1
+  description: MyText
+
+two:
+  name: MyString
+  grade: 1
+  description: MyText

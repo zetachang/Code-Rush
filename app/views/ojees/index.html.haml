@@ -1,0 +1,18 @@
+%h1 OJ Stats for= @oier.name
+
+%table
+  %tr
+    %th Name
+    %th TIOJ
+    %th Uva
+  - @ojees.each do |ojee|
+    %tr
+      %td= ojee.name
+      %td= ojee.solved_problem.length
+      %td
+      //%td= link_to 'Show', ojee
+      //%td= link_to 'Edit', edit_ojee_path(ojee)
+      //%td= link_to 'Destroy', ojee, :confirm => 'Are you sure?', :method => :delete
+
+%br
+= link_to 'New Ojee', new_oier_ojee_path 
