@@ -10,11 +10,12 @@
       </ul>
     </div>
   <% end %>
-
+  <!--
   <div class="field">
     <%= f.label :ojtype %><br />
-    <%= f.text_field :ojtype %>
+    <%= f.select :ojtype, Ojee::OJ_TYPES,:prompt => "Select a OJ"  %>
   </div>
+  -->
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>

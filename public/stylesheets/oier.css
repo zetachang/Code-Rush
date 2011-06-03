@@ -1,0 +1,65 @@
+html {
+  margin: 0;
+  padding: 10px; }
+
+#wrap {
+  width: 750px;
+  margin: 0 auto; }
+
+#header {
+  padding: 5px 10px;
+  margin: 5px; }
+  #header h1 {
+    margin: 0; }
+
+#nav {
+  padding: 5px 10px; }
+  #nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+  #nav li {
+    display: inline;
+    margin: 0;
+    padding: 0; }
+
+#sidebar {
+  width: 150px;
+  background: #56a5ec;
+  color: white;
+  padding: 10px;
+  float: left; }
+
+#content {
+  width: 500px;
+  padding: 15px;
+  float: left; }
+  #content h2 {
+    text-align: center; }
+  #content .notice {
+    color: green; }
+  #content .alert {
+    color: red; }
+
+#footer {
+  clear: both;
+  padding: 5px 10px; }
+  #footer p {
+    margin: 0; }
+
+.even_row {
+  background-color: #56a5ec;
+  color: #ffffff; }
+  .even_row a {
+    color: white; }
+
+.odd_row {
+  background-color: #ffffff;
+  color: #56a5ec; }
+  .odd_row a {
+    color: #56a5ec; }
+
+table {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto; }

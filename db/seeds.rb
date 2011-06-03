@@ -21,3 +21,27 @@ books = Book.create [
     :description => "A book written by Matz, the creator of Ruby",   
   }
 ]
+
+oiers = Oier.create [
+  {
+    :name => 'zeta',
+    :grade => 101,
+    :description => 'Vice President of Circ 27th'
+  },
+  {
+    :name => 'raincole',
+    :grade => '101',
+    :description => 'President of Circ 27th'
+  },
+  {
+    :name => 'xatier',
+    :grade => '101',
+    :description => 'Mentor of Circ 27th'
+  }
+]
+
+Oier.find(1).ojees << TiojOjee.create(:name => 'zeta', :ojtype =>' TIOJ')
+#Oier.find(1).ojees << PkuOjee.create(:name =>'zeta1121', :ojtype => 'PKU')
+
+Oier.find(2).ojees << TiojOjee.create(:name => 'raincole', :ojtype => 'TIOJ')
+Oier.find(2).ojees << PkuOjee.create(:name => 'raincole', :ojtype => 'PKU')

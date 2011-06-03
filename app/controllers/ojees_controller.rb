@@ -2,23 +2,15 @@ class OjeesController < ApplicationController
   # GET /ojees
   # GET /ojees.xml
   def index
-    @ojees = Oier.find(params[:oier_id]).ojees
+    @ojee = Oier.find(params[:oier_id]).ojee
     @oier = Oier.find(params[:oier_id])
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @ojees }
-    end
+    render
   end
 
   # GET /ojees/new
   # GET /ojees/new.xml
   def new
-    @ojee = Ojee.new
     @oier = Oier.find(params[:oier_id])
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @ojee }
-    end
   end
 
   # GET /ojees/1/edit

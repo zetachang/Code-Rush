@@ -1,0 +1,13 @@
+= form_for [@oier,@tioj_ojee] do |f| 
+  - if @tioj_ojee.errors.any? 
+    #error_explanation
+      %h2 #{pluralize(@oier.errors.count, "error")} prohibited this oier from being saved:
+      %ul
+        - @tioj_ojee.errors.full_messages.each do |msg| 
+          %li= msg
+  .field
+    = f.label :name
+    %br
+    = f.text_field :name
+  .actions
+    = f.submit

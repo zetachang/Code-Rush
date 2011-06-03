@@ -1,0 +1,13 @@
+<h1><%= @oier.name %>'s OJ Stats</h1>
+<table>
+  <% @ojees.each do |ojee| %>
+    <tr>
+      <td><%= ojee.ojtype %></td>
+      <td><%= ojee.name %></td>
+      <td><%= ojee.solved_problem.length %></td>
+      <td><%= link_to 'Edit', edit_oier_ojee_path(@oier,ojee) %></td>
+      <td><%= link_to 'Destroy', oier_ojee_path(@oier,ojee), :confirm => 'Are you sure?', :method => :delete %></td>
+    <% end %>
+</table>
+</br>
+<%= link_to 'New OJ Account', new_oier_ojee_path(@oier) %>

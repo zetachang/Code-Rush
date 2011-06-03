@@ -1,6 +1,10 @@
 Blog::Application.routes.draw do
+
+
   resources :oiers do
-    resources :ojees, :except => [:show] 
+    match :update_all, :via => [:get], :on => :collection
+    resources :ojees ,:only => [:index,:new] 
+    resources :tioj_ojees, :except => [:index]
   end
   
   devise_for :users

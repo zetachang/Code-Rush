@@ -1,0 +1,7 @@
+- if ojee
+  .ojstate
+    %h3 TIOJ Stat
+    %ul
+      %li= ojee.name
+      %li= ojee.solved_count
+      %li= link_to 'Edit',edit_oier_tioj_ojee_path(@oier,ojee)

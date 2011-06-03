@@ -1,0 +1,71 @@
+$steelblue: #56a5ec;
+$ivory: #fffff0;
+$white: #ffffff;
+$dodgerblue: #153e7e;
+$lightblue: #0000ff;
+$darkblue: #0000a0;
+
+html {
+	//background: $background;
+	margin:0;
+	padding:10px;
+	//color: $dodgerblue;
+}
+
+#wrap {
+	width:750px;
+	margin:0 auto;
+}
+
+#header {
+	padding: 5px 10px;
+	margin: 5px;
+	h1 {
+		margin: 0;
+	}
+}
+
+#nav {
+	padding: 5px 10px;
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+	li {
+		display: inline;
+		margin: 0;
+		padding: 0;
+	}
+}
+
+#sidebar {
+	width: 150px;
+	background: $steelblue;
+	color: $white;
+	padding: 10px;
+	float: left;
+}
+
+#content {
+	h2 {
+		text-align: center;
+	}
+	.notice {
+		color: green;
+	}
+	.alert {
+		color: red;
+	}
+	width: 500px;
+	padding: 15px;
+	float: left;
+}
+
+#footer {
+	clear: both;
+	padding: 5px 10px;
+	p {
+		margin: 0;
+	}
+}

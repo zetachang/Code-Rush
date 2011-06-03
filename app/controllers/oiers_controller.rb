@@ -80,4 +80,10 @@ class OiersController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  def update_all
+    Ojee.find_each do |ojee|
+      ojee.problem_solved
+    end
+  end
 end

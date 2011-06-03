@@ -1,10 +1,22 @@
-class Ojee < ActiveRecord::Base
+class Ojee < ActiveRecord::Base 
   belongs_to :oier
+  serialize :problems_solved
   validates_presence_of :name,:ojtype
-  def solved_problem
-    return problem = ['1001','1002']
-    require "open-uri"
-    url = "http://tioj.redirectme.net:8080/JudgeOnline/userstatus?user_id="+self.name
-    problem = open(url).readlines.to_s.scan(%r{problem_id=\d+>(\d+)}) 
+  OJ_TYPES = ['TIOJ','UVa','PKU','ZeroJudge']
+  OJ_MAP ={'TIOJ' => 'TiojOjee', 'UVa' => 'UvaOjee', 'PKU' => 'Pkuojee', 'ZeroJudge' => 'ZerojudgeOjee'}
+  def problems_solved
+    self[:problems_solved] || random_problem
   end
+  
+  def solved_count
+    problems_solved.length
+  end
+  
+  private
+  
+  def random_problem
+    (1001..rand(100)+1001).to_a.collect{|a| a.to_s}
+  end 
 end
+
+

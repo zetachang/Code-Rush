@@ -1,0 +1,17 @@
+%h2 Oier in PSCD
+/ TODO Modify the title of each page to the side bar 
+%table
+  %th
+  - Ojee::OJ_TYPES.each do |ojtype|
+    %td= ojtype
+  - @oiers.each do |oier| 
+    %tr{:class => cycle('odd_row','even_row')}
+      %td= oier.name
+      - Ojee::OJ_TYPES.each do |ojtype|
+        %td= ojee_for(oier,ojtype).solved_count
+      %td= link_to "Show all OJ stats",oier_ojees_path(oier) 
+      
+= link_to "Add new Oier", new_oier_path 
+%br
+//= link_to "Update the ranklist", update_all_oiers_path
+      

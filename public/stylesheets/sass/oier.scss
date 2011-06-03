@@ -1,0 +1,25 @@
+@import "application.scss";
+
+
+.even_row {
+	background-color: $steelblue;
+	color: #ffffff;
+	a {
+		color: $white;
+	}
+}
+
+.odd_row {
+	background-color: #ffffff;
+  	color: $steelblue;
+	a {
+		color: $steelblue;
+	}
+}
+
+table {
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	
+}
