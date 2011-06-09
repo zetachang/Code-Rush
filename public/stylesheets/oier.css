@@ -1,14 +1,19 @@
-html {
-  margin: 0;
-  padding: 10px; }
+body {
+  background: url(http://www.srilankasweb.com/Opera-Background-Light-Blue.jpg); }
+  body h1 {
+    margin: 30px 0 15px 0;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: Arial; }
 
 #wrap {
-  width: 750px;
-  margin: 0 auto; }
+  background: #f4f4f4;
+  width: 800px;
+  margin-left: 150px; }
 
 #header {
-  padding: 5px 10px;
-  margin: 5px; }
+  padding: 10px 10px;
+  margin: 10px; }
   #header h1 {
     margin: 0; }
 
@@ -24,22 +29,32 @@ html {
     padding: 0; }
 
 #sidebar {
-  width: 150px;
-  background: #56a5ec;
-  color: white;
+  width: 140px;
   padding: 10px;
+  margin-left: 20px;
   float: left; }
+  #sidebar h4 {
+    margin-top: 10px; }
 
 #content {
-  width: 500px;
-  padding: 15px;
-  float: left; }
+  width: 450px;
+  float: left;
+  margin: 30px auto auto 10px;
+  padding: 0 50px 30px 50px;
+  border: solid 1px #cbcbcb;
+  background: #fafafa;
+  -moz-box-shadow: 0px 0px 10px #cbcbcb;
+  -webkit-box-shadow: 0px 0px 10px #cbcbcb; }
   #content h2 {
     text-align: center; }
   #content .notice {
-    color: green; }
+    color: green;
+    border: 2px solid green;
+    font: bold; }
   #content .alert {
-    color: red; }
+    color: red;
+    border: 2px solid red;
+    font: bold; }
 
 #footer {
   clear: both;
@@ -48,16 +63,16 @@ html {
     margin: 0; }
 
 .even_row {
-  background-color: #56a5ec;
+  background-color: #909090;
   color: #ffffff; }
   .even_row a {
     color: white; }
 
 .odd_row {
   background-color: #ffffff;
-  color: #56a5ec; }
+  color: #909090; }
   .odd_row a {
-    color: #56a5ec; }
+    color: #909090; }
 
 table {
   width: 80%;

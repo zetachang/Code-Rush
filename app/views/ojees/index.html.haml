@@ -1,13 +1,13 @@
+- content_for :javascript do
+  = javascript_include_tag "oier.js"
 %h1 OJ Stats for #{@oier.name}
-= render "tioj_stat", :ojee =>@ojee['TIOJ']
+-#= render "tioj_stat", :ojee =>@ojee['TIOJ']
 
--#- Ojee::OJ_TYPES.each do |oj|
--#  = render oj.downcase + "_stat",:ojee => @ojee[oj]  
--# %td= link_to 'Destroy', ojee, :confirm => 'Are you sure?', :method => :delete
+- Ojee::OJ_TYPES.each do |oj|
+  = render oj.downcase + "_stat",:ojee => @ojee[oj]  
+  -#%td= link_to 'Destroy', ojee, :confirm => 'Are you sure?', :method => :delete
 
 - opts = Ojee::OJ_TYPES.select{|p| [p,p] if not @ojee[p]}
-= select_tag 'ojtype', options_for_select(opts)
-= link_to 'New OJ Account', new_oier_ojee_path(@oier)
-%p Click Here
-= javascript_include_tag "oier.js"
- 
+- unless opts.blank?
+  = select_tag 'ojtype', options_for_select(opts)
+  = link_to 'New OJ Account', oier_ojees_path(@oier), :id => 'new_oj_link'

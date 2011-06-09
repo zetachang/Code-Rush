@@ -1,25 +1,42 @@
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
-
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+<fieldset>
+  <legend>Basic Info</legend>
+  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
   <%= devise_error_messages! %>
 
+  <p><%= f.label :username %><br />
+  <%= f.text_field :username %></p>
   <p><%= f.label :email %><br />
   <%= f.email_field :email %></p>
-
   <p><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
   <%= f.password_field :password %></p>
-
+  <% if resource.admin? %>
+  <p>  
+  Admin
+  <%= f.check_box :admin %>
+  <%= link_to "Admin Dashboard", admin_path %>
+  </p>  
+  <% end %>
   <p><%= f.label :password_confirmation %><br />
   <%= f.password_field :password_confirmation %></p>
-
+  
   <p><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
   <%= f.password_field :current_password %></p>
-
+  
   <p><%= f.submit "Update" %></p>
 <% end %>
-
-<h3>Cancel my account</h3>
-
+</fieldset>
+<fieldset>
+  <legend>Oier Info</legend>
+  <% if current_user.oier %>
+  As Oier <%= current_user.oier.name %>
+  <br />
+  <%= link_to "Edit Oier info", edit_oier_path(current_user.oier) %>
+  <%= button_to 'Delete', oier_path(current_user.oier), :confirm => "Are you sure?", :method => :delete %>
+  <% else %>
+  <%= link_to "Be an Oier!", new_oier_path(:id => 'Google')%>
+  <% end %>
+</fieldset>
 <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete %>.</p>
 
 <%= link_to "Back", :back %>

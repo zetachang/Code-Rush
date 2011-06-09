@@ -1,7 +1,8 @@
 class Oier < ActiveRecord::Base
-  has_many :objects, :dependent => :delete_all 
-  has_many :ojees
+  has_many :ojees, :dependent => :delete_all 
+  belongs_to :user
   validates_presence_of :name,:grade
+  validates_uniqueness_of :name, :on => :create, :message => "must be unique"
   def ojee
     hash = Hash.new
     Ojee::OJ_TYPES.each do |ojtype|

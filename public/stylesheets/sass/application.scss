@@ -1,25 +1,35 @@
-$steelblue: #56a5ec;
+$steelblue: #7eb1ea;
 $ivory: #fffff0;
 $white: #ffffff;
 $dodgerblue: #153e7e;
 $lightblue: #0000ff;
 $darkblue: #0000a0;
+$gray: #f4f4f4;
 
-html {
-	//background: $background;
-	margin:0;
-	padding:10px;
-	//color: $dodgerblue;
+$content-background: $gray;
+//$table-row-color=
+
+body {
+		background: url(http://www.srilankasweb.com/Opera-Background-Light-Blue.jpg);
+		h1 {
+			margin: 30px 0 15px 0;
+			font-size: 30px;
+			font-weight: bold;
+			font-family: Arial;
+		}
+		
 }
 
 #wrap {
-	width:750px;
-	margin:0 auto;
+	
+	background:$gray;
+	width:800px;
+	margin-left:150px;
 }
 
 #header {
-	padding: 5px 10px;
-	margin: 5px;
+	padding: 10px 10px;
+	margin: 10px;
 	h1 {
 		margin: 0;
 	}
@@ -40,10 +50,14 @@ html {
 }
 
 #sidebar {
-	width: 150px;
-	background: $steelblue;
-	color: $white;
+	width: 140px;
+	//background: $steelblue;
+	//color: $white;
 	padding: 10px;
+	margin-left: 20px;
+	h4 {
+		margin-top: 10px;
+	}
 	float: left;
 }
 
@@ -53,13 +67,22 @@ html {
 	}
 	.notice {
 		color: green;
+		border: 2px solid green;
+		font: bold;
 	}
 	.alert {
 		color: red;
+		border: 2px solid red;
+		font: bold;
 	}
-	width: 500px;
-	padding: 15px;
+	width: 450px;
 	float: left;
+	margin: 30px auto auto 10px;
+	padding: 0 50px 30px 50px;
+	border: solid 1px #cbcbcb;
+	background: #fafafa;
+	-moz-box-shadow: 0px 0px 10px #cbcbcb;
+	-webkit-box-shadow: 0px 0px 10px #cbcbcb;
 }
 
 #footer {

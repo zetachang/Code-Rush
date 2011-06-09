@@ -1,11 +1,11 @@
 class Ojee < ActiveRecord::Base 
   belongs_to :oier
   serialize :problems_solved
-  validates_presence_of :name,:ojtype
+  validates_presence_of :name
   OJ_TYPES = ['TIOJ','UVa','PKU','ZeroJudge']
-  OJ_MAP ={'TIOJ' => 'TiojOjee', 'UVa' => 'UvaOjee', 'PKU' => 'Pkuojee', 'ZeroJudge' => 'ZerojudgeOjee'}
+  OJ_MAP ={'TIOJ' => 'TiojOjee', 'UVa' => 'UvaOjee', 'PKU' => 'PkuOjee', 'ZeroJudge' => 'ZerojudgeOjee'}
   def problems_solved
-    self[:problems_solved] || random_problem
+    self[:problems_solved] || []
   end
   
   def solved_count

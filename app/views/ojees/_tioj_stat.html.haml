@@ -1,7 +1,13 @@
 - if ojee
-  .ojstate
+  = javascript_include_tag "tioj.js"
+  .ojstat#tioj
     %h3 TIOJ Stat
     %ul
       %li= ojee.name
       %li= ojee.solved_count
-      %li= link_to 'Edit',edit_oier_tioj_ojee_path(@oier,ojee)
+    %p 
+      - ojee.problems_solved.each do |p|
+        %a{:class => 'prob_link'}= p
+    = link_to 'Edit', edit_oier_tioj_ojee_path(@oier,ojee)
+    = link_to 'Update', update_stat_oier_tioj_ojee_path(@oier,ojee)
+    -#= button_to 'Delete', oier_tioj_ojee_path(@oier,ojee), :confirm => "Are you sure?", :method => :delete 

@@ -1,33 +1,36 @@
 <!DOCTYPE html>
 %html
   %head
-  %title Blog
+  %title Code Rush
   = stylesheet_link_tag :all 
+  -#= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"
+  -#= javascript_include_tag "jquery_ujs.js"
+  -#= javascript_include_tag "jquery.fancybox-1.3.4.pack.js"
   = javascript_include_tag :defaults 
-  = javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"
-  = javascript_include_tag "jquery_ujs.js"
+  = javascript_include_tag "facebox.js"
+  = yield :javascript
+  
   = csrf_meta_tag 
   %body
-    #header
-      %h1 Code Rush
-      %em A Site for your community to train Oier
-    /
-      #nav
-        %ul
-          %li 
-            %a Your code snipset
-          %li 
-            %a Lastest topic
-    #sidebar
-      %ul        
-        %li= link_to "Oier Rank", oiers_path    
-        %li Homework        
-        %li Forum        
-        %li Announcement        
-        %li Code Snippset
-    #content
-      %p.notice= notice
-      %p.alert= alert
-      = yield 
-    #footer
-      %p Code Rushed Designed by Circ27th, All Right Preserved
+    #wrap
+      #header
+        %h1 Code Rush
+        %em A Site for your community to train Oier
+        
+      #sidebar
+        %h4 Hi #{current_user.username if user_signed_in? }!! 
+        %ul        
+          %li= link_to "Oier Rank", oiers_path          
+          %li Forum        
+          %li Announcement        
+          %li Code Snippset
+          %li= sign_tag
+          %li= sign_up_or_edit
+      #content
+        -if notice
+          %p.notice= notice
+        -if alert
+          %p.alert= alert 
+        = yield 
+      #footer
+        %p Code Rush Designed by Circ27th, All Right Preserved

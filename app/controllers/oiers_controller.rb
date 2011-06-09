@@ -1,6 +1,6 @@
 class OiersController < ApplicationController
+  before_filter :authenticate_user! ,:except => [:index,:show]
   # GET /oiers
-  # GET /oiers.xml
   def index
     @oiers = Oier.all
 
@@ -11,7 +11,6 @@ class OiersController < ApplicationController
   end
 
   # GET /oiers/1
-  # GET /oiers/1.xml
   def show
     @oier = Oier.find(params[:id])
 
@@ -22,14 +21,8 @@ class OiersController < ApplicationController
   end
 
   # GET /oiers/new
-  # GET /oiers/new.xml
   def new
     @oier = Oier.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @oier }
-    end
   end
 
   # GET /oiers/1/edit
@@ -41,7 +34,8 @@ class OiersController < ApplicationController
   # POST /oiers.xml
   def create
     @oier = Oier.new(params[:oier])
-
+    @oier.user = current_user
+    
     respond_to do |format|
       if @oier.save
         format.html { redirect_to(@oier, :notice => 'Oier was successfully created.') }
