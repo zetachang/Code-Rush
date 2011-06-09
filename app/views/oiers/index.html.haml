@@ -6,8 +6,6 @@
     %td= ojtype
   - @oiers.each do |oier| 
     %tr{:class => cycle('odd_row','even_row')}
-      %td= oier.name
+      %td= link_to "#{oier.name}", oier_ojees_path(oier) 
       - Ojee::OJ_TYPES.each do |ojtype|
-        %td= ojee_for(oier,ojtype).solved_count != 0 ? ojee_for(oier,ojtype).solved_count : 'N/A'
-      %td= link_to "Show all OJ stats",oier_ojees_path(oier) 
-      
+        %td= ojee_for(oier,ojtype).solved_count != 0 ? ojee_for(oier,ojtype).solved_count : 'N/A'      
