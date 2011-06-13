@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable, :lockable and :timeoutable
   has_one :oier , :dependent => :destroy
+  validates_uniqueness_of :username, :on => :create, :message => "must be unique"
   devise :database_authenticatable, :registerable, :authentication_keys => [:username]
   #:recoverable, :rememberable, :trackable, :validatable
 

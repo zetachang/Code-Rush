@@ -1,4 +1,12 @@
 %h3 Admin Dashboard
-- User.all.each do |user|
-  
-    
+%table
+  - @users.each do |user| 
+    %tr
+      %td= user.username 
+      %td
+      %td= button_to "Delete User", user_path(user), :confirm => "Are you sure?", :method => :delete
+    -if user.oier
+      %tr
+        %td
+        %td Is Oier, #{user.oier.name}
+        %td= button_to "Un-Oier", oier_path(user.oier), :confirm => "Are you sure?", :method => :delete 

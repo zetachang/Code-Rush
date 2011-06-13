@@ -8,4 +8,10 @@ class ApplicationController < ActionController::Base
       session[:bookshelf_id] = bookshelf.id
       bookshelf
     end
+    
+    def admin?
+      if not (current_user and current_user.admin)
+        redirect_to :root, :alert => 'Permission Denied'
+      end
+    end
 end

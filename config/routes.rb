@@ -23,7 +23,10 @@ Blog::Application.routes.draw do
  
   
   devise_for :users
+  resources :users, :only => [:destroy]
   match 'admin' => 'admin#index', :as => "admin" 
+  
+  
   post "books/borrow_book"
   
   resources :books
