@@ -1,4 +1,4 @@
-class ZerojudgeOjeesController < Ojeescontroller
+class ZerojudgeOjeesController < OjeesController
   def new
     @oier = Oier.find(params[:oier_id])
     @zerojudge_ojee = ZerojudgeOjee.new

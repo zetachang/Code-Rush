@@ -9,8 +9,8 @@ class ZerojudgeOjee < Ojee
     rescue
       return false
     end
-    reqexp = %r{/RealtimeStatus\?problemid=(\w\d+).+"acstyle"}
-    self[:problems_solved] = raw_html.scan(reqexp).collect {|p| p[0]}
+    regexp = %r{/RealtimeStatus\?problemid=(\w\d+)[^>]+"acstyle"}
+    self[:problems_solved] = raw_html.scan(regexp).collect {|p| p[0]}
     return true
   end
 end
