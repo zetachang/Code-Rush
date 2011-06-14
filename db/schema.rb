@@ -10,7 +10,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110613103711) do
+ActiveRecord::Schema.define(:version => 20110614090915) do
+
+  create_table "assign_items", :force => true do |t|
+    t.string   "assign_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "assign_id"
+  end
+
+  create_table "assignments", :force => true do |t|
+    t.string   "title"
+    t.datetime "due_time"
+    t.string   "setter"
+    t.text     "assigned_to"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "books", :force => true do |t|
     t.string   "name"

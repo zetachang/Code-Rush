@@ -1,0 +1,9 @@
+%h3= @assignment.title
+%p
+  Due Time: #{@assignment.due_time}
+  = link_to "New Item", new_assignment_item(@assignment)
+  %br
+  = "Created by #{@assignment.setter}"
+  %br  
+  = link_to "Edit", edit_assignment_path(@assignment)
+  = link_to "Back", assignments_path

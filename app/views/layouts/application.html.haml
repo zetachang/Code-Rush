@@ -22,7 +22,7 @@
         %ul        
           %li= link_to "Oier Rank", oiers_path          
           %li Forum        
-          %li Announcement        
+          %li= link_to "Assignments", assignments_path        
           %li Code Snippet
           -if user_signed_in?
             %li= link_to("Admin", admin_path) if current_user.admin 

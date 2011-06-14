@@ -27,6 +27,10 @@ Blog::Application.routes.draw do
   match 'admin' => 'admin#index', :as => "admin" 
   
   
+  resources :assignments do
+    resources :assign_items, :as => :items
+  end
+  
   post "books/borrow_book"
   
   resources :books

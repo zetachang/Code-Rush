@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  due_time: 2011-06-14 16:56:41
+  setter: MyString
+  assigned_to: MyText
+
+two:
+  title: MyString
+  due_time: 2011-06-14 16:56:41
+  setter: MyString
+  assigned_to: MyText
