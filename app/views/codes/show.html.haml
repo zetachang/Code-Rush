@@ -4,8 +4,8 @@ created by #{@code.creator}
 %p 
   %b Description
   = @code.description
-%code
-  = simple_format @code.source
+%pre{:class => "brush: cpp;"}
+  = "\n" + @code.source
 
 = link_to 'Edit', edit_code_path(@code)
 = link_to 'Back', codes_path

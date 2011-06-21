@@ -6,5 +6,5 @@ $(document).ready(function() {
   	$.facebox.settings.closeImage = '/images/facebox/closelabel.png';
 	$.facebox.settings.loadingImage = '/images/facebox/loading.gif';
 	$('a[rel*=facebox]').facebox();
-  
+    SyntaxHighlighter.all();
 })
