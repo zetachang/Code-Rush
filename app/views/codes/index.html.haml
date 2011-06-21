@@ -1,0 +1,9 @@
+%table
+  -@codes.each do |code| 
+    %tr
+      %td= link_to code.title, code
+      %td= code.description
+      %td created by #{code.creator}
+
+%br
+= link_to 'New Code', new_code_path

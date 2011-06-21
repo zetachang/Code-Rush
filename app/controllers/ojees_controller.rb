@@ -1,8 +1,8 @@
 
 class OjeesController < ApplicationController
   before_filter :authenticate_user!, :except => [:index]
-  before_filter :current_oier?, :except => [:index] 
-  
+  #before_filter :current_oier?, :except => [:index] 
+  authorize_resource
   def index
     @ojee = Oier.find(params[:oier_id]).ojee
     @oier = Oier.find(params[:oier_id])

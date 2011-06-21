@@ -8,7 +8,7 @@ class TiojOjeesController < OjeesController
   def edit
     @oier = Oier.find(params[:oier_id])
     @tioj_ojee = TiojOjee.find(params[:id])
-    #flash.now.notice = @oier.name
+    authorize! :edit, @tioj_ojee
   end
 
   def create

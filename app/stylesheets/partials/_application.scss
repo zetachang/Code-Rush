@@ -1,0 +1,9 @@
+.two-col {
+  @include container;
+  background-color: #cccccc;
+  #header, #footer {
+    @include column(8); }
+  #sidebar {
+    @include column(3); }
+  #content {
+    @include column(5, true); } }

@@ -2,7 +2,13 @@
 %html
   %head
   %title Code Rush
-  = stylesheet_link_tag :all 
+  -#= stylesheet_link_tag :all 
+  = stylesheet_link_tag 'screen.css', :media => 'screen, projection'
+  = stylesheet_link_tag 'print.css', :media => 'print'
+  /[if lt IE 8]
+    = stylesheet_link_tag 'ie.css', :media => 'screen, projection'
+  = stylesheet_link_tag 'link_icons.css', :media => 'screen, projection'
+  = stylesheet_link_tag 'buttons.css', :media => 'screen, projection'
   -#= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"
   -#= javascript_include_tag "jquery_ujs.js"
   -#= javascript_include_tag "jquery.fancybox-1.3.4.pack.js"
@@ -11,30 +17,31 @@
   = yield :javascript
   
   = csrf_meta_tag 
-  %body
-    #wrap
-      #header
+  %body.bp.two-col
+    #container
+      #header.last
         %h1 Code Rush
         %em A Site for your community to train Oier
-        
+
       #sidebar
-        %h4 Hi #{current_user.username if user_signed_in? }!! 
+        %h2 Hi #{current_user.username if user_signed_in? }!! 
         %ul        
           %li= link_to "Oier Rank", oiers_path          
           %li Forum        
           %li= link_to "Assignments", assignments_path        
-          %li Code Snippet
-          -if user_signed_in?
-            %li= link_to("Admin", admin_path) if current_user.admin 
+          %li= link_to "Code Snippet", codes_path
+          - if current_user.try(:admin?)
+            %li= link_to "Admin", admin_path  
+          - if current_user 
             %li= link_to "Edit Info", edit_user_registration_path
             %li= link_to "Sign Out", destroy_user_session_path 
-          -else
+          - else
             %li= link_to "Sign In", new_user_session_path
       #content
         -if notice
-          %p.notice= notice
+          #notice= notice
         -if alert
-          %p.alert= alert 
+          #error= alert 
         = yield 
-      #footer
+      #footer.buttom
         %p Code Rush Designed by Circ27th, All Right Preserved

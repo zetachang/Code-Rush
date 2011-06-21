@@ -8,6 +8,7 @@
     %p 
       - ojee.problems_solved.each do |p|
         %a{:class => 'prob_link'}= p
-    = link_to 'Edit',edit_oier_pku_ojee_path(@oier,ojee)
+    - if can? :edit, ojee
+      = link_to 'Edit',edit_oier_pku_ojee_path(@oier,ojee)
     = link_to 'Update', update_stat_oier_pku_ojee_path(@oier,ojee)
     -#= button_to 'Delete', oier_pku_ojee_path(@oier,ojee), :confirm => "Are you sure?", :method => :delete

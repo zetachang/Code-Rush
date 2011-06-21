@@ -5,5 +5,5 @@
       %li Title: #{assign.title}
       %li Due Time: #{assign.due_time}
     = link_to "Show", assign
-
-= link_to "Create New" , new_assignment_path
+- if can? :create, Assignment
+  = link_to "Create New" , new_assignment_path

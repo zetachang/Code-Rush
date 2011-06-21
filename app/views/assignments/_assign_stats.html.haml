@@ -1,0 +1,10 @@
+%table
+  %tr
+    %th
+      -@assigned_to.each do |oier|
+        %td= oier.name
+    -@items.each do |item|
+      %tr
+        %td= item.short_name
+        -@assigned_to.each do |oier|
+          %td= item.code_by(oier).try(:status) || '?'

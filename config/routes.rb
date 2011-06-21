@@ -1,5 +1,7 @@
 Blog::Application.routes.draw do
  
+  resources :codes
+
   resources :oiers do
      match :update_all, :via => [:get], :on => :collection
      resources :ojees #:only => [:index] 
@@ -19,7 +21,7 @@ Blog::Application.routes.draw do
      resources :zerojudge_ojees, :expcept => [:index] do
        match :update_stat, :via => [:get], :on => :member 
      end
-   end
+  end
  
   
   devise_for :users
@@ -28,7 +30,11 @@ Blog::Application.routes.draw do
   
   
   resources :assignments do
-    resources :assign_items, :as => :items
+    resources :assign_items, :as => :items do
+      match :hand_in, :via => [:get], :on => :member  
+    end
+    
+    resources :assign_items
   end
   
   post "books/borrow_book"

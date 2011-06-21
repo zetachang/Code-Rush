@@ -1,0 +1,32 @@
+-#= javascript_include_tag ".js"
+- form_for [@assignment,@item] do |f|
+  - if @item.errors.any? 
+    #error_explanation
+      %h2 #{pluralize(@item.errors.count, "error")} prohibited this account from being saved:
+      %ul
+        - @item.errors.full_messages.each do |msg| 
+          %li= msg
+  = select "assign_item", "assign_type", AssignItem::ASSIGN_TYPES
+  = f.label :title, "Title"
+  = f.text_field :title
+  %br
+  = f.label :description, "Description"
+  %br
+  = f.text_area :description
+  %br
+  -#fetch the ojtype and number => Using simple hash and marshaled be saved
+  #code
+    = f.label :ojtype, "OJ-Type"
+    = f.text_field :ojtype
+    %br
+    = f.label :number, "Prob Number"
+    = f.text_field :number
+    %br
+    = f.label :tags, "Other tags [optional]"
+    %br
+    = f.text_area :tags
+  #text
+  -#  = f.label :xdd, "XDD"
+  -#  = f.text_field :xdd
+  = f.submit "Submit"
+    

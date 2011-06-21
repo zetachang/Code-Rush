@@ -1,9 +1,23 @@
 %h3= @assignment.title
 %p
-  Due Time: #{@assignment.due_time}
-  = link_to "New Item", new_assignment_item(@assignment)
+  %ul
+    %li Due Time: #{@assignment.due_time}
+  %table
+    - @items.each do |item|
+      %tr{:class => cycle('odd','even')}
+        %td= item.assign_type
+        %td= item.title
+        - if can? :update, item
+          %td= link_to "Edit", edit_assignment_item_path(@assignment,item)
+        - if can? :hand_in, item
+          %td= link_to "Hand In", hand_in_assignment_item_path(@assignment,item)
+        - if can? :destroy, item
+          %td= button_to "Delete", assignment_item_path(@assignment,item), 
+        :confirm => 'Are you sure?', :method => :delete
+  - if can? :create, AssignItem
+    = link_to "New Item", new_assignment_item_path(@assignment)
   %br
-  = "Created by #{@assignment.setter}"
-  %br  
-  = link_to "Edit", edit_assignment_path(@assignment)
+  = render "assign_stats"
+  -if can? :update, @assignment
+    = link_to "Edit", edit_assignment_path(@assignment)
   = link_to "Back", assignments_path

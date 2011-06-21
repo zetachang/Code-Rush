@@ -1,5 +1,8 @@
 source 'http://rubygems.org'
-
+gem 'cancan'
+gem 'compass'
+gem 'simple_form'
+gem 'acts-as-taggable-on'
 gem 'jquery-rails', '>=1.0.3'
 gem 'devise','1.3.4'
 gem 'rails', '3.0.7'
@@ -29,6 +32,8 @@ gem 'sqlite3'
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators
 # and rake tasks are available in development mode:
-# group :development, :test do
-#   gem 'webrat'
-# end
+group :development, :test do
+  gem 'rspec'
+  gem "autotest"
+  gem 'rspec-rails'
+end

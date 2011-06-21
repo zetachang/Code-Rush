@@ -9,7 +9,7 @@ class TiojOjee < Ojee
       return false
     end
     reqexp = %r{problem_id=\d+>(\d+)}
-    self[:problems_solved] = raw_html.scan(reqexp).collect {|b| b[0]}
+    self.problems_solved = raw_html.scan(reqexp).collect {|b| b[0]}
     return true
   end
 end

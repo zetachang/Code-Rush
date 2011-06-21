@@ -1,11 +1,14 @@
 %h2 Oier in PSCD
 / TODO Modify the title of each page to the side bar 
 %table
-  %th
-  - Ojee::OJ_TYPES.each do |ojtype|
-    %td= ojtype
-  - @oiers.each do |oier| 
-    %tr{:class => cycle('odd_row','even_row')}
-      %td= link_to "#{oier.name}", oier_ojees_path(oier) 
+  %thead
+    %tr.odd
+      %th
       - Ojee::OJ_TYPES.each do |ojtype|
-        %td= ojee_for(oier,ojtype).solved_count != 0 ? ojee_for(oier,ojtype).solved_count : 'N/A'      
+        %th= ojtype
+  %tbody
+    - @oiers.each do |oier| 
+      %tr{:class => cycle('odd','even')}
+        %td= link_to "#{oier.name}", oier_ojees_path(oier) 
+        - Ojee::OJ_TYPES.each do |ojtype|
+          %td= ojee_for(oier,ojtype).solved_count != 0 ? ojee_for(oier,ojtype).solved_count : 'N/A'      

@@ -1,6 +1,8 @@
 class Oier < ActiveRecord::Base
   has_many :ojees, :dependent => :delete_all 
   belongs_to :user
+  has_many :assigned_ship
+  has_many :assignment, :through => :assigned_ship 
   validates_presence_of :name,:grade
   validates_uniqueness_of :name, :on => :create, :message => "must be unique"
   def ojee
