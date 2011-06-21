@@ -1,10 +1,20 @@
 %table
   %tr
-    %th
+    %td
       -@assigned_to.each do |oier|
         %td= oier.name
     -@items.each do |item|
       %tr
         %td= item.short_name
         -@assigned_to.each do |oier|
-          %td= item.code_by(oier).try(:status) || '?'
+          -status = item.codes.find_by_creator(oier.name).try(:status) || 'NA'
+          %td
+            %p{:class =>['label',status]}= status 
+
+%p.label.AC AC
+Accepted by OJ
+%p.label.UF UF
+Uploaded but Failed
+%p.label.NA NA
+Nothing Available
+%br

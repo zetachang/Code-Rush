@@ -6,7 +6,7 @@ class AssignmentsController < ApplicationController
   end
 
   def show
-    @assignment = Assignment.find(params[:id])
+    #@assignment = Assignment.find(params[:id])
     @assigned_to = @assignment.assigned_to
     @items = @assignment.items
     #flash.now.notice = @assigned_to[0].name

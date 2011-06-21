@@ -12,4 +12,5 @@ class Oier < ActiveRecord::Base
     end
     hash
   end
+
 end

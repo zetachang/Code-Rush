@@ -1,5 +1,6 @@
 class AssignItemsController < ApplicationController
-  authorize_resource :instance_name => :item, :class => :assign_item 
+  load_resource :instance_name => :item, :class => AssignItem 
+  authorize_resource :instance_name => :item, :class => AssignItem 
   def new
     @item = AssignItem.new
     @assignment = Assignment.find(params[:assignment_id])
@@ -48,11 +49,11 @@ class AssignItemsController < ApplicationController
   end
   
   def hand_in
-    @item = AssignItem.find(params[:id])
+    #@item = AssignItem.find(params[:id])
     #authorize! :hand_in, @item
     if @item.assign_type == 'CODE'
       #find if there exist a code first
-      @code ||= Code.find_by_creator(current_oier.name)
+      @code ||= @item.codes.find_by_creator(current_oier.name)
       if not @code
         @code = Code.create(:title => @item.title, :description => @item.description, :creator => current_oier.name)      
         @item.codes << @code 
