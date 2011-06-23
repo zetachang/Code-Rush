@@ -54,8 +54,6 @@ class AssignItemsController < ApplicationController
   end
   
   def hand_in
-    #@item = AssignItem.find(params[:id])
-    #authorize! :hand_in, @item
     if @item.assign_type == 'CODE'
       #find if there exist a code first
       @code ||= @item.codes.find_by_creator(current_oier.name)
@@ -64,7 +62,7 @@ class AssignItemsController < ApplicationController
         @item.codes << @code 
       end
       render "hand_in_code"
-    elsif @item.assigntype == 'TEXT'
+    elsif @item.assign_type == 'TEXT'
       render "hand_in_text"
     end
     

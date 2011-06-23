@@ -454,13 +454,30 @@ body.bp .removed {
   background: #990000;
   color: white;
 }
+/* line 33, ../../app/stylesheets/screen.scss */
+body.bp .alt {
+  color: #666666;
+  font-family: "Warnock Pro", "Goudy Old Style", "Palatino", "Book Antiqua", Georgia, serif;
+  font-style: italic;
+  font-weight: normal;
+}
 /* line 34, ../../app/stylesheets/screen.scss */
 body.bp .a {
   background: transparent none !important;
   padding: 0 !important;
   margin: 0 !important;
 }
-/* line 37, ../../app/stylesheets/screen.scss */
+/* line 35, ../../app/stylesheets/screen.scss */
+body.bp .caps {
+  font-variant: small-caps;
+  letter-spacing: 1px;
+  text-transform: lowercase;
+  font-size: 1.2em;
+  line-height: 1%;
+  font-weight: bold;
+  padding: 0 2px;
+}
+/* line 36, ../../app/stylesheets/screen.scss */
 body.bp #notice {
   padding: 0.8em;
   margin-bottom: 1em;
@@ -473,7 +490,7 @@ body.bp #notice {
 body.bp #notice a {
   color: #514721;
 }
-/* line 38, ../../app/stylesheets/screen.scss */
+/* line 37, ../../app/stylesheets/screen.scss */
 body.bp #error {
   padding: 0.8em;
   margin-bottom: 1em;
@@ -486,15 +503,19 @@ body.bp #error {
 body.bp #error a {
   color: #8a1f11;
 }
+/* line 39, ../../app/stylesheets/screen.scss */
+body.bp #accordion h4 {
+  margin-bottom: 0px;
+}
 
-/* line 48, ../../app/stylesheets/screen.scss */
+/* line 44, ../../app/stylesheets/screen.scss */
 body.two-col #container {
   width: 700px;
   margin: 0 auto;
   overflow: hidden;
   *zoom: 1;
 }
-/* line 52, ../../app/stylesheets/screen.scss */
+/* line 48, ../../app/stylesheets/screen.scss */
 body.two-col #header, body.two-col #footer {
   display: inline;
   float: left;
@@ -505,7 +526,7 @@ body.two-col #header, body.two-col #footer {
 * html body.two-col #header, * html body.two-col #footer {
   overflow-x: hidden;
 }
-/* line 56, ../../app/stylesheets/screen.scss */
+/* line 52, ../../app/stylesheets/screen.scss */
 body.two-col #sidebar {
   display: inline;
   float: left;
@@ -516,7 +537,7 @@ body.two-col #sidebar {
 * html body.two-col #sidebar {
   overflow-x: hidden;
 }
-/* line 61, ../../app/stylesheets/screen.scss */
+/* line 57, ../../app/stylesheets/screen.scss */
 body.two-col #content {
   display: inline;
   float: left;
@@ -527,12 +548,12 @@ body.two-col #content {
 * html body.two-col #content {
   overflow-x: hidden;
 }
-/* line 69, ../../app/stylesheets/screen.scss */
+/* line 65, ../../app/stylesheets/screen.scss */
 body.two-col #content table td {
   width: 10px;
   height: 5px;
 }
-/* line 74, ../../app/stylesheets/screen.scss */
+/* line 70, ../../app/stylesheets/screen.scss */
 body.two-col #content p.label {
   display: inline-block;
   font-size: 14px;
@@ -546,19 +567,19 @@ body.two-col #content p.label {
   -khtml-border-radius: 5px;
   border-radius: 5px;
 }
-/* line 80, ../../app/stylesheets/screen.scss */
+/* line 76, ../../app/stylesheets/screen.scss */
 body.two-col #content p.label.UF {
   background: red;
   color: white;
   text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2);
 }
-/* line 85, ../../app/stylesheets/screen.scss */
+/* line 81, ../../app/stylesheets/screen.scss */
 body.two-col #content p.label.AC {
   background: #52D017;
   color: white;
   text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2);
 }
-/* line 90, ../../app/stylesheets/screen.scss */
+/* line 86, ../../app/stylesheets/screen.scss */
 body.two-col #content p.label.NA {
   background: #82CAFF;
   color: white;

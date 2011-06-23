@@ -31,7 +31,7 @@ Blog::Application.routes.draw do
   
   resources :assignments do
     resources :assign_items, :as => :items do
-      match :hand_in, :via => [:get], :on => :member  
+      match :hand_in, :via => [:put], :on => :member  
     end
     
     resources :assign_items

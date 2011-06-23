@@ -36,4 +36,7 @@ group :development, :test do
   gem 'rspec'
   gem "autotest"
   gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'spork', '~> 0.9.0.rc'
+  gem 'watchr'
 end
