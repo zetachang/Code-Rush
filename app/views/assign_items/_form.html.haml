@@ -17,16 +17,13 @@
   -#fetch the ojtype and number => Using simple hash and marshaled be saved
   #code
     = f.label :ojtype, "OJ-Type"
-    = f.text_field :ojtype
+    = f.text_field :ojtype,:id => 'ojtypes'
     %br
     = f.label :number, "Prob Number"
     = f.text_field :number
     %br
-    = f.label :tags, "Other tags [optional]"
-    %br
-    = f.text_area :tags
-  #text
-  -#  = f.label :xdd, "XDD"
-  -#  = f.text_field :xdd
+    -#= f.label :tags, "Other tags [optional]"
+    -#%br
+    -#= f.text_area :tags
   = f.submit "Submit"
     

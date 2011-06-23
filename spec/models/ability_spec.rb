@@ -19,9 +19,14 @@ describe Ability do
   end
   
   describe "Teacher" do
-    it "can manage assignment" do
+    it "can modify assignment" do
       ab = Ability.new(user)
       ab.should be_able_to(:modify, Assignment.new(:setter => 'foo' ))
+    end
+    
+    it "cannot modify assignment not belonging to him" do
+      ab = Ability.new(user)
+      ab.should_not be_able_to(:modify, Assignment.new(:setter => "bar"))
     end
   end
 end  

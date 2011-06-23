@@ -1,12 +1,13 @@
 class AssignmentsController < ApplicationController
-  load_and_authorize_resource #:except => [:index,:show] 
-  check_authorization
+  load_and_authorize_resource :except => [:index,:show] 
+  #check_authorization
   def index
-    @assignments = Assignment.all
+    @assignments = Assignment.order("created_at DESC").all.reject{|a| a.due?}
+    @due_assignments = Assignment.all.select{|a| a.due?}
   end
 
   def show
-    #@assignment = Assignment.find(params[:id])
+    @assignment = Assignment.find(params[:id])
     @assigned_to = @assignment.assigned_to
     @items = @assignment.items
     #flash.now.notice = @assigned_to[0].name
@@ -17,7 +18,8 @@ class AssignmentsController < ApplicationController
   end
 
   def create
-    @assignment = Assignment.new(params[:id])
+    #@assignment = Assignment.new(params[:id])
+    @assignment.setter = current_user.username
     if @assignment.save
       redirect_to @assignment, :notice => 'Assignment successfully created!'
     else

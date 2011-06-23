@@ -5,7 +5,7 @@
       %ul
         -@code.errors.full_messages.each do |msg|
           %li= msg
-  %h4 Title #{@code.title}
+  %h3= @code.title
   %h3 Description #{@code.description}
   .field
     = f.label :source, "Source Code"

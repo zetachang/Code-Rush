@@ -6,7 +6,7 @@
 
 // To configure blueprint, edit the partials/base.sass file.
 @import "partials/base";
-
+@import "partials/simple_form";
 // Import all the default blueprint modules so that we can access their mixins.
 @import "blueprint";
 
@@ -30,17 +30,13 @@
 	    @include blueprint-debug;
 	    @include blueprint-interaction;
 	    //@include fancy-type;
-	    //@include link-icon-base;
-		.a{
-		    @include no-link-icon;	
-		}
+	    .alt{@include alt;}
+		.a{@include no-link-icon;}
+		.caps{@include caps;}
 		#notice{@include notice;}
 		#error{@include error;}
-		table{
-			//@include table-scaffolding;
-		}
-	    // Remove the scaffolding when you're ready to start doing visual design.
-	    // Or leave it in if you're happy with how blueprint looks out-of-the-box
+	    //@include blueprint-typography-body;
+	    #accordion h4{margin-bottom: 0px;}
 	}
 
 	// Page layout can be done using mixins applied to your semantic classes and IDs:

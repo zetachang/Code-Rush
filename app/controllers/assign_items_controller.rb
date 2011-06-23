@@ -39,8 +39,13 @@ class AssignItemsController < ApplicationController
   end
   
   def update
-    @item = AssignItem.find(params[:id])
+    #@item = AssignItem.find(params[:id])
     @assignment = Assignment.find(params[:assignment_id])
+    #fix the corresponding code
+    @item.codes.each do |code|
+      code.title = @item.title
+      code.save
+    end
     if @item.update_attributes(params[:assign_item])
       redirect_to @assignment , :notice => "Successfully Updated!" 
     else

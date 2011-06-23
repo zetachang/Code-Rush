@@ -1,9 +1,34 @@
-%h3 Assignments
-- @assignments.each do |assign| 
-  .assignment
-    %ul
-      %li Title: #{assign.title}
-      %li Due Time: #{assign.due_time}
-    = link_to "Show", assign
-- if can? :create, Assignment
-  = link_to "Create New" , new_assignment_path
+#tabs
+  %ul
+    %li
+      %a{:href => "#tabs-1"}Current Assignment
+    %li
+      %a{:href => "#tabs-2"}Past Assignnment
+  #tabs-1
+    #accordion
+      - @assignments.each do |assign| 
+        %h4 <a href="#">#{assign.title}</a>
+        %div
+          %table
+            - assign.assigned_to.each do |oier|
+              %tr
+                %td
+                  = oier.name
+                  -assign.items.each do |item|
+                    -status = item.codes.find_by_creator(oier.name).try(:status)
+                    %p{:class =>['label',status]}= status
+            %tr
+              %td= link_to "Show", assign
+            %tr
+              %td
+                %em= "Ended in #{distance_of_time_in_words_to_now(assign.due_time)}"
+            %tr
+              %td= button_to "Destroy", assign, :confirm => 'Are you sure?', :method => :delete
+  #tabs-2
+    - @due_assignments.each do |assign| 
+      .assignment
+        %p
+        = link_to assign.title, assign
+        %br
+-#- if can? :create, Assignment
+= link_to "Create New" , new_assignment_path

@@ -15,6 +15,7 @@ class AssignItem < ActiveRecord::Base
     end
   end
   
+  #which is equavalent item.codes.find_by_creator(name)
   def code_by(oier)
     self.codes.find_by_creator(oier.name)
   end

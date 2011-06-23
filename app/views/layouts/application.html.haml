@@ -10,11 +10,12 @@
   = stylesheet_link_tag 'link_icons.css', :media => 'screen, projection'
   = stylesheet_link_tag 'buttons.css', :media => 'screen, projection'
   = stylesheet_link_tag 'shCoreMidnight.css'
-  
+  = stylesheet_link_tag 'jquery-ui-1.8.13.custom.css'
   -#= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"
   -#= javascript_include_tag "jquery_ujs.js"
   -#= javascript_include_tag "jquery.fancybox-1.3.4.pack.js"
   = javascript_include_tag :defaults 
+  = javascript_include_tag "jquery-ui-1.8.13.custom.min.js"
   = javascript_include_tag "facebox.js"
   = javascript_include_tag "shCore.js"
   = javascript_include_tag "shBrushCpp.js"
@@ -25,12 +26,12 @@
     #container
       #header.last
         %h1 Code Rush
-        %em A Site for your community to train Oier
-
+        %h3.alt A Site for your community to train Oier
+        %hr
       #sidebar
         %h2 Hi #{current_user.username if user_signed_in? }!! 
         %ul        
-          %li= link_to "Oier Rank", oiers_path          
+          %li.button= link_to "Oier Rank", oiers_path          
           %li Forum        
           %li= link_to "Assignments", assignments_path        
           %li= link_to "Code Snippet", codes_path
