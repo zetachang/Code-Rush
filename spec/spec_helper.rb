@@ -33,6 +33,10 @@ Spork.prefork do
     # examples within a transaction, remove the following line or assign false
     # instead of true.
     config.use_transactional_fixtures = true
+    # stub out sweep
+    config.before(:each, :behaviour_type => :controller) do
+      @controller.instance_eval { flash.stub!(:sweep) }
+    end
   end
 end
 

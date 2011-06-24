@@ -14,7 +14,7 @@ class AssignItemsController < ApplicationController
     redirect_to @assignment
   end
   
-  # This is on valiable to "User"
+  
   def show
     @item = AssignItem.find(params[:id])  
   end
@@ -63,7 +63,14 @@ class AssignItemsController < ApplicationController
       end
       render "hand_in_code"
     elsif @item.assign_type == 'TEXT'
-      render "hand_in_text"
+      @tutorial = @item.tutorial 
+      if @tutorial.reader_list.include?('foo')
+        flash.now[:notice] = "You have already handed in this item!"
+      else
+        @tutorial.reader_list.push(current_oier.name)
+        @tutorial.save
+      end
+      render "read_tutorial"
     end
     
   end

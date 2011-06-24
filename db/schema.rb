@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110616082055) do
+ActiveRecord::Schema.define(:version => 20110624071340) do
 
   create_table "assign_items", :force => true do |t|
     t.string   "assign_type"
@@ -115,6 +115,15 @@ ActiveRecord::Schema.define(:version => 20110616082055) do
 
   create_table "tags", :force => true do |t|
     t.string "name"
+  end
+
+  create_table "tutorials", :force => true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.string   "author"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "assign_item_id"
   end
 
   create_table "users", :force => true do |t|
