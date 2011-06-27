@@ -7,7 +7,7 @@
       %tr
         %td= item.short_name
         -@assigned_to.each do |oier|
-          -status = item.codes.find_by_creator(oier.name).try(:status) || 'NA'
+          -status = item.status_by(oier)
           %td
             %p{:class =>['label',status]}= status 
 

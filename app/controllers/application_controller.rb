@@ -20,6 +20,7 @@ class ApplicationController < ActionController::Base
     end
     
     def current_oier
+      @current_oier = current_user.try(:oier)
       current_user.try(:oier)
     end
 end

@@ -1,21 +1,21 @@
--#= javascript_include_tag ".js"
-- form_for [@assignment,@item] do |f|
+- content_for :javascript do
+  = javascript_include_tag "assign_edit.js"
+- form_for [@assignment,@item],:html => { :class => 'bp' } do |f|
   - if @item.errors.any? 
     #error_explanation
       %h2 #{pluralize(@item.errors.count, "error")} prohibited this account from being saved:
       %ul
         - @item.errors.full_messages.each do |msg| 
           %li= msg
-  = select "assign_item", "assign_type", AssignItem::ASSIGN_TYPES
+  = select :assign_item, :assign_type, AssignItem::ASSIGN_TYPES,{:selected => @item.assign_type},:id => "edit_type"
   = f.label :title, "Title"
   = f.text_field :title
-  %br
-  = f.label :description, "Description"
-  %br
-  = f.text_area :description
-  %br
-  -#fetch the ojtype and number => Using simple hash and marshaled be saved
   #code
+    %br
+    = f.label :description, "Description"
+    %br
+    = f.text_area :description, :cols => "27", :rows => "10"
+    %br
     = f.label :ojtype, "OJ-Type"
     = f.text_field :ojtype,:id => 'ojtypes'
     %br
@@ -25,5 +25,13 @@
     -#= f.label :tags, "Other tags [optional]"
     -#%br
     -#= f.text_area :tags
+  #text
+    = f.fields_for :tutorial, @item.tutorial || Tutorial.new do |tf|
+      = tf.label :body, "Tutorial Field"
+      %br
+      = tf.text_area :body
+      %br
+    You can use Markdown to write tutorial
+  
   = f.submit "Submit"
     

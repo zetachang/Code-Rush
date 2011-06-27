@@ -36,9 +36,13 @@
 		#notice{@include notice;}
 		#error{@include error;}
 	    //@include blueprint-typography-body;
-	    #accordion h4{margin-bottom: 0px;}
+	    #accordion h5{margin-bottom: 0px;}
 	}
-
+    form.bp{
+        @include blueprint-form;
+        @include blueprint-form-sizes($input-width: 300px, 
+        $textarea-width: 390px, $textarea-height: 100px);    
+    }
 	// Page layout can be done using mixins applied to your semantic classes and IDs:
 	body.two-col{
 		#container {
@@ -73,6 +77,16 @@
 				padding: 1px 4px;
 				font-weight: bold;
 				text-decoration: none;
+				&.Read{
+				    background: #7E587E;
+				    color: white;
+				    text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2);
+				}
+				&.Unread{
+				    background: #B7CEEC;
+				    color: white;
+				    text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2);				    
+				}
 				&.UF{
 					background: red;
 					color: white;

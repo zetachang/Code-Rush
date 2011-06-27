@@ -7,7 +7,7 @@
   #tabs-1
     #accordion
       - @assignments.each do |assign| 
-        %h4 <a href="#">#{assign.title}</a>
+        %h5 <a href="#">#{assign.title}</a>
         %div
           %table
             - assign.assigned_to.each do |oier|
@@ -15,7 +15,7 @@
                 %td
                   = oier.name
                   -assign.items.each do |item|
-                    -status = item.codes.find_by_creator(oier.name).try(:status)
+                    -status = item.status_by(oier)
                     %p{:class =>['label',status]}= status
             %tr
               %td= link_to "Show", assign

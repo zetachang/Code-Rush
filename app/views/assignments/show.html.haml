@@ -10,7 +10,9 @@
         - if can? :update, item
           %td= link_to "Edit", edit_assignment_item_path(@assignment,item)
         - if can? :hand_in, item
-          %td= link_to "Hand In", hand_in_assignment_item_path(@assignment,item)
+          %td= button_to "Hand In", hand_in_assignment_item_path(@assignment,item),
+          :method => :put unless item.handed_in_by?(current_user.oier)
+
         - if can? :destroy, item
           %td= button_to "Delete", assignment_item_path(@assignment,item), 
         :confirm => 'Are you sure?', :method => :delete

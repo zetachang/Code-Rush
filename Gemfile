@@ -1,4 +1,5 @@
 source 'http://rubygems.org'
+gem 'bluecloth', '>= 2.0.0'
 gem 'cancan'
 gem 'compass'
 gem 'simple_form'
