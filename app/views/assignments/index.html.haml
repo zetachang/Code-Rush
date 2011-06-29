@@ -1,34 +1,29 @@
-#tabs
+%aside#sidebar
   %ul
     %li
-      %a{:href => "#tabs-1"}Current Assignment
+      %a Current Assignment
     %li
-      %a{:href => "#tabs-2"}Past Assignnment
-  #tabs-1
-    #accordion
-      - @assignments.each do |assign| 
-        %h5 <a href="#">#{assign.title}</a>
-        %div
-          %table
-            - assign.assigned_to.each do |oier|
-              %tr
-                %td
-                  = oier.name
-                  -assign.items.each do |item|
-                    -status = item.status_by(oier)
-                    %p{:class =>['label',status]}= status
+      %a Past Assignment
+%article
+  - @assignments.each do |assign|
+    - class_list = gen_class_list(assign) 
+    %div{:class => ["assignment"] + class_list}
+      .title-bar
+        %h3=link_to assign.title, assign
+        .due-time
+          -if assign.due?
+            %em= "Already Ended"
+          -else
+            %em= "Ended in #{distance_of_time_in_words_to_now(assign.due_time)}"
+      %table.short_stats
+        %tbody
+          - assign.assigned_to.each do |oier|
             %tr
-              %td= link_to "Show", assign
-            %tr
+              %th= oier.name
               %td
-                %em= "Ended in #{distance_of_time_in_words_to_now(assign.due_time)}"
-            %tr
-              %td= button_to "Destroy", assign, :confirm => 'Are you sure?', :method => :delete
-  #tabs-2
-    - @due_assignments.each do |assign| 
-      .assignment
-        %p
-        = link_to assign.title, assign
-        %br
--#- if can? :create, Assignment
-= link_to "Create New" , new_assignment_path
+                -assign.items.each do |item|
+                  -status = item.status_by(oier)
+                  - unless status == 'Unread' || status == 'NA'
+                    %p{:class =>['label',status]}= status
+      %td= link_to "Delete this assignment", assign, :confirm => 'Are you sure?', :method => :delete
+  = link_to "Create New" , new_assignment_path

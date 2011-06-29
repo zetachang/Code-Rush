@@ -8,10 +8,36 @@ $(document).ready(function() {
 	$.facebox.settings.loadingImage = '/images/facebox/loading.gif';
 	$('a[rel*=facebox]').facebox();
     SyntaxHighlighter.all();
-    $("input[type='submit']").button();
+    //$("input[type='submit']").button();
     $( "#ojtypes" ).autocomplete({
     			source: ojtypes
     });
-    $( "#accordion" ).accordion({autoHeight: false,navigation: true,collapsible: true});
-    $( "#tabs" ).tabs();
+    function clearSelected(){
+        $('#sidebar a').each(function(index,ele){
+            $(ele).removeClass('selected');
+        })
+    }
+     $('a:contains("Current Assignment")').addClass("selected")
+    $(".assignment.not-due").show();
+    $(".assignment.due").hide();
+    $('a:contains("Current Assignment")').click(function(){
+        if($(this).hasClass("selected") == false)
+        {
+            clearSelected();
+            $(this).addClass("selected");
+            $(".assignment.not-due").fadeIn();
+            $(".assignment.due").hide();
+        }
+    })
+    $('a:contains("Past Assignment")').click(function(){
+        if($(this).hasClass("selected") == false)
+        {
+            clearSelected();
+            $(this).addClass("selected");
+            $(".assignment.due").fadeIn();
+            $(".assignment.not-due").hide();
+        }
+    })
+    //$( "#accordion" ).accordion({autoHeight: false,navigation: true,collapsible: true});
+    //$( "#tabs" ).tabs();
 })

@@ -1,6 +1,7 @@
 @import "compass/utilities/tables";
 @import "compass/css3";
 @import "compass/utilities";
+
 // This import applies a global reset to any page that imports this stylesheet.
 @import "blueprint/reset";
 
@@ -18,93 +19,204 @@
 @import "blueprint/buttons";
 @import "blueprint/interaction";
 @import "blueprint/fancy-type";
-// To generate css equivalent to the blueprint css but with your
-// configuration applied, uncomment:
-// @include blueprint
-// If you are doing a lot of stylesheet concatenation, it is suggested
-// that you scope your blueprint styles, so that you can better control
-// what pages use blueprint when stylesheets are concatenated together.
+
 	body.bp{
 		@include blueprint-typography(true);
 	    @include blueprint-utilities;
 	    @include blueprint-debug;
 	    @include blueprint-interaction;
 	    //@include fancy-type;
+	    //@include blueprint-typography-defaults;
 	    .alt{@include alt;}
-		.a{@include no-link-icon;}
+		a{@include hover-link;}
 		.caps{@include caps;}
-		#notice{@include notice;}
-		#error{@include error;}
-	    //@include blueprint-typography-body;
 	    #accordion h5{margin-bottom: 0px;}
 	}
-    form.bp{
-        @include blueprint-form;
-        @include blueprint-form-sizes($input-width: 300px, 
-        $textarea-width: 390px, $textarea-height: 100px);    
-    }
-	// Page layout can be done using mixins applied to your semantic classes and IDs:
+	$sidebar-columns: $blueprint-grid-columns/4;
+	$article-columns: 15 * $blueprint-grid-columns/24;
 	body.two-col{
 		#container {
 	    	@include container;
 		}
-  	
-		#header, #footer {
-	    	@include column($blueprint-grid-columns); 
+  	    #header, #footer{
+	    	@include column($blueprint-grid-columns);
+	    }
+		#header{
+	    	@include header-text;	
 		}
-  	
-		#sidebar {
-	    	// One third of the grid columns, rounding down. With 24 cols, this is 8.
-	    	$sidebar-columns: floor($blueprint-grid-columns / 4);
-	    	@include column($sidebar-columns); 
+		#page {
+		    @include column($blueprint-grid-columns);
 		}
-	  	#content {
-	    	// Two thirds of the grid columns, rounding up.
-	    	// With 24 cols, this is 16.
-	    	$content-columns: ceil(3 * $blueprint-grid-columns / 4);
+		#sidebar {	    	
+	    	@include column(5); 
+		}
+	  	article {
 	    	// true means it's the last column in the row
-	    	@include column($content-columns, true); 
-			
-			table{
-				td {
-					width: 10px;
-					height: 5px;
-				}
-			}
-			p.label{
-				display: inline-block;
-				font-size: 14px;
-				padding: 1px 4px;
-				font-weight: bold;
-				text-decoration: none;
-				&.Read{
-				    background: #7E587E;
-				    color: white;
-				    text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2);
-				}
-				&.Unread{
-				    background: #B7CEEC;
-				    color: white;
-				    text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2);				    
-				}
-				&.UF{
-					background: red;
-					color: white;
-					text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2);
-				}
-				&.AC{
-					background: #52D017;
-					color: white;
-					text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2);
-				}
-				&.NA{
-					background: #82CAFF;
-					color: white;
-					text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2);
-				}
-				@include border-radius(5px);
-				
-			}
+	    	@include column(18,true); 
 		} 
 	}
-	
+	form.bp{
+        @include blueprint-form;
+        @include blueprint-form-sizes($input-width: 300px, 
+        $textarea-width: 390px, $textarea-height: 100px);    
+    }
+	#header{
+	    border-bottom:1px solid #bbb;
+	}
+	#page{
+	    border-bottom:1px solid #bbb;
+	    padding-top: 10px;
+	    padding-bottom:30px;
+	    font-size: 13px;
+	}
+	#page > article{
+	    top:20px;
+	    padding-top: 10px;
+        padding-left: 23px;
+	}
+	#page > article > h2{
+	    border-bottom: 1px solid #bbb;
+	}
+	#page > article > h3{
+	    margin-top: 30px;
+	    padding-top: 20px;
+	    border-top: 1px solid #bbb;
+	}
+	.assignment{
+	    .title-bar{
+	        h3{
+	            display: inline-block;
+	            margin: 0px;
+	            a{
+	                text-decoration: none;
+	            }
+	        }
+	        .due-time{
+	            float: right;
+	            color: red;
+	        }
+	        padding-bottom: 5px;
+	        border-bottom: 1px solid #ddd;
+	        margin-bottom: 5px;
+	    }
+	    table.short_stats{
+	        margin-left: 10px;
+	        width:auto!important;
+	        th{
+	            text-align: right;
+	            padding-bottom: 0px!important;
+	            font-weight: normal;
+	        }
+	        td{
+	            text-align: left;
+	        }
+	    }
+	    margin: 5px;
+	    padding: 9px;
+	    background: #fafafa;
+        border:1px solid #ddd;
+        @include border-radius(5px);
+	}
+	aside{
+	    padding-top: 15px;
+	    text-align: right;
+	    padding-right:3px;
+	    a{
+            font-size: 1.1em;
+            text-decoration: none;
+            &.selected {
+                background-color: #3090C7;
+                @include border-radius(5px);
+                width: span(5);
+                padding-left: 5px;
+                padding-right: 5px;
+                padding-top:2px;
+                padding-bottom: 2px;
+                //text-decoration: underline;
+                @include link-colors(white,white,white);
+            }
+        }
+	    h2,h3{
+	        border-bottom:1px solid #bbb;
+	        text-align: left;
+	    }
+	    ul{
+	        list-style: none!important;
+	        padding: 0px!important;
+	        margin: 0px!important;
+	        li{
+	            padding: 0px!important;
+	            margin: 0px!important;
+	        }
+	    }
+	}
+	#main-nav{
+	    display: inline-block;
+	    font-size: 1.3em;
+	    a{
+	        padding: 5px;
+	        text-decoration: none;
+	        color: black;
+	    }
+	    ul{
+	        list-style: none;
+	        line-height: 2em;
+	        padding: 0px;
+	        margin: 0px;
+	        border: 0px;
+	        li{
+	            display: inline;
+	            float: left;
+	            padding-right: 10px;
+	        }
+	    }
+	}
+	#login-nav{
+	    position:relative;
+	    display: inline-block;
+	    top: 15px;
+	    float: right;
+	    ul{
+	        list-style: none;
+	        margin: 0px;
+	        padding: 0px;
+	        li{
+	            display: inline;
+	        }
+	    }
+	}
+	p.label{
+		display: inline-block;
+		font-size: 14px;
+		padding: 1px 4px;
+		margin: 0px!important;
+		font-weight: bold;
+		text-decoration: none;
+		@include border-radius(5px);	
+		&.Read{
+		    background: #7E587E;
+		    color: white;
+		    text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2);
+		}
+		&.Unread{
+		    background: #B7CEEC;
+		    color: white;
+		    text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2);				    
+		}
+		&.UF{
+			background: red;
+			color: white;
+			text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2);
+		}
+		&.AC{
+			background: #52D017;
+			color: white;
+			text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2);
+		}
+		&.NA{
+			background: #82CAFF;
+			color: white;
+			text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2);
+		}
+		
+	}

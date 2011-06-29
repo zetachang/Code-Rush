@@ -1,0 +1,19 @@
+%aside#sidebar
+  %ul
+    %li
+      %h2 Hi #{current_user.username if user_signed_in? }!! 
+      -# Maybe here should be put some badger, brief stats, etc.
+    %ul
+      %li= link_to "Oier Rank", oiers_path          
+      %li= link_to "Assignments", assignments_path        
+      %li= link_to "Code Snippet", codes_path
+%article
+  -if notice
+    .notice= notice
+  -if alert
+    .error= alert
+  %h2 Welcome to Code Rush
+  %p This is a site aimed for people who love to do problems solving on computer.
+  You can do code-sharing and discussion on this site.
+  %h3 Latest News
+  %p Code-Rush r2.0 is going to be released. You can go our Github Source to...

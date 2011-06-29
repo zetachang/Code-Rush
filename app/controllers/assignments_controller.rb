@@ -2,8 +2,9 @@ class AssignmentsController < ApplicationController
   load_and_authorize_resource :except => [:index,:show] 
   #check_authorization
   def index
-    @assignments = Assignment.order("created_at DESC").all.reject{|a| a.due?}
-    @due_assignments = Assignment.all.select{|a| a.due?}
+    #@assignments = Assignment.order("created_at DESC").all.reject{|a| a.due?}
+    #@due_assignments = Assignment.all.select{|a| a.due?}
+    @assignments = Assignment.all
   end
 
   def show
