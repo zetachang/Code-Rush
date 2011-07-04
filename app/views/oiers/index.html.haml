@@ -1,14 +1,24 @@
-%h2 Oier in PSCD
-/ TODO Modify the title of each page to the side bar 
-%table
-  %thead
-    %tr.odd
-      %th
-      - Ojee::OJ_TYPES.each do |ojtype|
-        %th= ojtype
-  %tbody
-    - @oiers.each do |oier| 
-      %tr{:class => cycle('odd','even')}
-        %td= link_to "#{oier.name}", oier_ojees_path(oier) 
+%aside#sidebar
+  %ul
+    %li
+      %h2 Hi #{current_user.username if user_signed_in? }!! 
+      -# Maybe here should be put some badger, brief stats, etc.
+    %ul
+      - menu_for "Oier Rank" do
+        %li= link_to "PSCD Oier", oiers_path, :class => 'selected'
+        %li= link_to "My Oier Stats"
+%article
+  %h2 Oier in PSCD
+  / TODO Modify the title of each page to the side bar 
+  %table
+    %thead
+      %tr.odd
+        %th
         - Ojee::OJ_TYPES.each do |ojtype|
-          %td= ojee_for(oier,ojtype).solved_count != 0 ? ojee_for(oier,ojtype).solved_count : 'N/A'      
+          %th= ojtype
+    %tbody
+      - @oiers.each do |oier| 
+        %tr{:class => cycle('odd','even')}
+          %td= link_to "#{oier.name}", oier_ojees_path(oier) 
+          - Ojee::OJ_TYPES.each do |ojtype|
+            %td= ojee_for(oier,ojtype).solved_count != 0 ? ojee_for(oier,ojtype).solved_count : 'N/A'      

@@ -4,9 +4,7 @@
       %h2 Hi #{current_user.username if user_signed_in? }!! 
       -# Maybe here should be put some badger, brief stats, etc.
     %ul
-      %li= link_to "Oier Rank", oiers_path          
-      %li= link_to "Assignments", assignments_path        
-      %li= link_to "Code Snippet", codes_path
+      - menu_for "Main"
 %article
   -if notice
     .notice= notice

@@ -75,4 +75,9 @@ class CodesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  def tags
+    @codes = Code.tagged_with(params[:id])
+    render :action => :index
+  end
 end

@@ -117,39 +117,48 @@
         border:1px solid #ddd;
         @include border-radius(5px);
 	}
-	aside{
-	    padding-top: 15px;
-	    text-align: right;
-	    padding-right:3px;
-	    a{
-            font-size: 1.1em;
-            text-decoration: none;
-            &.selected {
-                background-color: #3090C7;
-                @include border-radius(5px);
-                width: span(5);
-                padding-left: 5px;
-                padding-right: 5px;
-                padding-top:2px;
-                padding-bottom: 2px;
-                //text-decoration: underline;
-                @include link-colors(white,white,white);
+    aside{
+        padding-top: 15px;
+        text-align: right;
+        padding-right:3px;
+        a{
+              font-size: 1.1em;
+              text-decoration: none;
+              @include link-colors(#06c,black,#06c,#06c);
+              &.selected {
+                  //background-color: #3090C7;
+                  //@include border-radius(5px);
+                  //width: span(5);
+                  //padding-left: 5px;
+                  //padding-right: 5px;
+                  //padding-top:2px;
+                  //color: black!important;
+                  //
+              }
+          }
+        h2,h3{
+            border-bottom:1px solid #bbb;
+            text-align: left;
+        }
+        ul{
+            list-style: none!important;
+            padding: 0px!important;
+            margin: 0px!important;
+            #sub_menu{
+                font-size: 90%;
+                background: #EBDDE2;
+            }
+            li{
+                &.selected{
+                    background:#E3E4FA;
+                }
+                //background: #E9CFEC;
+                padding: 0px!important;
+                padding-right:5px!important;
+                margin: 0px!important;
             }
         }
-	    h2,h3{
-	        border-bottom:1px solid #bbb;
-	        text-align: left;
-	    }
-	    ul{
-	        list-style: none!important;
-	        padding: 0px!important;
-	        margin: 0px!important;
-	        li{
-	            padding: 0px!important;
-	            margin: 0px!important;
-	        }
-	    }
-	}
+    }
 	#main-nav{
 	    display: inline-block;
 	    font-size: 1.3em;

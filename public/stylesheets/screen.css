@@ -705,30 +705,19 @@ aside {
 aside a {
   font-size: 1.1em;
   text-decoration: none;
+  color: #0066cc;
 }
-/* line 127, ../../app/stylesheets/screen.scss */
-aside a.selected {
-  background-color: #3090C7;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -o-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -khtml-border-radius: 5px;
-  border-radius: 5px;
-  width: 148.333px;
-  padding-left: 5px;
-  padding-right: 5px;
-  padding-top: 2px;
-  padding-bottom: 2px;
-  color: white;
+/* line 18, ../../../../../../opt/local/lib/ruby/gems/1.8/gems/compass-0.11.3/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+aside a:visited {
+  color: #0066cc;
 }
 /* line 24, ../../../../../../opt/local/lib/ruby/gems/1.8/gems/compass-0.11.3/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
-aside a.selected:hover {
-  color: white;
+aside a:hover {
+  color: black;
 }
 /* line 27, ../../../../../../opt/local/lib/ruby/gems/1.8/gems/compass-0.11.3/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
-aside a.selected:active {
-  color: white;
+aside a:active {
+  color: #0066cc;
 }
 /* line 139, ../../app/stylesheets/screen.scss */
 aside h2, aside h3 {
@@ -742,23 +731,33 @@ aside ul {
   margin: 0px!important;
 }
 /* line 147, ../../app/stylesheets/screen.scss */
+aside ul #sub_menu {
+  font-size: 90%;
+  background: #EBDDE2;
+}
+/* line 151, ../../app/stylesheets/screen.scss */
 aside ul li {
   padding: 0px!important;
+  padding-right: 5px!important;
   margin: 0px!important;
 }
+/* line 152, ../../app/stylesheets/screen.scss */
+aside ul li.selected {
+  background: #E3E4FA;
+}
 
-/* line 153, ../../app/stylesheets/screen.scss */
+/* line 162, ../../app/stylesheets/screen.scss */
 #main-nav {
   display: inline-block;
   font-size: 1.3em;
 }
-/* line 156, ../../app/stylesheets/screen.scss */
+/* line 165, ../../app/stylesheets/screen.scss */
 #main-nav a {
   padding: 5px;
   text-decoration: none;
   color: black;
 }
-/* line 161, ../../app/stylesheets/screen.scss */
+/* line 170, ../../app/stylesheets/screen.scss */
 #main-nav ul {
   list-style: none;
   line-height: 2em;
@@ -766,32 +765,32 @@ aside ul li {
   margin: 0px;
   border: 0px;
 }
-/* line 167, ../../app/stylesheets/screen.scss */
+/* line 176, ../../app/stylesheets/screen.scss */
 #main-nav ul li {
   display: inline;
   float: left;
   padding-right: 10px;
 }
 
-/* line 174, ../../app/stylesheets/screen.scss */
+/* line 183, ../../app/stylesheets/screen.scss */
 #login-nav {
   position: relative;
   display: inline-block;
   top: 15px;
   float: right;
 }
-/* line 179, ../../app/stylesheets/screen.scss */
+/* line 188, ../../app/stylesheets/screen.scss */
 #login-nav ul {
   list-style: none;
   margin: 0px;
   padding: 0px;
 }
-/* line 183, ../../app/stylesheets/screen.scss */
+/* line 192, ../../app/stylesheets/screen.scss */
 #login-nav ul li {
   display: inline;
 }
 
-/* line 188, ../../app/stylesheets/screen.scss */
+/* line 197, ../../app/stylesheets/screen.scss */
 p.label {
   display: inline-block;
   font-size: 14px;
@@ -806,31 +805,31 @@ p.label {
   -khtml-border-radius: 5px;
   border-radius: 5px;
 }
-/* line 196, ../../app/stylesheets/screen.scss */
+/* line 205, ../../app/stylesheets/screen.scss */
 p.label.Read {
   background: #7E587E;
   color: white;
   text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2);
 }
-/* line 201, ../../app/stylesheets/screen.scss */
+/* line 210, ../../app/stylesheets/screen.scss */
 p.label.Unread {
   background: #B7CEEC;
   color: white;
   text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2);
 }
-/* line 206, ../../app/stylesheets/screen.scss */
+/* line 215, ../../app/stylesheets/screen.scss */
 p.label.UF {
   background: red;
   color: white;
   text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2);
 }
-/* line 211, ../../app/stylesheets/screen.scss */
+/* line 220, ../../app/stylesheets/screen.scss */
 p.label.AC {
   background: #52D017;
   color: white;
   text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2);
 }
-/* line 216, ../../app/stylesheets/screen.scss */
+/* line 225, ../../app/stylesheets/screen.scss */
 p.label.NA {
   background: #82CAFF;
   color: white;

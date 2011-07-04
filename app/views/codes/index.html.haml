@@ -1,9 +1,19 @@
-%table
-  -@codes.each do |code| 
-    %tr
-      %td= link_to code.title, code
-      %td= code.description
-      %td created by #{code.creator}
-
-%br
-= link_to 'New Code', new_code_path
+%aside#sidebar
+  %ul
+    %li
+      %h2 Hi #{current_user.username if user_signed_in? }!! 
+      -# Maybe here should be put some badger, brief stats, etc.
+    - menu_for "Code Snippet" do
+      %li= link_to("All Codes", codes_path, :class => 'selected')
+      %li= link_to("My Codes")
+%article
+  %table
+    -@codes.each do |code| 
+      %tr{:class => cycle('odd','even')}
+        %td= link_to code.title, code
+        %td= code.creator
+        %td
+          - code.tag_list.each do |tag|
+            = link_to tag, tags_codes_path(:id => tag), :class => 'tag'
+  %br
+  = link_to 'New Code', new_code_path

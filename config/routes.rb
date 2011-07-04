@@ -3,8 +3,9 @@ Blog::Application.routes.draw do
   #get "main/index"
 
   root :to => "main#index"
-  resources :codes
-
+  resources :codes do
+    get :tags, :on => :collection
+  end
   resources :oiers do
      match :update_all, :via => [:get], :on => :collection
      resources :ojees #:only => [:index] 
