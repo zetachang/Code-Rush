@@ -1,9 +1,6 @@
 %h3= @code.title
-created by #{@code.creator}
-
-%p 
-  %b Description
-  = @code.description
+%em created by #{@code.creator}
+%em tagged with #{@code.tag_list} 
 %pre{:class => "brush: cpp;"}
   = "\n" + @code.source
 

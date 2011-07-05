@@ -5,6 +5,7 @@ Blog::Application.routes.draw do
   root :to => "main#index"
   resources :codes do
     get :tags, :on => :collection
+    get :all_tags, :on => :collection
   end
   resources :oiers do
      match :update_all, :via => [:get], :on => :collection

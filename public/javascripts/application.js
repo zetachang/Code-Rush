@@ -9,15 +9,45 @@ $(document).ready(function() {
 	$('a[rel*=facebox]').facebox();
     SyntaxHighlighter.all();
     //$("input[type='submit']").button();
+    function split( val ) {
+    		return val.split(/,\s*/);
+    }
+    function extractLast( term ) {
+    	    return split( term ).pop();
+    }
     $( "#ojtypes" ).autocomplete({
     			source: ojtypes
     });
+    $("#code_tags").bind( "keydown", function( event ) {
+    				//from official jQuery UI site, it can prevent the navigate to next item when typing tab 
+    				if ( event.keyCode === $.ui.keyCode.TAB && $( this ).data( "autocomplete" ).menu.active ) {
+    					    event.preventDefault();
+    				    }
+    			    })
+    			    .autocomplete({
+                        source: function(request, response){
+                            $.getJSON("/codes/all_tags", {key: extractLast(request.term)},response);
+                            console.log(extractLast(request.term));
+                        },
+                        minLength: 2,
+                        focus: function(){
+                            return false;
+                        },
+                        select: function( event, ui ) {
+        					    var terms = split( this.value );
+        					    terms.pop();
+        					    terms.push( ui.item.value );
+        					    terms.push( "" );
+        					    this.value = terms.join( ", " );
+        					    return false;
+                        }		
+                    })
     function clearSelected(){
         $('#sidebar a').each(function(index,ele){
             $(ele).removeClass('selected');
         })
     }
-     $('a:contains("Current Assignment")').addClass("selected")
+    $('a:contains("Current Assignment")').addClass("selected")
     $(".assignment.not-due").show();
     $(".assignment.due").hide();
     $('a:contains("Current Assignment")').click(function(){

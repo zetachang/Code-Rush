@@ -80,4 +80,9 @@ class CodesController < ApplicationController
     @codes = Code.tagged_with(params[:id])
     render :action => :index
   end
+  
+  def all_tags
+    tags = Code.tag_counts_on(:tags).select{|t| t.name. =~ Regexp.new("^" + params[:key].strip,true)}.collect{|t| t.name}
+    render :json => tags
+  end
 end

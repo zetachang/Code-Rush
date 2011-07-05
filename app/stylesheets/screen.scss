@@ -20,18 +20,6 @@
 @import "blueprint/interaction";
 @import "blueprint/fancy-type";
 
-	body.bp{
-		@include blueprint-typography(true);
-	    @include blueprint-utilities;
-	    @include blueprint-debug;
-	    @include blueprint-interaction;
-	    //@include fancy-type;
-	    //@include blueprint-typography-defaults;
-	    .alt{@include alt;}
-		a{@include hover-link;}
-		.caps{@include caps;}
-	    #accordion h5{margin-bottom: 0px;}
-	}
 	$sidebar-columns: $blueprint-grid-columns/4;
 	$article-columns: 15 * $blueprint-grid-columns/24;
 	body.two-col{
@@ -81,6 +69,12 @@
 	    margin-top: 30px;
 	    padding-top: 20px;
 	    border-top: 1px solid #bbb;
+	}
+    .ui-autocomplete{
+	    list-style: none!important;
+	    margin: 0px!important;
+	    padding: 0px!important;
+	    font-size: 90%!important;
 	}
 	.assignment{
 	    .title-bar{
@@ -228,4 +222,16 @@
 			text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2);
 		}
 		
+	}
+	body.bp{
+		@include blueprint-typography(true);
+	    //@include blueprint-utilities;
+	    //@include blueprint-debug;
+	    @include blueprint-interaction;
+	    //@include fancy-type;
+	    //@include blueprint-typography-defaults;
+	    .alt{@include alt;}
+		a{@include hover-link;}
+		.caps{@include caps;}
+	    #accordion h5{margin-bottom: 0px;}
 	}
