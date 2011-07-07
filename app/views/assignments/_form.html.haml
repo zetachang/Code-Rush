@@ -1,10 +1,4 @@
-= simple_form_for @assignment do |f| 
-  - if @assignment.errors.any? 
-    #error_explanation
-      %h2 #{pluralize(@assignment.errors.count, "error")} prohibited this account from being saved:
-      %ul
-        - @assignment.errors.full_messages.each do |msg| 
-          %li= msg
+= simple_form_for @assignment, :class => :simple_form_for do |f| 
   = f.input :title
   = f.input :due_time
   = f.association :assigned_to, :as => :check_boxes

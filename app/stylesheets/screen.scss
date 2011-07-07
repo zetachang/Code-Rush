@@ -76,7 +76,14 @@
 	    padding: 0px!important;
 	    font-size: 90%!important;
 	}
-	.assignment{
+	form{
+	    margin: 5px;
+    	padding: 9px;
+    	background: #fafafa;
+        border:1px solid #ddd;
+        @include border-radius(5px);
+	}
+	article > .assignment{
 	    .title-bar{
 	        h3{
 	            display: inline-block;

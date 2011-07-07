@@ -1,8 +1,10 @@
 %h3= @code.title
 %em created by #{@code.creator}
-%em tagged with #{@code.tag_list} 
+%em tagged with #{@code.tag_list}
+- if can? :destroy, @code
+  = link_to "Delete this code", code_path(@code), :method => :delete, :confirm => "Are you sure?"
 %pre{:class => "brush: cpp;"}
   = "\n" + @code.source
-
-= link_to 'Edit', edit_code_path(@code)
+- if can? :update, @code
+  = link_to 'Edit', edit_code_path(@code)
 = link_to 'Back', codes_path

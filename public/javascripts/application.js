@@ -8,7 +8,7 @@ $(document).ready(function() {
 	$.facebox.settings.loadingImage = '/images/facebox/loading.gif';
 	$('a[rel*=facebox]').facebox();
     SyntaxHighlighter.all();
-    //$("input[type='submit']").button();
+    $("input[type='submit']").button();
     function split( val ) {
     		return val.split(/,\s*/);
     }
@@ -47,10 +47,10 @@ $(document).ready(function() {
             $(ele).removeClass('selected');
         })
     }
-    $('a:contains("Current Assignment")').addClass("selected")
+    //$('a:contains("Current Assignment")').addClass("selected")
     $(".assignment.not-due").show();
     $(".assignment.due").hide();
-    $('a:contains("Current Assignment")').click(function(){
+    $('a[href="#current_assignments"]').click(function(){
         if($(this).hasClass("selected") == false)
         {
             clearSelected();
@@ -59,7 +59,7 @@ $(document).ready(function() {
             $(".assignment.due").hide();
         }
     })
-    $('a:contains("Past Assignment")').click(function(){
+    $('a[href="#past_assignments"]').click(function(){
         if($(this).hasClass("selected") == false)
         {
             clearSelected();

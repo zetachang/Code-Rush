@@ -5,8 +5,8 @@
       -# Maybe here should be put some badger, brief stats, etc.
     %ul
       - menu_for "Assignments" do    
-        %li=link_to "Current Assignment", :class => 'selected'
-        %li=link_to "Past Assignment" 
+        %li= link_to "Current Assignments", "#current_assignments", :class => 'selected'
+        %li= link_to "Past Assignments", "#past_assignments"
 %article
   - @assignments.each do |assign|
     - class_list = gen_class_list(assign) 
@@ -28,5 +28,6 @@
                   -status = item.status_by(oier)
                   - unless status == 'Unread' || status == 'NA'
                     %p{:class =>['label',status]}= status
-      %td= link_to "Delete this assignment", assign, :confirm => 'Are you sure?', :method => :delete
+      - if can? :destroy, assign
+        %td= link_to "Delete this assignment", assign, :confirm => 'Are you sure?', :method => :delete
   = link_to "Create New" , new_assignment_path

@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :admin, :username, :email, :password, :password_confirmation, :remember_me
 
-  def oier?
+  def is_oier?
     self.oier ? true : false
   end
 end

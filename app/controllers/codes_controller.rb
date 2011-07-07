@@ -1,15 +1,14 @@
 class CodesController < ApplicationController
+  load_resource :except => [:tags, :all_tags]
+  authorize_resource 
   # GET /codes
   # GET /codes.xml
   def index
-    @codes = Code.all
   end
 
   # GET /codes/1
   # GET /codes/1.xml
   def show
-    @code = Code.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @code }
@@ -19,8 +18,6 @@ class CodesController < ApplicationController
   # GET /codes/new
   # GET /codes/new.xml
   def new
-    @code = Code.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @code }
@@ -29,14 +26,12 @@ class CodesController < ApplicationController
 
   # GET /codes/1/edit
   def edit
-    @code = Code.find(params[:id])
   end
 
   # POST /codes
   # POST /codes.xml
   def create
-    @code = Code.new(params[:code])
-
+    @code.creator = current_oier.name
     respond_to do |format|
       if @code.save
         format.html { redirect_to(@code, :notice => 'Code was successfully created.') }
@@ -51,8 +46,6 @@ class CodesController < ApplicationController
   # PUT /codes/1
   # PUT /codes/1.xml
   def update
-    @code = Code.find(params[:id])
-
     respond_to do |format|
       if @code.update_attributes(params[:code])
         format.html { redirect_to(@code, :notice => 'Code was successfully updated.') }
@@ -67,9 +60,7 @@ class CodesController < ApplicationController
   # DELETE /codes/1
   # DELETE /codes/1.xml
   def destroy
-    @code = Code.find(params[:id])
     @code.destroy
-
     respond_to do |format|
       format.html { redirect_to(codes_url) }
       format.xml  { head :ok }
