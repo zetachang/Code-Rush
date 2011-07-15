@@ -1,4 +1,9 @@
 source 'http://rubygems.org'
+
+gem 'albino'
+gem 'nokogiri'
+gem "redcarpet"
+gem "acts_as_commentable", "~> 3.0.1"
 gem 'bluecloth', '>= 2.0.0'
 gem 'cancan'
 gem 'compass'

@@ -1,3 +1,4 @@
+/* line 1, sass/facebox.scss */
 #facebox {
   position: absolute;
   top: 0;
@@ -6,74 +7,89 @@
   text-align: left;
 }
 
-
-#facebox .popup{
-  position:relative;
-  border:3px solid rgba(0,0,0,0);
-  -webkit-border-radius:5px;
-  -moz-border-radius:5px;
-  border-radius:5px;
-  -webkit-box-shadow:0 0 18px rgba(0,0,0,0.4);
-  -moz-box-shadow:0 0 18px rgba(0,0,0,0.4);
-  box-shadow:0 0 18px rgba(0,0,0,0.4);
+/* line 10, sass/facebox.scss */
+#facebox .popup {
+  position: relative;
+  border: 3px solid rgba(0, 0, 0, 0);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0 18px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0 0 18px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 18px rgba(0, 0, 0, 0.4);
 }
 
+/* line 21, sass/facebox.scss */
 #facebox .content {
-  display:table;
+  display: table;
   width: 370px;
   padding: 10px;
   background: #fff;
-  -webkit-border-radius:4px;
-  -moz-border-radius:4px;
-  border-radius:4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
 }
 
-#facebox .content > p:first-child{
-  margin-top:0;
-}
-#facebox .content > p:last-child{
-  margin-bottom:0;
+/* line 31, sass/facebox.scss */
+#facebox .content > p:first-child {
+  margin-top: 0;
 }
 
-#facebox .close{
-  position:absolute;
-  top:5px;
-  right:5px;
-  padding:2px;
-  background:#fff;
-}
-#facebox .close img{
-  opacity:0.3;
-}
-#facebox .close:hover img{
-  opacity:1.0;
+/* line 34, sass/facebox.scss */
+#facebox .content > p:last-child {
+  margin-bottom: 0;
 }
 
+/* line 38, sass/facebox.scss */
+#facebox .close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  padding: 2px;
+  background: #fff;
+}
+
+/* line 45, sass/facebox.scss */
+#facebox .close img {
+  opacity: 0.3;
+}
+
+/* line 48, sass/facebox.scss */
+#facebox .close:hover img {
+  opacity: 1.0;
+}
+
+/* line 52, sass/facebox.scss */
 #facebox .loading {
   text-align: center;
 }
 
+/* line 56, sass/facebox.scss */
 #facebox .image {
   text-align: center;
 }
 
+/* line 60, sass/facebox.scss */
 #facebox img {
   border: 0;
   margin: 0;
 }
 
+/* line 65, sass/facebox.scss */
 #facebox_overlay {
   position: fixed;
   top: 0px;
   left: 0px;
-  height:100%;
-  width:100%;
+  height: 100%;
+  width: 100%;
 }
 
+/* line 73, sass/facebox.scss */
 .facebox_hide {
-  z-index:-100;
+  z-index: -100;
 }
 
+/* line 77, sass/facebox.scss */
 .facebox_overlayBG {
   background-color: #000;
   z-index: 99;

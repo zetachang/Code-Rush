@@ -1,0 +1,18 @@
+- content_for :javascript do
+  = javascript_include_tag "tutorial.js"
+%div{:style => 'border:1px solid black;padding:10px;margin:10px;'}
+  = raw BlueCloth.new(@tutorial.body).to_html
+  %em
+    - @tutorial.reader_list.each do |reader|
+      = reader
+    has read this item.
+#comments{:style => 'border:1px solid black;padding:10px;margin:10px;'}
+  %h4 Comments
+  - if @tutorial.comments.blank?
+    = "No comments now"
+    = link_to "Be the first", new_comment_tutorial_path(@tutorial), :remote => true, :id => 'new_comment_link'
+    
+  - @tutorial.comments.each do |comment|
+    -#- @comment = comment
+    = render :partial => "tutorials/show_comment", :locals => {:comment => comment}
+  = link_to_unless @tutorial.comments.blank?, "Add new comment", new_comment_tutorial_path(@tutorial), :remote => true, :id => 'new_comment_link'

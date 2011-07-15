@@ -1,0 +1,77 @@
+/* line 1, sass/fancybox-style.scss */
+html, body, div, ul {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 6, sass/fancybox-style.scss */
+body {
+  color: #262626;
+  background: #f4f4f4;
+  font: normal 12px/18px Verdana, sans-serif;
+}
+
+/* line 12, sass/fancybox-style.scss */
+#content {
+  width: 400px;
+  margin: 40px auto 0 auto;
+  padding: 0 60px 30px 60px;
+  border: solid 1px #cbcbcb;
+  background: #fafafa;
+  -moz-box-shadow: 0px 0px 10px #cbcbcb;
+  -webkit-box-shadow: 0px 0px 10px #cbcbcb;
+}
+
+/* line 22, sass/fancybox-style.scss */
+h1 {
+  margin: 30px 0 15px 0;
+  font-size: 30px;
+  font-weight: bold;
+  font-family: Arial;
+}
+
+/* line 29, sass/fancybox-style.scss */
+h1 span {
+  font-size: 50%;
+  letter-spacing: -0.05em;
+}
+
+/* line 34, sass/fancybox-style.scss */
+hr {
+  border: none;
+  height: 1px;
+  line-height: 1px;
+  background: #E5E5E5;
+  margin-bottom: 20px;
+  padding: 0;
+}
+
+/* line 42, sass/fancybox-style.scss */
+p {
+  margin: 0;
+  padding: 7px 0;
+}
+
+/* line 47, sass/fancybox-style.scss */
+a {
+  outline: none;
+}
+
+/* line 51, sass/fancybox-style.scss */
+a img {
+  border: 1px solid #BBB;
+  padding: 2px;
+  margin: 10px 20px 10px 0;
+  vertical-align: top;
+}
+
+/* line 58, sass/fancybox-style.scss */
+a img.last {
+  margin-right: 0;
+}
+
+/* line 62, sass/fancybox-style.scss */
+ul {
+  margin-bottom: 24px;
+  padding-left: 30px;
+}

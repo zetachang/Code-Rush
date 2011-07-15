@@ -26,6 +26,7 @@ class Ability
     #About Code Handling
     can :read, Code
     can :modify, Code, :creator => user.oier.try(:name)
+    #can :creat_comment, Code
     if user.is_oier?
       # Create his own code snippet
       can :create, Code

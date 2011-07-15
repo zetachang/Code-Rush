@@ -1,6 +1,16 @@
 Blog::Application.routes.draw do
  
-  #get "main/index"
+  resources :pages do
+    get :new_comment, :on => :member
+    post :create_comment, :on => :member
+    delete :delete_comment, :on => :member
+  end
+
+  resources :tutorials do
+    get :new_comment, :on => :member
+    post :create_comment, :on => :member
+    delete :delete_comment, :on => :member 
+  end
 
   root :to => "main#index"
   resources :codes do
@@ -36,7 +46,7 @@ Blog::Application.routes.draw do
   
   resources :assignments do
     resources :assign_items, :as => :items do
-      match :hand_in, :via => [:put], :on => :member  
+      match :hand_in, :via => [:post], :on => :member  
     end
     resources :assign_items
   end

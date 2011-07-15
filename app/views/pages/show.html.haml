@@ -1,0 +1,29 @@
+- content_for :javascript do
+  = javascript_include_tag "book.js"
+%article
+  -if notice
+    .notice= notice
+  -if alert
+    .error= alert
+  %h1= @page.title
+  #sub-nav  
+    = link_to "Edit", edit_page_path(@page)
+  #book
+    ~ markdown @page.body
+  #main-comments
+    %h3 Comments
+    - @page.main_comments.each do |comment|
+      .comment
+        %h3
+          %em= "#{comment.user.username} say,"
+        %p= comment.comment
+        
+  = render "new_comment"
+  #comments{:style => "display:none"}
+    - @page.comments.group_by(&:anchor).each do |anchor, comments|
+      %div{:id => "comments_on_#{anchor}"}
+        %h3 Comments
+        - comments.each do |comment|
+          %div{:class => 'comment'}
+            %h3= comment.title
+            %p= comment.comment

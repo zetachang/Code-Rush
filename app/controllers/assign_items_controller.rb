@@ -72,7 +72,7 @@ class AssignItemsController < ApplicationController
         @tutorial.reader_list.push(current_oier.name)
         @tutorial.save
       end
-      render "read_tutorial"
+      render 'tutorials/show'
     end
     
   end

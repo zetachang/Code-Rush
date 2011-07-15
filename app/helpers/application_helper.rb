@@ -1,9 +1,10 @@
 module ApplicationHelper
   def menu_for(bar,&block)
-    menu_items = ['Oier Rank', "Assignments", "Code Snippet"]
+    menu_items = ['Oier Rank', "Guides", "Assignments", "Code Snippet"]
     path_of = { "Oier Rank" => oiers_path, 
                 "Assignments" => assignments_path,
-                "Code Snippet" => codes_path }
+                "Code Snippet" => codes_path,
+                "Guides" => pages_path }
     menu_items.each do |item|
       if item == bar and block_given? 
         concat content_tag(:li,(link_to item, path_of[item]),:class => 'selected') 
@@ -17,6 +18,19 @@ module ApplicationHelper
     end
   end
   
+  def markdown(text)
+    options = [:hard_wrap, :autolink, :no_intraemphasis, :fenced_code]
+    Redcarpet.new(text, *options).to_html.html_safe  
+    
+  end
+  
+  def syntax_highlighter(html)
+    doc = Nokogiri::HTML(html)
+    doc.search("//pre[@lang]").each do |pre|
+      pre.replace Albino.colorize(pre.text.rstrip, pre[:lang])
+    end
+    doc.to_s
+  end
   def sign_tag
     if user_signed_in?
       return link_to "Sign Out", destroy_user_session_path

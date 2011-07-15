@@ -1,0 +1,4 @@
+%ul{:style => 'border:1px solid black;padding:5px;margin:5px;'}
+  %h5= "#{comment.title} by #{comment.user.try(:name)}"
+  =comment.comment 
+  = link_to "Delete", delete_comment_tutorial_path(@tutorial,:comment => comment),:method => :delete, :confirm => 'Are you sure?'

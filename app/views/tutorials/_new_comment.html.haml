@@ -1,0 +1,11 @@
+- form_for (@comment, :url => create_comment_tutorial_path(@tutorial,@comment), 
+  :remote => true, :html => {:id => 'new_comment_form'}) do |f|
+  .validation-error
+  = f.label :title, "Title"
+  = f.text_field :title
+  %br
+  = f.label :comment, "Comment"
+  %br
+  = f.text_area :comment, :row => 10
+  %br
+  = f.submit "Submit"

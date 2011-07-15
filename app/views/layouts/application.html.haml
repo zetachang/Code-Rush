@@ -10,10 +10,9 @@
   = stylesheet_link_tag 'link_icons.css', :media => 'screen, projection'
   = stylesheet_link_tag 'buttons.css', :media => 'screen, projection'
   = stylesheet_link_tag 'shCoreMidnight.css'
+  = stylesheet_link_tag 'facebox.css'
   = stylesheet_link_tag 'jquery-ui-1.8.13.custom.css'
-  -#= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"
-  -#= javascript_include_tag "jquery_ujs.js"
-  -#= javascript_include_tag "jquery.fancybox-1.3.4.pack.js"
+  
   = javascript_include_tag :defaults 
   = javascript_include_tag "jquery-ui-1.8.13.custom.min.js"
   = javascript_include_tag "facebox.js"
@@ -21,7 +20,7 @@
   = javascript_include_tag "shBrushCpp.js"
   = yield :javascript
   
-  = csrf_meta_tag 
+  = csrf_meta_tag
   %body.bp.two-col.showgrid
     #container
       #header

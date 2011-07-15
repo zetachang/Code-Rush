@@ -1,0 +1,3 @@
+var new_comment;
+new_comment = $("<div class='comment'><h3><em><%= escape_javascript(@comment.user.username) %> say,</em></h3><p><%= escape_javascript(@comment.comment) %></p></div>");
+new_comment.appendTo('#main-comments');
