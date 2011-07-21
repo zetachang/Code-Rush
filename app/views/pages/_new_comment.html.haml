@@ -1,8 +1,8 @@
 %h3 New Comment
 - form_for Comment.new, :url => create_comment_page_path(@page), :remote => true, 
   :html => {:id => 'new_comment_form'} do |f|
-  = f.label :comment, "Comment"
-  %br
-  = f.text_area :comment, :row => 10
+  -#= f.label :comment, "Enter your comment below"
+  -#%br
+  = f.text_area :comment, :cols => 50 ,:rows => 10;
   %br
   = f.submit "Submit"

@@ -14,4 +14,14 @@ class Comment < ActiveRecord::Base
 
   # NOTE: Comments belong to a user
   belongs_to :user
+
+  def author
+    self.user.username
+  end
+  
+  def as_json(options)
+    hash = super(options)
+    hash['comment']['author'] = self.author
+    return hash
+  end
 end

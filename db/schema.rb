@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110713074839) do
+ActiveRecord::Schema.define(:version => 20110721130629) do
 
   create_table "assign_items", :force => true do |t|
     t.string   "assign_type"
@@ -107,6 +107,8 @@ ActiveRecord::Schema.define(:version => 20110713074839) do
     t.text     "author"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "commentable"
+    t.boolean  "comment_in_block"
   end
 
   create_table "posts", :force => true do |t|

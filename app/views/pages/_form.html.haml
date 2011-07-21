@@ -9,6 +9,11 @@
     = f.label :title, "Title"
     = f.text_field :title
   .field
+    = f.label :commentable, "Commentable"
+    = f.check_box :commentable
+    = f.label :comment_in_block, "Comment In-Block"
+    = f.check_box :comment_in_block
+  .field
     = f.label :body, "Body"
     %br
     = f.text_area :body, :size => '60x60'

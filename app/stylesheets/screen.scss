@@ -76,13 +76,15 @@
 	    padding: 0px!important;
 	    font-size: 90%!important;
 	}
-	form{
-	    margin: 5px;
-    	padding: 9px;
-    	background: #fafafa;
-        border:1px solid #ddd;
-        @include border-radius(5px);
-	}
+	
+	//form{
+	//    margin: 5px;
+    //	padding: 9px;
+    //	background: #fafafa;
+    //    border:1px solid #ddd;
+    //   @include border-radius(5px);
+	//}
+	
 	#sub-nav {
 	    margin-bottom: 5px;
 	    height: 25px;
@@ -96,8 +98,24 @@
 	    }
 	}
 	#book {
+		p {
+			margin-bottom: 0px!important;
+		}
 	    .content-block {
-	        padding: 5px;
+	        padding: 5px 5px 15px 5px;
+	    
+		}
+		.content-status {
+            height: 6px;
+	       	visibility: hidden;
+	 		display: inline-block;
+			float: right;
+			//margin-top: 2px;
+			margin-bottom: 1px;
+	        @include normal-text;
+	        a {
+	            padding-right: 5px;
+	        }
 	    }
 	    .hover {
 	        //color h v blur inset
@@ -105,21 +123,40 @@
 	        border-right: solid 2px #4863A0;
 	        border-left: solid 2px #4863A0;
 	        .content-status {
-	            //height: 5px;
-    	        display: block;
-    	        @include normal-text;
-    	        a {
-    	            float: right;
-    	            padding-right: 5px;
-    	        }
-    	    }
+				visibility: visible;
+			}
 	    }	    
 	}
     .comment-facebox {
-        h3{
-            border-bottom: solid 1px gray !important;
+        .refer {
+            background: #E3E4FA;
+            padding: 6px;
+            margin: 2px;
+            margin-bottom: 5px;
+            //font-size: 80%;
+        }
+        h4{
+            //border-bottom: solid 1px gray !important;
+            margin-bottom: 0px!important;
+        }
+        .comment {
+            @include border-radius(5px);
+            border: solid 1px silver;
+            color: grey;
+            padding: 5px;
+            margin: 2px;
+            p {
+                padding: 5px!important;
+                margin-bottom: 0px!important;
+            }
+            textarea{
+                width: 100px;
+            }
         }
         width: 400px!important;
+        .validation-errors{
+            @include error;
+        }
     }
 	article > .assignment{
 	    .title-bar{

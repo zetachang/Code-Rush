@@ -33,15 +33,22 @@ class PagesController < ApplicationController
   def create_comment
     @page = Page.find_by_munged_title(params[:id])
     @comment = Comment.new(params[:comment])
-    @comment.anchor = "main" if @comment.anchor.blank?
+    if @comment.anchor.blank?
+      @comment.anchor = "main"
+    end
     @comment.user = current_user
-    respond_to do |format|
-      if @comment.save
-        @page.comments << @comment
-        format.html { redirect_to @page, :notice => 'Comments added' }
-        format.js
+    if @comment.save
+      @page.comments << @comment
+      if request.xhr?
+        render :json => @comment 
+      else  
+        redirect_to @page, :notice => 'Comments added'
+      end
+    else
+      if request.xhr?
+        render :text => "Comment field can't be blank!" 
       else
-        format.js {render :json => 'alert("fucked");'}
+        redirect_to @page, :alert => 'Failed to add comment'
       end
     end
   end

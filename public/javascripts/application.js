@@ -8,7 +8,7 @@ $(document).ready(function() {
 	$.facebox.settings.loadingImage = '/images/facebox/loading.gif';
 	$('a[rel*=facebox]').facebox();
     SyntaxHighlighter.all();
-    $("input[type='submit']").button();
+    //$("input[type='submit']").button();
     function split( val ) {
     		return val.split(/,\s*/);
     }

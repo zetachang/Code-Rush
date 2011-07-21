@@ -1,5 +1,5 @@
 - content_for :javascript do
-  = javascript_include_tag "book.js"
+  = javascript_include_tag "comment_in_block.js" if @page.comment_in_block
 %article
   -if notice
     .notice= notice
@@ -22,8 +22,8 @@
   #comments{:style => "display:none"}
     - @page.comments.group_by(&:anchor).each do |anchor, comments|
       %div{:id => "comments_on_#{anchor}"}
-        %h3 Comments
         - comments.each do |comment|
           %div{:class => 'comment'}
-            %h3= comment.title
+            %h4
+              %em= "#{comment.user.username} say,"
             %p= comment.comment

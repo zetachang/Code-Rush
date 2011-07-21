@@ -1,7 +1,11 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   rescue_from CanCan::AccessDenied do |exception|
-    redirect_to root_url, :alert => exception.message
+    if request.xhr?
+      render :json => "You are not authorized to access this feature", :status => :unauthorized
+    else
+      redirect_to root_url, :alert => exception.message
+    end
   end
   
   protected

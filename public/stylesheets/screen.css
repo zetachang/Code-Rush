@@ -304,67 +304,106 @@ form.bp textarea {
   font-size: 90%!important;
 }
 
-/* line 79, ../../app/stylesheets/screen.scss */
-form {
-  margin: 5px;
-  padding: 9px;
-  background: #fafafa;
-  border: 1px solid #ddd;
+/* line 88, ../../app/stylesheets/screen.scss */
+#sub-nav {
+  margin-bottom: 5px;
+  height: 25px;
+  border-bottom: solid 2px gray;
+}
+/* line 92, ../../app/stylesheets/screen.scss */
+#sub-nav h1 {
+  margin-bottom: 5px!important;
+}
+/* line 95, ../../app/stylesheets/screen.scss */
+#sub-nav a {
+  float: right;
+  display: inline-block;
+}
+
+/* line 101, ../../app/stylesheets/screen.scss */
+#book p {
+  margin-bottom: 0px!important;
+}
+/* line 104, ../../app/stylesheets/screen.scss */
+#book .content-block {
+  padding: 5px 5px 15px 5px;
+}
+/* line 108, ../../app/stylesheets/screen.scss */
+#book .content-status {
+  height: 6px;
+  visibility: hidden;
+  display: inline-block;
+  float: right;
+  margin-bottom: 1px;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  color: #333333;
+}
+/* line 116, ../../app/stylesheets/screen.scss */
+#book .content-status a {
+  padding-right: 5px;
+}
+/* line 120, ../../app/stylesheets/screen.scss */
+#book .hover {
+  border-right: solid 2px #4863A0;
+  border-left: solid 2px #4863A0;
+}
+/* line 125, ../../app/stylesheets/screen.scss */
+#book .hover .content-status {
+  visibility: visible;
+}
+
+/* line 130, ../../app/stylesheets/screen.scss */
+.comment-facebox {
+  width: 400px!important;
+}
+/* line 131, ../../app/stylesheets/screen.scss */
+.comment-facebox .refer {
+  background: #E3E4FA;
+  padding: 6px;
+  margin: 2px;
+  margin-bottom: 5px;
+}
+/* line 138, ../../app/stylesheets/screen.scss */
+.comment-facebox h4 {
+  margin-bottom: 0px!important;
+}
+/* line 142, ../../app/stylesheets/screen.scss */
+.comment-facebox .comment {
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   -o-border-radius: 5px;
   -ms-border-radius: 5px;
   -khtml-border-radius: 5px;
   border-radius: 5px;
-}
-
-/* line 86, ../../app/stylesheets/screen.scss */
-#sub-nav {
-  margin-bottom: 5px;
-  height: 25px;
-  border-bottom: solid 2px gray;
-}
-/* line 90, ../../app/stylesheets/screen.scss */
-#sub-nav h1 {
-  margin-bottom: 5px!important;
-}
-/* line 93, ../../app/stylesheets/screen.scss */
-#sub-nav a {
-  float: right;
-  display: inline-block;
-}
-
-/* line 99, ../../app/stylesheets/screen.scss */
-#book .content-block {
+  border: solid 1px silver;
+  color: grey;
   padding: 5px;
+  margin: 2px;
 }
-/* line 102, ../../app/stylesheets/screen.scss */
-#book .hover {
-  border-right: solid 2px #4863A0;
-  border-left: solid 2px #4863A0;
+/* line 148, ../../app/stylesheets/screen.scss */
+.comment-facebox .comment p {
+  padding: 5px!important;
+  margin-bottom: 0px!important;
 }
-/* line 107, ../../app/stylesheets/screen.scss */
-#book .hover .content-status {
-  display: block;
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
-  color: #333333;
+/* line 152, ../../app/stylesheets/screen.scss */
+.comment-facebox .comment textarea {
+  width: 100px;
 }
-/* line 111, ../../app/stylesheets/screen.scss */
-#book .hover .content-status a {
-  float: right;
-  padding-right: 5px;
+/* line 157, ../../app/stylesheets/screen.scss */
+.comment-facebox .validation-errors {
+  padding: 0.8em;
+  margin-bottom: 1em;
+  border: 2px solid #dddddd;
+  background: #fbe3e4;
+  color: #8a1f11;
+  border-color: #fbc2c4;
 }
-
-/* line 118, ../../app/stylesheets/screen.scss */
-.comment-facebox {
-  width: 400px!important;
-}
-/* line 119, ../../app/stylesheets/screen.scss */
-.comment-facebox h3 {
-  border-bottom: solid 1px gray !important;
+/* line 27, ../../../../../../opt/local/lib/ruby/gems/1.8/gems/compass-0.11.3/frameworks/blueprint/stylesheets/blueprint/_interaction.scss */
+.comment-facebox .validation-errors a {
+  color: #8a1f11;
 }
 
-/* line 124, ../../app/stylesheets/screen.scss */
+/* line 161, ../../app/stylesheets/screen.scss */
 article > .assignment {
   margin: 5px;
   padding: 9px;
@@ -377,49 +416,49 @@ article > .assignment {
   -khtml-border-radius: 5px;
   border-radius: 5px;
 }
-/* line 125, ../../app/stylesheets/screen.scss */
+/* line 162, ../../app/stylesheets/screen.scss */
 article > .assignment .title-bar {
   padding-bottom: 5px;
   border-bottom: 1px solid #ddd;
   margin-bottom: 5px;
 }
-/* line 126, ../../app/stylesheets/screen.scss */
+/* line 163, ../../app/stylesheets/screen.scss */
 article > .assignment .title-bar h3 {
   display: inline-block;
   margin: 0px;
 }
-/* line 129, ../../app/stylesheets/screen.scss */
+/* line 166, ../../app/stylesheets/screen.scss */
 article > .assignment .title-bar h3 a {
   text-decoration: none;
 }
-/* line 133, ../../app/stylesheets/screen.scss */
+/* line 170, ../../app/stylesheets/screen.scss */
 article > .assignment .title-bar .due-time {
   float: right;
   color: red;
 }
-/* line 141, ../../app/stylesheets/screen.scss */
+/* line 178, ../../app/stylesheets/screen.scss */
 article > .assignment table.short_stats {
   margin-left: 10px;
   width: auto!important;
 }
-/* line 144, ../../app/stylesheets/screen.scss */
+/* line 181, ../../app/stylesheets/screen.scss */
 article > .assignment table.short_stats th {
   text-align: right;
   padding-bottom: 0px!important;
   font-weight: normal;
 }
-/* line 149, ../../app/stylesheets/screen.scss */
+/* line 186, ../../app/stylesheets/screen.scss */
 article > .assignment table.short_stats td {
   text-align: left;
 }
 
-/* line 159, ../../app/stylesheets/screen.scss */
+/* line 196, ../../app/stylesheets/screen.scss */
 aside {
   padding-top: 15px;
   text-align: right;
   padding-right: 3px;
 }
-/* line 163, ../../app/stylesheets/screen.scss */
+/* line 200, ../../app/stylesheets/screen.scss */
 aside a {
   font-size: 1.1em;
   text-decoration: none;
@@ -437,45 +476,45 @@ aside a:hover {
 aside a:active {
   color: #0066cc;
 }
-/* line 178, ../../app/stylesheets/screen.scss */
+/* line 215, ../../app/stylesheets/screen.scss */
 aside h2, aside h3 {
   border-bottom: 1px solid #bbb;
   text-align: left;
 }
-/* line 182, ../../app/stylesheets/screen.scss */
+/* line 219, ../../app/stylesheets/screen.scss */
 aside ul {
   list-style: none!important;
   padding: 0px!important;
   margin: 0px!important;
 }
-/* line 186, ../../app/stylesheets/screen.scss */
+/* line 223, ../../app/stylesheets/screen.scss */
 aside ul #sub_menu {
   font-size: 90%;
   background: #EBDDE2;
 }
-/* line 190, ../../app/stylesheets/screen.scss */
+/* line 227, ../../app/stylesheets/screen.scss */
 aside ul li {
   padding: 0px!important;
   padding-right: 5px!important;
   margin: 0px!important;
 }
-/* line 191, ../../app/stylesheets/screen.scss */
+/* line 228, ../../app/stylesheets/screen.scss */
 aside ul li.selected {
   background: #E3E4FA;
 }
 
-/* line 201, ../../app/stylesheets/screen.scss */
+/* line 238, ../../app/stylesheets/screen.scss */
 #main-nav {
   display: inline-block;
   font-size: 1.3em;
 }
-/* line 204, ../../app/stylesheets/screen.scss */
+/* line 241, ../../app/stylesheets/screen.scss */
 #main-nav a {
   padding: 5px;
   text-decoration: none;
   color: black;
 }
-/* line 209, ../../app/stylesheets/screen.scss */
+/* line 246, ../../app/stylesheets/screen.scss */
 #main-nav ul {
   list-style: none;
   line-height: 2em;
@@ -483,32 +522,32 @@ aside ul li.selected {
   margin: 0px;
   border: 0px;
 }
-/* line 215, ../../app/stylesheets/screen.scss */
+/* line 252, ../../app/stylesheets/screen.scss */
 #main-nav ul li {
   display: inline;
   float: left;
   padding-right: 10px;
 }
 
-/* line 222, ../../app/stylesheets/screen.scss */
+/* line 259, ../../app/stylesheets/screen.scss */
 #login-nav {
   position: relative;
   display: inline-block;
   top: 15px;
   float: right;
 }
-/* line 227, ../../app/stylesheets/screen.scss */
+/* line 264, ../../app/stylesheets/screen.scss */
 #login-nav ul {
   list-style: none;
   margin: 0px;
   padding: 0px;
 }
-/* line 231, ../../app/stylesheets/screen.scss */
+/* line 268, ../../app/stylesheets/screen.scss */
 #login-nav ul li {
   display: inline;
 }
 
-/* line 236, ../../app/stylesheets/screen.scss */
+/* line 273, ../../app/stylesheets/screen.scss */
 p.label {
   display: inline-block;
   font-size: 14px;
@@ -523,38 +562,38 @@ p.label {
   -khtml-border-radius: 5px;
   border-radius: 5px;
 }
-/* line 244, ../../app/stylesheets/screen.scss */
+/* line 281, ../../app/stylesheets/screen.scss */
 p.label.Read {
   background: #7E587E;
   color: white;
   text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2);
 }
-/* line 249, ../../app/stylesheets/screen.scss */
+/* line 286, ../../app/stylesheets/screen.scss */
 p.label.Unread {
   background: #B7CEEC;
   color: white;
   text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2);
 }
-/* line 254, ../../app/stylesheets/screen.scss */
+/* line 291, ../../app/stylesheets/screen.scss */
 p.label.UF {
   background: red;
   color: white;
   text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2);
 }
-/* line 259, ../../app/stylesheets/screen.scss */
+/* line 296, ../../app/stylesheets/screen.scss */
 p.label.AC {
   background: #52D017;
   color: white;
   text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2);
 }
-/* line 264, ../../app/stylesheets/screen.scss */
+/* line 301, ../../app/stylesheets/screen.scss */
 p.label.NA {
   background: #82CAFF;
   color: white;
   text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2);
 }
 
-/* line 271, ../../app/stylesheets/screen.scss */
+/* line 308, ../../app/stylesheets/screen.scss */
 body.bp {
   line-height: 1.5;
   font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
@@ -815,14 +854,14 @@ body.bp .removed {
   background: #990000;
   color: white;
 }
-/* line 278, ../../app/stylesheets/screen.scss */
+/* line 315, ../../app/stylesheets/screen.scss */
 body.bp .alt {
   color: #666666;
   font-family: "Warnock Pro", "Goudy Old Style", "Palatino", "Book Antiqua", Georgia, serif;
   font-style: italic;
   font-weight: normal;
 }
-/* line 279, ../../app/stylesheets/screen.scss */
+/* line 316, ../../app/stylesheets/screen.scss */
 body.bp a {
   text-decoration: none;
 }
@@ -830,7 +869,7 @@ body.bp a {
 body.bp a:hover {
   text-decoration: underline;
 }
-/* line 280, ../../app/stylesheets/screen.scss */
+/* line 317, ../../app/stylesheets/screen.scss */
 body.bp .caps {
   font-variant: small-caps;
   letter-spacing: 1px;
@@ -840,7 +879,7 @@ body.bp .caps {
   font-weight: bold;
   padding: 0 2px;
 }
-/* line 281, ../../app/stylesheets/screen.scss */
+/* line 318, ../../app/stylesheets/screen.scss */
 body.bp #accordion h5 {
   margin-bottom: 0px;
 }
