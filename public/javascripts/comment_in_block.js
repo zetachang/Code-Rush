@@ -70,14 +70,13 @@ $(document).ready(function(){
     
     function updateContentStatus(contentBlock){
         var commentId = '#comments_on_' + contentBlock.attr('id');
-        //alert(commentId);
         if($(commentId).find(".comment").length > 0)
         {
             //remove current content-status
             contentBlock.find('.content-status').empty();
             var $commentLink;
             $commentLink = $('<a href="' + commentId + '">Comments</a>');
-            $commentLink.appendTo('#' + contentBlock.attr('id') + ' .content-status');
+            $commentLink.appendTo(contentBlock.find('.content-status'));
             $commentLink.click(function(){
                 createCommentBox('#'+ contentBlock.attr('id'), commentId);
                 $('.comment-facebox form').append('<input type="hidden" name="comment[anchor]" id="comment_anchor" value="' + currentId + '"/>');

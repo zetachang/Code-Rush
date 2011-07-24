@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  authorize_resource :only => [:create_comment]
+  authorize_resource :only => [:create_comment, :delete_comment]
   def index
     @pages = Page.all
   end
@@ -53,7 +53,13 @@ class PagesController < ApplicationController
     end
   end
   
-  def destroy_comment
-    
+  def delete_comment
+    @comment = Comment.find(params[:comment])
+    @comment.destroy
+    if request.xhr?
+      render :text => "Successfully deleted!"
+    else
+      redirect_to :action => :edit
+    end
   end
 end

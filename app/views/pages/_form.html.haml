@@ -1,20 +1,26 @@
-= form_for @page do |f| 
+= form_for @page, :remote => true do |f|
   -if @page.errors.any? 
     .error
       %h4= pluralize(@page.errors.count, "error") + " prohibited this code from being saved:"
       %ul
         -@page.errors.full_messages.each do |msg|
           %li= msg
-  .field
-    = f.label :title, "Title"
-    = f.text_field :title
-  .field
-    = f.label :commentable, "Commentable"
-    = f.check_box :commentable
-    = f.label :comment_in_block, "Comment In-Block"
-    = f.check_box :comment_in_block
-  .field
-    = f.label :body, "Body"
-    %br
-    = f.text_area :body, :size => '60x60'
-  = f.submit "Submit"
+  = f.label :title, "Title"
+  = f.text_field :title
+  = f.label :commentable, "Commentable"
+  = f.check_box :commentable
+  = f.label :comment_in_block, "Comment In-Block"
+  = f.check_box :comment_in_block
+  = f.submit "Save"
+  %br
+  %br
+  = f.text_area :body, :size => '100x60'
+- unless @page.comments.blank?
+  %h3 Manage Comments
+#comment_field
+  - @page.comments.each do |comment|
+    = div_for comment do
+      = comment.author
+      = truncate comment.comment
+      = link_to "Delete", delete_comment_page_path(@page,:comment => comment), :method => :delete, 
+      :confirm => "Are you sure?", :remote => true, "data-type" => 'text'

@@ -127,16 +127,29 @@
 			}
 	    }	    
 	}
+	#comment_field {
+	    .comment {
+	        @include border-radius(5px);
+            border: solid 1px silver;
+            color: grey;
+	        margin: 2px;
+	        padding: 2px;
+	        width: 300px;
+	        a{
+	            float: right;
+	            //padding-top: 3px;
+	            padding-right:5px;
+	        }
+	    }
+	}
     .comment-facebox {
         .refer {
             background: #E3E4FA;
             padding: 6px;
             margin: 2px;
             margin-bottom: 5px;
-            //font-size: 80%;
         }
         h4{
-            //border-bottom: solid 1px gray !important;
             margin-bottom: 0px!important;
         }
         .comment {
@@ -150,12 +163,30 @@
                 margin-bottom: 0px!important;
             }
             textarea{
-                width: 100px;
+                width: 100%;
             }
         }
+        
         width: 400px!important;
-        .validation-errors{
-            @include error;
+    }
+    .validation-errors{
+        width: 350px;
+        @include error;
+    }
+    #main_comments{
+        .comment {
+            @include border-radius(5px);
+            border: solid 1px silver;
+            color: grey;
+            padding: 5px;
+            margin: 2px;
+            p {
+                padding: 5px!important;
+                margin-bottom: 0px!important;
+            }
+        }
+        textarea{
+            width: 100%;
         }
     }
 	article > .assignment{

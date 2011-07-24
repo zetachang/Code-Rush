@@ -1,5 +1,6 @@
 - content_for :javascript do
   = javascript_include_tag "comment_in_block.js" if @page.comment_in_block
+  = javascript_include_tag "normal_comment.js" if @page.commentable
 %article
   -if notice
     .notice= notice
@@ -10,15 +11,19 @@
     = link_to "Edit", edit_page_path(@page)
   #book
     ~ markdown @page.body
-  #main-comments
-    %h3 Comments
-    - @page.main_comments.each do |comment|
-      .comment
-        %h3
-          %em= "#{comment.user.username} say,"
-        %p= comment.comment
-        
-  = render "new_comment"
+  
+  - if @page.commentable
+    #main_comments
+      %h3 Comments
+      - @page.main_comments.each do |comment|
+        .comment
+          %h4
+            %em= "#{comment.user.username} say,"
+          %p= comment.comment      
+    = render "new_comment"
+  - elsif @page.comment_in_block
+    %div{:style => "display:none"}
+      = render "new_comment"
   #comments{:style => "display:none"}
     - @page.comments.group_by(&:anchor).each do |anchor, comments|
       %div{:id => "comments_on_#{anchor}"}
