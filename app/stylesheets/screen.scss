@@ -49,6 +49,12 @@
         $textarea-width: 390px, $textarea-height: 100px);    
     }
 	#header{
+	    h1{
+	        font-family: 'Bangers'!important;
+	        font-size: 64px;
+	        margin-bottom:0px;
+	        margin-top: 15px;
+	    }
 	    border-bottom:1px solid #bbb;
 	}
 	#page{
@@ -60,7 +66,7 @@
 	#page > article{
 	    top:20px;
 	    padding-top: 10px;
-        padding-left: 23px;
+        padding-left: 20px;
 	}
 	#page > article > h2{
 	    border-bottom: 1px solid #bbb;
@@ -225,24 +231,16 @@
         @include border-radius(5px);
 	}
     aside{
-        padding-top: 15px;
+        margin-top: 0px;
         text-align: right;
-        padding-right:3px;
+        padding-top: 15px;
+        padding-right:0px;
+        padding-left:10px;
         a{
               font-size: 1.1em;
-              text-decoration: none;
-              @include link-colors(#06c,black,#06c,#06c);
-              &.selected {
-                  //background-color: #3090C7;
-                  //@include border-radius(5px);
-                  //width: span(5);
-                  //padding-left: 5px;
-                  //padding-right: 5px;
-                  //padding-top:2px;
-                  //color: black!important;
-                  //
-              }
-          }
+              text-decoration: none!important;
+              @include link-colors(black,black,black,black);
+        }
         h2,h3{
             border-bottom:1px solid #bbb;
             text-align: left;
@@ -253,11 +251,16 @@
             margin: 0px!important;
             #sub_menu{
                 font-size: 90%;
-                background: #EBDDE2;
+                background: #e5ecf9;
+                @include border-bottom-radius(5px);
+                color: white!important;
             }
             li{
                 &.selected{
-                    background:#E3E4FA;
+                    border:1px solid #bbb;
+                    border-bottom:0px;
+                    @include border-top-radius(5px);
+                    //@include single-box-shadow(gray, 1px, 1px, 1px, true);
                 }
                 //background: #E9CFEC;
                 padding: 0px!important;

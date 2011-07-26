@@ -4,16 +4,13 @@ $(document).ready(function(){
     });
     $("#comment_field .comment").hover(
         function(){
-            //console.log('XD');
             $(this).find("a").show();
-            $(this).find("a").addClass("selected");
         },
         function(){
             $(this).find("a").hide();
-            //$(this).removeClass("selected");
         }
     );
-    $("a[data-remote].selected")
+    $("a[data-remote]")
         .live("ajax:beforeSend",function(xhr,settings){
             $(this).parent().effect("highlight");
             //console.log('XD');
