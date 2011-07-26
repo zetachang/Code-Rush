@@ -9,9 +9,16 @@ class PagesController < ApplicationController
   end
 
   def new
+    @page = Page.new
   end
 
   def create
+    @page = Page.new(params[:page])
+    if @page.save
+      redirect_to @page
+    else
+      render :action => "edit"
+    end
   end
 
   def edit

@@ -16,6 +16,7 @@ Blog::Application.routes.draw do
   resources :codes do
     get :tags, :on => :collection
     get :all_tags, :on => :collection
+    get :my_codes, :on => :collection
   end
   resources :oiers do
      match :update_all, :via => [:get], :on => :collection

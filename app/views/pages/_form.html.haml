@@ -1,4 +1,4 @@
-- form_for @page, :remote => true do |f|
+- form_for @page do |f|
   -if @page.errors.any? 
     .error
       %h4= pluralize(@page.errors.count, "error") + " prohibited this code from being saved:"
@@ -7,6 +7,10 @@
           %li= msg
   = f.label :title, "Title"
   = f.text_field :title
+  = f.label :topic, "Topic"
+  = f.text_field :topic
+  %br
+  %br
   = f.label :commentable, "Commentable"
   = f.check_box :commentable
   = f.label :comment_in_block, "Comment In-Block"

@@ -1,6 +1,13 @@
 - content_for :javascript do
   = javascript_include_tag "comment_in_block.js" if @page.comment_in_block
   = javascript_include_tag "normal_comment.js" if @page.commentable
+%aside#sidebar
+  %ul
+    %li
+      %h2 Hi #{current_user.username if user_signed_in? }!! 
+      -# Maybe here should be put some badger, brief stats, etc.
+    %ul  
+      %li= link_to "<< Back", pages_path 
 %article
   -if notice
     .notice= notice

@@ -255,17 +255,15 @@
                 @include border-bottom-radius(5px);
                 color: white!important;
             }
-            li{
-                &.selected{
-                    border:1px solid #bbb;
-                    border-bottom:0px;
-                    @include border-top-radius(5px);
-                    //@include single-box-shadow(gray, 1px, 1px, 1px, true);
-                }
-                //background: #E9CFEC;
+            li {
                 padding: 0px!important;
                 padding-right:5px!important;
                 margin: 0px!important;
+            }
+            > li.selected{
+                border:1px solid #bbb;
+                border-bottom:0px;
+                @include border-top-radius(5px);
             }
         }
     }

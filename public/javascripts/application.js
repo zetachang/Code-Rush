@@ -45,7 +45,7 @@ $(document).ready(function() {
     function clearSelected(){
         $('#sidebar a').each(function(index,ele){
             $(ele).removeClass('selected');
-        })
+        });
     }
     //$('a:contains("Current Assignment")').addClass("selected")
     $(".assignment.not-due").show();
