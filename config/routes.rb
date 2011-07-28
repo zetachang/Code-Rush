@@ -13,6 +13,7 @@ Blog::Application.routes.draw do
   end
 
   root :to => "main#index"
+  
   resources :codes do
     get :tags, :on => :collection
     get :all_tags, :on => :collection
@@ -53,10 +54,6 @@ Blog::Application.routes.draw do
     get 'assigned_to_me', :on => :collection
   end
   
-  post "books/borrow_book"
-  
-  resources :books
-  get "hello/index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
