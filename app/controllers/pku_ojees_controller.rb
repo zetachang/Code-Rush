@@ -4,11 +4,6 @@ class PkuOjeesController < OjeesController
     @pku_ojee = PkuOjee.new
   end
 
-  def edit
-    @oier = Oier.find(params[:oier_id])
-    @pku_ojee = PkuOjee.find(params[:id])
-  end
-
   def create
     @pku_ojee = PkuOjee.new(params[:pku_ojee])
     @oier = Oier.find(params[:oier_id])
@@ -20,17 +15,6 @@ class PkuOjeesController < OjeesController
     end
   end
 
-  def update
-    @pku_ojee = PkuOjee.find(params[:id])
-    @oier = Oier.find(params[:oier_id])
-    respond_to do |format|
-      if @pku_ojee.update_attributes(params[:pku_ojee])
-        format.html { redirect_to(oier_ojees_path(params[:oier_id]), :notice => 'OJ Account was successfully updated.') }
-      else
-        format.html { render :action => "edit" }
-      end
-    end
-  end
 
   def destroy
     @oier = Oier.find(params[:oier_id])

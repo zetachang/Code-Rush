@@ -1,11 +1,12 @@
 #user_info
-  .image_field
-    = image_tag current_user.gravatar_url(:size => 40), :class => 'gravatar'
-  .stats_field
-    =link_to "#{current_user.username}", current_user.oier 
-    %br
-    - code_num = Code.where(:creator => current_user.oier.name).size
-    %b #{rand(100)}
-    = link_to "c#{code_num}", my_codes_codes_path
-    - assign_num = current_user.oier.assignment.select{|a|a.due_time > DateTime.now}.size
-    = link_to "a#{assign_num}", assigned_to_me_assignments_path
+  - if current_user
+    .image_field
+      = image_tag current_user.gravatar_url(:size => 40), :class => 'gravatar'
+    .stats_field
+      =link_to "#{current_user.username}", current_user.oier 
+      %br
+      - code_num = Code.where(:creator => current_user.oier.name).size
+      %b #{rand(100)}
+      = link_to "c#{code_num}", my_codes_codes_path
+      - assign_num = current_user.oier.assignment.select{|a|a.due_time > DateTime.now}.size
+      = link_to "a#{assign_num}", assigned_to_me_assignments_path

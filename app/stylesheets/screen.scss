@@ -15,10 +15,26 @@
 @import "blueprint/scaffolding";
 @import "blueprint/grid";
 @import "blueprint/form";
-@import "blueprint/link-icons";
-@import "blueprint/buttons";
 @import "blueprint/interaction";
 @import "blueprint/fancy-type";
+
+@mixin title-bar {
+    h3{
+        display: inline-block;
+        margin: 0px;
+        a{
+            text-decoration: none;
+            color: black!important;
+        }
+    }
+    .options{
+        float: right;
+        color: red;
+    }
+    padding-bottom: 5px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 5px;
+}
 
 	$sidebar-columns: $blueprint-grid-columns/4;
 	$article-columns: 15 * $blueprint-grid-columns/24;
@@ -90,7 +106,20 @@
     //    border:1px solid #ddd;
     //   @include border-radius(5px);
 	//}
-	
+	.ojstats {
+	    @include border-radius(5px);
+	    background: #fafafa;
+	    border: 1px solid #ddd;
+	    margin: 5px;
+	    padding: 9px;
+	    .title-bar {
+	        @include title-bar;
+	    }
+	    a.prob_link{
+	        text-decoration: none!important;
+	        //color: #41A317!important;
+	    }
+	}
 	#sub-nav {
 	    margin-bottom: 5px;
 	    height: 25px;
@@ -195,6 +224,7 @@
             width: 100%;
         }
     }
+    
 	article > .assignment{
 	    .title-bar{
 	        h3{
@@ -229,6 +259,41 @@
 	    background: #fafafa;
         border:1px solid #ddd;
         @include border-radius(5px);
+	}
+	#page_user_info {
+	    height: 150px;
+	    //width: 300px;
+        text-align:left;
+        font-size:120%;
+        border-bottom:1px solid #bbb;
+        margin-bottom:10px;
+        @include single-box-shadow(#bbb, 0px, -1px, -1px, false);
+        .image_field {
+            margin: 5px;
+            margin-bottom: 3px;
+            display: inline-block;
+            float:left;
+        }
+        .stats_field {
+            a {
+                font-size:100%;
+            }
+            margin-top: 40px;
+            margin-left:0px;
+            display: inline-block;
+        }
+        .short_stats {
+            font-size: 85%;
+            border: 1px solid #bbb;
+            padding: 1px;
+            display: inline-block;
+            @include border-radius(2px);
+            a {
+                text-decoration: none;
+                color: black;
+                font-weight: 500;
+            }
+        }
 	}
 	#user_info {
         text-align:left;
@@ -342,7 +407,7 @@
 		margin: 0px!important;
 		font-weight: bold;
 		text-decoration: none;
-		@include border-radius(5px);	
+		@include border-radius(5px);
 		&.Read{
 		    background: #7E587E;
 		    color: white;
@@ -368,7 +433,6 @@
 			color: white;
 			text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2);
 		}
-		
 	}
 	body.bp{
 		@include blueprint-typography(true);
@@ -378,7 +442,7 @@
 	    //@include fancy-type;
 	    //@include blueprint-typography-defaults;
 	    .alt{@include alt;}
-		a{@include hover-link;}
+		//a{@include hover-link;}
 		.caps{@include caps;}
 	    #accordion h5{margin-bottom: 0px;}
 	}

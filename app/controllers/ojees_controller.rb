@@ -2,6 +2,29 @@
 class OjeesController < ApplicationController
   before_filter :authenticate_user!
   authorize_resource
+   
+  def edit
+    @oier = Oier.find_by_name(params[:oier_id])
+    @ojee = Ojee.find(params[:id])
+    render :template => "ojees/edit"
+  end
+  
+  def update
+    @ojee = Ojee.find(params[:id])
+    @oier = Oier.find_by_name(params[:oier_id])
+    if @ojee.update_attributes(params[:ojee])
+      redirect_to @oier, :notice => 'OJ Account was successfully updated.'
+    else
+      render :template => "ojees/edit"
+    end
+  end
+  
+  def destroy
+    @oier = Oier.find_by_name(params[:oier_id])
+    ojee = Ojee.find(params[:id])
+    ojee.destroy
+    redirect_to @oier
+  end
   
   def update_stat 
     @oier = Oier.find_by_name(params[:oier_id])
@@ -18,6 +41,7 @@ class OjeesController < ApplicationController
       redirect_to @oier, :alert => msg
     end
   end
+  
   protected
     
     def current_oier?

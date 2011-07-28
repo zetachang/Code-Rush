@@ -35,7 +35,7 @@ Blog::Application.routes.draw do
        match :update_stat, :via => [:get], :on => :member 
      end
 
-     resources :zerojudge_ojees, :expcept => [:index] do
+     resources :zerojudge_ojees, :except => [:index] do
        match :update_stat, :via => [:get], :on => :member 
      end
   end

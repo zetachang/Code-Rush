@@ -1,16 +1,33 @@
 - content_for :javascript do
   = javascript_include_tag "oier.js"
-%aside#sidebar
-  = render "shared/main_user_info"
-%article
-  %h1 OJ Stats for #{@oier.name}
-  -#= render "tioj_stat", :ojee =>@ojee['TIOJ']
 
-  - Ojee::OJ_TYPES.each do |oj|
-    = render oj.downcase + "_stat",:ojee => @ojee[oj]  
-    -#%td= link_to 'Destroy', ojee, :confirm => 'Are you sure?', :method => :delete
+- content_for :sidebar do
+  %ul
+    - menu_for "Main"
+    
 
-  - opts = Ojee::OJ_TYPES.select{|p| [p,p] if not @ojee[p]}
-  - unless opts.blank?
-    = select_tag 'ojtype', options_for_select(opts)
-    = link_to 'New OJ Account', oier_ojees_path(@oier), :id => 'new_oj_link'
+
+#page_user_info
+  .image_field
+    = image_tag @oier.user.gravatar_url(:size => 120), :class => 'gravatar'
+  .stats_field
+    .field
+      %em Name:
+      =link_to "#{@oier.user.username}", current_user.oier 
+    .field
+      %em Reputation: 
+      %b #{rand(100)}
+    .field
+      - Ojee::OJ_TYPES.each do |oj|
+        - if @ojee[oj]
+          .short_stats
+            =link_to "#{oj} (#{@ojee[oj].solved_count})", "##{oj}"
+      
+- Ojee::OJ_TYPES.each do |oj|
+  = render oj.downcase + "_stat",:ojee => @ojee[oj]  
+  -#%td= link_to 'Destroy', ojee, :confirm => 'Are you sure?', :method => :delete
+
+- opts = Ojee::OJ_TYPES.select{|p| [p,p] if not @ojee[p]}
+- unless opts.blank?
+  = select_tag 'ojtype', options_for_select(opts)
+  = link_to 'New OJ Account', oier_ojees_path(@oier), :id => 'new_oj_link'

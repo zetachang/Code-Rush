@@ -1,0 +1,15 @@
+= form_for :ojee, @ojee, :url => [@oier,@ojee], :html => {:method => :put} do |f| 
+  - if @ojee.errors.any? 
+    #error_explanation
+      %h2 #{pluralize(@ojee.errors.count, "error")} prohibited this account from being saved:
+      %ul
+        - @ojee.errors.full_messages.each do |msg| 
+          %li= msg
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :userid, "User Id"
+    = f.text_field :userid
+  .actions
+    = f.submit

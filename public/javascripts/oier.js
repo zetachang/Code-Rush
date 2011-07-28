@@ -1,5 +1,6 @@
 function bindSelected(){
-	var url = $('#ojtype :selected')[0].value.toLowerCase() + '_ojees/new';
+	var url = window.location.pathname + "/" + $('#ojtype :selected')[0].value.toLowerCase() + '_ojees/new';
+	console.log(url);
 	$('a#new_oj_link')[0].href = url;
 }
 $(function(){

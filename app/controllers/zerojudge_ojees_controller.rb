@@ -1,34 +1,18 @@
 class ZerojudgeOjeesController < OjeesController
   def new
-    @oier = Oier.find(params[:oier_id])
-    @zerojudge_ojee = ZerojudgeOjee.new
-  end
-
-  def edit
-    @oier = Oier.find(params[:oier_id])
-    @zerojudge_ojee = ZerojudgeOjee.find(params[:id])
+    @oier = Oier.find_by_name(params[:oier_id])
+    @ojee = ZerojudgeOjee.new
+    render :template => 'ojees/new'
   end
 
   def create
-    @zerojudge_ojee = ZerojudgeOjee.new(params[:zerojudge_ojee])
-    @oier = Oier.find(params[:oier_id])
-    @zerojudge_ojee.oier = @oier
-    if @zerojudge_ojee.save
-      redirect_to( oier_ojees_path(@oier), :notice => 'Your account was successfully created.') 
+    @ojee = ZerojudgeOjee.new(params[:ojee])
+    @oier = Oier.find_by_name(params[:oier_id])
+    @ojee.oier = @oier
+    if @ojee.save
+      redirect_to  @oier, :notice => 'Your account was successfully created.' 
     else
-      render :action => "new"
-    end
-  end
-
-  def update
-    @zerojudge_ojee = ZerojudgeOjee.find(params[:id])
-    @oier = Oier.find(params[:oier_id])
-    respond_to do |format|
-      if @zerojudge_ojee.update_attributes(params[:zerojudge_ojee])
-        format.html { redirect_to(oier_ojees_path(params[:oier_id]), :notice => 'OJ Account was successfully updated.') }
-      else
-        format.html { render :action => "edit" }
-      end
+      render :template => "ojees/new"
     end
   end
 

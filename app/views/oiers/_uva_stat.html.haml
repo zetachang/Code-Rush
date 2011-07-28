@@ -1,15 +1,15 @@
 - if ojee
   = javascript_include_tag "uva.js"
-  .ojstat#uva
-    %h3 UVa Stat
-    %ul
-      %li= ojee.name
-      %li= ojee.userid
-      %li= ojee.solved_count
+  .ojstats#uva
+    .title-bar
+      %h3
+        =link_to "UVa", "#UVa", :name => 'UVa'
+      .options
+        = "#{ojee.solved_count} solved"
     %p 
       - ojee.problems_solved.each do |p|
-        %a{:class => 'prob_link'}= p
+        %a{:class => ['prob_link','noicon']}= p
     - if can? :edit, ojee
       = link_to 'Edit', edit_oier_uva_ojee_path(@oier,ojee)
-    = link_to 'Update', update_stat_oier_uva_ojee_path(@oier,ojee)
+    -#= link_to 'Update', update_stat_oier_uva_ojee_path(@oier,ojee)
     -#= button_to 'Delete', oier_tioj_ojee_path(@oier,ojee), :confirm => "Are you sure?", :method => :delete

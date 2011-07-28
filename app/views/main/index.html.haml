@@ -1,14 +1,9 @@
-%aside#sidebar
-  = render "shared/main_user_info"
+- content_for :sidebar do
   %ul
     - menu_for "Main"
-%article
-  -if notice
-    .notice= notice
-  -if alert
-    .error= alert
-  %h2 Welcome to Code Rush
-  %p This is a site aimed for people who love to do problems solving on computer.
-  You can do code-sharing and discussion on this site.
-  %h3 Latest News
-  %p Code-Rush r2.0 is going to be released. You can go our Github Source to...
+
+%h2 Welcome to Code Rush
+%p This is a site aimed for people who love to do problems solving on computer.
+You can do code-sharing and discussion on this site.
+%h3 Latest News
+%p Code-Rush r2.0 is going to be released. You can go our Github Source to...

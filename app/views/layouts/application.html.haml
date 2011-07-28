@@ -42,6 +42,11 @@
         %aside#sidebar
           = render "shared/main_user_info"
           = yield :sidebar
-        = yield
+        %article
+          - if notice
+            .notice= notice
+          - if alert
+            .alert= alert
+          = yield
       -##footer
-      -#  %p Code Rush Designed by Circ27th, All Right Preserved
+      -#  %p Code Rush Designed by Circ27th, All Right Reserved
