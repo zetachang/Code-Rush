@@ -582,7 +582,7 @@ aside ul {
 /* line 278, ../../app/stylesheets/screen.scss */
 aside ul #sub_menu {
   font-size: 90%;
-  background: #e5ecf9;
+  background: #bbb;
   -moz-border-radius-bottomleft: 5px;
   -webkit-border-bottom-left-radius: 5px;
   -o-border-bottom-left-radius: 5px;
@@ -597,16 +597,21 @@ aside ul #sub_menu {
   border-bottom-right-radius: 5px;
   color: white!important;
 }
-/* line 284, ../../app/stylesheets/screen.scss */
+/* line 282, ../../app/stylesheets/screen.scss */
+aside ul #sub_menu a {
+  color: white!important;
+}
+/* line 287, ../../app/stylesheets/screen.scss */
 aside ul li {
   padding: 0px!important;
   padding-right: 5px!important;
   margin: 0px!important;
 }
-/* line 289, ../../app/stylesheets/screen.scss */
+/* line 292, ../../app/stylesheets/screen.scss */
 aside ul > li.selected {
   border: 1px solid #bbb;
   border-bottom: 0px;
+  font-weight: bold;
   -moz-border-radius-topleft: 5px;
   -webkit-border-top-left-radius: 5px;
   -o-border-top-left-radius: 5px;
@@ -620,19 +625,23 @@ aside ul > li.selected {
   -khtml-border-top-right-radius: 5px;
   border-top-right-radius: 5px;
 }
-
 /* line 296, ../../app/stylesheets/screen.scss */
+aside ul > li.selected a {
+  color: #7f7f7f!important;
+}
+
+/* line 303, ../../app/stylesheets/screen.scss */
 #main-nav {
   display: inline-block;
   font-size: 1.3em;
 }
-/* line 299, ../../app/stylesheets/screen.scss */
+/* line 306, ../../app/stylesheets/screen.scss */
 #main-nav a {
   padding: 5px;
   text-decoration: none;
   color: black;
 }
-/* line 304, ../../app/stylesheets/screen.scss */
+/* line 311, ../../app/stylesheets/screen.scss */
 #main-nav ul {
   list-style: none;
   line-height: 2em;
@@ -640,32 +649,32 @@ aside ul > li.selected {
   margin: 0px;
   border: 0px;
 }
-/* line 310, ../../app/stylesheets/screen.scss */
+/* line 317, ../../app/stylesheets/screen.scss */
 #main-nav ul li {
   display: inline;
   float: left;
   padding-right: 10px;
 }
 
-/* line 317, ../../app/stylesheets/screen.scss */
+/* line 324, ../../app/stylesheets/screen.scss */
 #login-nav {
   position: relative;
   display: inline-block;
   top: 15px;
   float: right;
 }
-/* line 322, ../../app/stylesheets/screen.scss */
+/* line 329, ../../app/stylesheets/screen.scss */
 #login-nav ul {
   list-style: none;
   margin: 0px;
   padding: 0px;
 }
-/* line 326, ../../app/stylesheets/screen.scss */
+/* line 333, ../../app/stylesheets/screen.scss */
 #login-nav ul li {
   display: inline;
 }
 
-/* line 331, ../../app/stylesheets/screen.scss */
+/* line 338, ../../app/stylesheets/screen.scss */
 p.label {
   display: inline-block;
   font-size: 14px;
@@ -680,38 +689,38 @@ p.label {
   -khtml-border-radius: 5px;
   border-radius: 5px;
 }
-/* line 339, ../../app/stylesheets/screen.scss */
+/* line 346, ../../app/stylesheets/screen.scss */
 p.label.Read {
   background: #7E587E;
   color: white;
   text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2);
 }
-/* line 344, ../../app/stylesheets/screen.scss */
+/* line 351, ../../app/stylesheets/screen.scss */
 p.label.Unread {
   background: #B7CEEC;
   color: white;
   text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2);
 }
-/* line 349, ../../app/stylesheets/screen.scss */
+/* line 356, ../../app/stylesheets/screen.scss */
 p.label.UF {
   background: red;
   color: white;
   text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2);
 }
-/* line 354, ../../app/stylesheets/screen.scss */
+/* line 361, ../../app/stylesheets/screen.scss */
 p.label.AC {
   background: #52D017;
   color: white;
   text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2);
 }
-/* line 359, ../../app/stylesheets/screen.scss */
+/* line 366, ../../app/stylesheets/screen.scss */
 p.label.NA {
   background: #82CAFF;
   color: white;
   text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2);
 }
 
-/* line 366, ../../app/stylesheets/screen.scss */
+/* line 373, ../../app/stylesheets/screen.scss */
 body.bp {
   line-height: 1.5;
   font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
@@ -972,14 +981,14 @@ body.bp .removed {
   background: #990000;
   color: white;
 }
-/* line 373, ../../app/stylesheets/screen.scss */
+/* line 380, ../../app/stylesheets/screen.scss */
 body.bp .alt {
   color: #666666;
   font-family: "Warnock Pro", "Goudy Old Style", "Palatino", "Book Antiqua", Georgia, serif;
   font-style: italic;
   font-weight: normal;
 }
-/* line 374, ../../app/stylesheets/screen.scss */
+/* line 381, ../../app/stylesheets/screen.scss */
 body.bp a {
   text-decoration: none;
 }
@@ -987,7 +996,7 @@ body.bp a {
 body.bp a:hover {
   text-decoration: underline;
 }
-/* line 375, ../../app/stylesheets/screen.scss */
+/* line 382, ../../app/stylesheets/screen.scss */
 body.bp .caps {
   font-variant: small-caps;
   letter-spacing: 1px;
@@ -997,7 +1006,7 @@ body.bp .caps {
   font-weight: bold;
   padding: 0 2px;
 }
-/* line 376, ../../app/stylesheets/screen.scss */
+/* line 383, ../../app/stylesheets/screen.scss */
 body.bp #accordion h5 {
   margin-bottom: 0px;
 }

@@ -1,12 +1,9 @@
-%aside#sidebar
+- content_for :sidebar do
   %ul
-    %li
-      %h2 Hi #{current_user.username if user_signed_in? }!! 
-      -# Maybe here should be put some badger, brief stats, etc.
-    %ul
-      - menu_for "Assignments" do    
-        %li= link_to "Current Assignments", "#current_assignments", :class => 'selected'
-        %li= link_to "Past Assignments", "#past_assignments"
+    - menu_for "Assignments" do    
+      %li= link_to "Current Assignments", "#current_assignments", :class => 'selected'
+      %li= link_to "Past Assignments", "#past_assignments"
+
 %article
   - @assignments.each do |assign|
     - class_list = gen_class_list(assign) 

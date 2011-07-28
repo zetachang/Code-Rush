@@ -1,8 +1,5 @@
-%aside#sidebar
+- content_for :sidebar do
   %ul
-    %li
-      %h2 Hi #{current_user.username if user_signed_in? }!! 
-      -# Maybe here should be put some badger, brief stats, etc.
     - menu_for "Code Snippet" do
       %li.selected= link_to "All Codes", codes_path
       %li= link_to "My Codes", :action => 'my_codes'

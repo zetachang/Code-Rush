@@ -38,8 +38,10 @@
               %li= link_to "Sign Out", destroy_user_session_path 
             - else
               %li= link_to "Sign In", new_user_session_path
-              -#%li= link_to "Sign Up", new_user_registration_path
       #page
+        %aside#sidebar
+          = render "shared/main_user_info"
+          = yield :sidebar
         = yield
       -##footer
       -#  %p Code Rush Designed by Circ27th, All Right Preserved

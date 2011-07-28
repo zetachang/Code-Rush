@@ -1,10 +1,6 @@
-%aside#sidebar
+- content_for :sidebar do
   %ul
-    %li
-      %h2 Hi #{current_user.username if user_signed_in? }!! 
-      -# Maybe here should be put some badger, brief stats, etc.
-    %ul
-      - menu_for "Guides"
+    - menu_for "Guides"
 %article
   -if notice
     .notice= notice
