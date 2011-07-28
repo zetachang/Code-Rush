@@ -1,10 +1,7 @@
 %aside#sidebar
+  = render "shared/main_user_info"
   %ul
-    %li
-      %h2 Hi #{current_user.username if user_signed_in? }!! 
-      -# Maybe here should be put some badger, brief stats, etc.
-    %ul
-      - menu_for "Main"
+    - menu_for "Main"
 %article
   -if notice
     .notice= notice

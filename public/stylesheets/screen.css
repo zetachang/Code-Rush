@@ -505,6 +505,41 @@ article > .assignment table.short_stats td {
 }
 
 /* line 233, ../../app/stylesheets/screen.scss */
+#user_info {
+  text-align: left;
+  font-size: 120%;
+  border: 1px solid #bbb;
+  margin-bottom: 10px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -khtml-border-radius: 5px;
+  border-radius: 5px;
+  background: #e5ecf9;
+  -moz-box-shadow: inset 0px 1px 1px #c3d9ff;
+  -webkit-box-shadow: inset 0px 1px 1px #c3d9ff;
+  -o-box-shadow: inset 0px 1px 1px #c3d9ff;
+  box-shadow: inset 0px 1px 1px #c3d9ff;
+}
+/* line 236, ../../app/stylesheets/screen.scss */
+#user_info .image_field {
+  margin: 5px;
+  margin-bottom: 3px;
+  display: inline-block;
+}
+/* line 241, ../../app/stylesheets/screen.scss */
+#user_info .stats_field {
+  margin-top: 0px;
+  margin-left: 0px;
+  display: inline-block;
+}
+/* line 242, ../../app/stylesheets/screen.scss */
+#user_info .stats_field a {
+  font-size: 100%;
+}
+
+/* line 256, ../../app/stylesheets/screen.scss */
 aside {
   margin-top: 0px;
   text-align: right;
@@ -512,7 +547,12 @@ aside {
   padding-right: 0px;
   padding-left: 10px;
 }
-/* line 239, ../../app/stylesheets/screen.scss */
+/* line 262, ../../app/stylesheets/screen.scss */
+aside h2 {
+  margin-bottom: 0px!important;
+  padding-bottom: 0px!important;
+}
+/* line 266, ../../app/stylesheets/screen.scss */
 aside a {
   font-size: 1.1em;
   text-decoration: none!important;
@@ -530,18 +570,16 @@ aside a:hover {
 aside a:active {
   color: black;
 }
-/* line 244, ../../app/stylesheets/screen.scss */
-aside h2, aside h3 {
-  border-bottom: 1px solid #bbb;
-  text-align: left;
-}
-/* line 248, ../../app/stylesheets/screen.scss */
+/* line 271, ../../app/stylesheets/screen.scss */
 aside ul {
+  border-top: 1px solid #bbb;
   list-style: none!important;
   padding: 0px!important;
   margin: 0px!important;
+  margin-top: 10px!important;
+  padding-top: 5px!important;
 }
-/* line 252, ../../app/stylesheets/screen.scss */
+/* line 278, ../../app/stylesheets/screen.scss */
 aside ul #sub_menu {
   font-size: 90%;
   background: #e5ecf9;
@@ -559,13 +597,13 @@ aside ul #sub_menu {
   border-bottom-right-radius: 5px;
   color: white!important;
 }
-/* line 258, ../../app/stylesheets/screen.scss */
+/* line 284, ../../app/stylesheets/screen.scss */
 aside ul li {
   padding: 0px!important;
   padding-right: 5px!important;
   margin: 0px!important;
 }
-/* line 263, ../../app/stylesheets/screen.scss */
+/* line 289, ../../app/stylesheets/screen.scss */
 aside ul > li.selected {
   border: 1px solid #bbb;
   border-bottom: 0px;
@@ -583,18 +621,18 @@ aside ul > li.selected {
   border-top-right-radius: 5px;
 }
 
-/* line 270, ../../app/stylesheets/screen.scss */
+/* line 296, ../../app/stylesheets/screen.scss */
 #main-nav {
   display: inline-block;
   font-size: 1.3em;
 }
-/* line 273, ../../app/stylesheets/screen.scss */
+/* line 299, ../../app/stylesheets/screen.scss */
 #main-nav a {
   padding: 5px;
   text-decoration: none;
   color: black;
 }
-/* line 278, ../../app/stylesheets/screen.scss */
+/* line 304, ../../app/stylesheets/screen.scss */
 #main-nav ul {
   list-style: none;
   line-height: 2em;
@@ -602,32 +640,32 @@ aside ul > li.selected {
   margin: 0px;
   border: 0px;
 }
-/* line 284, ../../app/stylesheets/screen.scss */
+/* line 310, ../../app/stylesheets/screen.scss */
 #main-nav ul li {
   display: inline;
   float: left;
   padding-right: 10px;
 }
 
-/* line 291, ../../app/stylesheets/screen.scss */
+/* line 317, ../../app/stylesheets/screen.scss */
 #login-nav {
   position: relative;
   display: inline-block;
   top: 15px;
   float: right;
 }
-/* line 296, ../../app/stylesheets/screen.scss */
+/* line 322, ../../app/stylesheets/screen.scss */
 #login-nav ul {
   list-style: none;
   margin: 0px;
   padding: 0px;
 }
-/* line 300, ../../app/stylesheets/screen.scss */
+/* line 326, ../../app/stylesheets/screen.scss */
 #login-nav ul li {
   display: inline;
 }
 
-/* line 305, ../../app/stylesheets/screen.scss */
+/* line 331, ../../app/stylesheets/screen.scss */
 p.label {
   display: inline-block;
   font-size: 14px;
@@ -642,38 +680,38 @@ p.label {
   -khtml-border-radius: 5px;
   border-radius: 5px;
 }
-/* line 313, ../../app/stylesheets/screen.scss */
+/* line 339, ../../app/stylesheets/screen.scss */
 p.label.Read {
   background: #7E587E;
   color: white;
   text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2);
 }
-/* line 318, ../../app/stylesheets/screen.scss */
+/* line 344, ../../app/stylesheets/screen.scss */
 p.label.Unread {
   background: #B7CEEC;
   color: white;
   text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2);
 }
-/* line 323, ../../app/stylesheets/screen.scss */
+/* line 349, ../../app/stylesheets/screen.scss */
 p.label.UF {
   background: red;
   color: white;
   text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2);
 }
-/* line 328, ../../app/stylesheets/screen.scss */
+/* line 354, ../../app/stylesheets/screen.scss */
 p.label.AC {
   background: #52D017;
   color: white;
   text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2);
 }
-/* line 333, ../../app/stylesheets/screen.scss */
+/* line 359, ../../app/stylesheets/screen.scss */
 p.label.NA {
   background: #82CAFF;
   color: white;
   text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2);
 }
 
-/* line 340, ../../app/stylesheets/screen.scss */
+/* line 366, ../../app/stylesheets/screen.scss */
 body.bp {
   line-height: 1.5;
   font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
@@ -934,14 +972,14 @@ body.bp .removed {
   background: #990000;
   color: white;
 }
-/* line 347, ../../app/stylesheets/screen.scss */
+/* line 373, ../../app/stylesheets/screen.scss */
 body.bp .alt {
   color: #666666;
   font-family: "Warnock Pro", "Goudy Old Style", "Palatino", "Book Antiqua", Georgia, serif;
   font-style: italic;
   font-weight: normal;
 }
-/* line 348, ../../app/stylesheets/screen.scss */
+/* line 374, ../../app/stylesheets/screen.scss */
 body.bp a {
   text-decoration: none;
 }
@@ -949,7 +987,7 @@ body.bp a {
 body.bp a:hover {
   text-decoration: underline;
 }
-/* line 349, ../../app/stylesheets/screen.scss */
+/* line 375, ../../app/stylesheets/screen.scss */
 body.bp .caps {
   font-variant: small-caps;
   letter-spacing: 1px;
@@ -959,7 +997,7 @@ body.bp .caps {
   font-weight: bold;
   padding: 0 2px;
 }
-/* line 350, ../../app/stylesheets/screen.scss */
+/* line 376, ../../app/stylesheets/screen.scss */
 body.bp #accordion h5 {
   margin-bottom: 0px;
 }

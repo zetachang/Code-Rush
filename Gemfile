@@ -1,5 +1,6 @@
 source 'http://rubygems.org'
 
+gem 'gravtastic'
 gem 'albino'
 gem 'nokogiri'
 gem "redcarpet"
