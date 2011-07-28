@@ -47,4 +47,9 @@ class AssignmentsController < ApplicationController
     @assignment.destroy
     redirect_to :action => "index" 
   end
+  
+  def assigned_to_me
+    @assignment = current_oier.assignment.select{|a| a.due_time > DateTime.now}
+    render :action => 'index'
+  end
 end

@@ -12,5 +12,8 @@ class Oier < ActiveRecord::Base
     end
     hash
   end
-
+  
+  def to_param
+    self.name.parameterize
+  end
 end

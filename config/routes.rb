@@ -20,7 +20,7 @@ Blog::Application.routes.draw do
   end
   resources :oiers do
      match :update_all, :via => [:get], :on => :collection
-     resources :ojees #:only => [:index] 
+     resources :ojees, :except => [:index] 
 
      resources :tioj_ojees, :except => [:index] do 
        match :update_stat, :via => [:get], :on => :member
@@ -50,6 +50,7 @@ Blog::Application.routes.draw do
       match :hand_in, :via => [:post], :on => :member  
     end
     resources :assign_items
+    get 'assigned_to_me', :on => :collection
   end
   
   post "books/borrow_book"

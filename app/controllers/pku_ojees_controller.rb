@@ -39,10 +39,4 @@ class PkuOjeesController < OjeesController
     redirect_to oier_ojees_path(@oier)
   end
 
-  def update_stat
-    pku_ojee = PkuOjee.find(params[:id])
-    pku_ojee.update_stat
-    pku_ojee.save
-    redirect_to oier_ojees_path(params[:oier_id])
-  end
 end

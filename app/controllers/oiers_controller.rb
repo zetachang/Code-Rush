@@ -12,12 +12,8 @@ class OiersController < ApplicationController
 
   # GET /oiers/1
   def show
-    @oier = Oier.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @oier }
-    end
+    @oier = Oier.find_by_name(params[:id])
+    @ojee = @oier.ojee    
   end
 
   # GET /oiers/new
@@ -27,7 +23,7 @@ class OiersController < ApplicationController
 
   # GET /oiers/1/edit
   def edit
-    @oier = Oier.find(params[:id])
+    @oier = Oier.find_by_name(params[:id])
   end
 
   # POST /oiers
@@ -38,11 +34,9 @@ class OiersController < ApplicationController
     
     respond_to do |format|
       if @oier.save
-        format.html { redirect_to(@oier, :notice => 'Oier was successfully created.') }
-        format.xml  { render :xml => @oier, :status => :created, :location => @oier }
+        redirect_to(@oier, :notice => 'Oier was successfully created.') 
       else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @oier.errors, :status => :unprocessable_entity }
+        render :action => "new"
       end
     end
   end
@@ -50,7 +44,7 @@ class OiersController < ApplicationController
   # PUT /oiers/1
   # PUT /oiers/1.xml
   def update
-    @oier = Oier.find(params[:id])
+    @oier = Oier.find_by_name(params[:id])
 
     respond_to do |format|
       if @oier.update_attributes(params[:oier])

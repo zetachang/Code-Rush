@@ -40,21 +40,5 @@ class TiojOjeesController < OjeesController
     @tioj_ojee.destroy
     redirect_to oier_ojees_path(@oier)
   end
-
-  def update_stat
-    tioj_ojee = TiojOjee.find(params[:id])
-    if tioj_ojee.update_stat
-      tioj_ojee.save
-      redirect_to oier_ojees_path(params[:oier_id])
-    else
-      msg = <<-EOF
-        The updating failed. The reasons may be:
-        (1) Your account info provided may be wrong.
-        (2) The server side parsing problems. Contact the admin.
-      EOF
-      redirect_to oier_ojees_path(params[:oier_id]), :alert => msg
-    end
-  end
   
-
 end

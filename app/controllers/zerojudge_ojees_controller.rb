@@ -38,19 +38,4 @@ class ZerojudgeOjeesController < OjeesController
     @zerojudge_ojee.destroy
     redirect_to oier_ojees_path(@oier)
   end
-
-  def update_stat
-    zerojudge_ojee = ZerojudgeOjee.find(params[:id])
-    if zerojudge_ojee.update_stat
-      zerojudge_ojee.save
-      redirect_to oier_ojees_path(params[:oier_id]), :notice => "Stats successfully updated!" 
-    else
-      msg = <<-EOF
-        The updating failed. The reasons may be:
-        (1) Your account info provided may be wrong.
-        (2) The server side parsing problems. Contact the admin.
-      EOF
-      redirect_to oier_ojees_path(params[:oier_id]), :alert => msg
-    end
-  end
 end

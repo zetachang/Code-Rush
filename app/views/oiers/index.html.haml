@@ -1,12 +1,9 @@
 %aside#sidebar
+  %h2 Hi #{current_user.username if user_signed_in? }!! 
   %ul
-    %li
-      %h2 Hi #{current_user.username if user_signed_in? }!! 
-      -# Maybe here should be put some badger, brief stats, etc.
-    %ul
-      - menu_for "Oier Rank" do
-        %li= link_to "PSCD Oier", oiers_path, :class => 'selected'
-        %li= link_to "My Oier Stats"
+    - menu_for "Oier Rank" do
+      %li= link_to "PSCD Oier", oiers_path, :class => 'selected'
+      %li= link_to "My Oier Stats"
 %article
   %h2 Oier in PSCD
   / TODO Modify the title of each page to the side bar 
@@ -19,6 +16,6 @@
     %tbody
       - @oiers.each do |oier| 
         %tr{:class => cycle('odd','even')}
-          %td= link_to "#{oier.name}", oier_ojees_path(oier) 
+          %td= link_to "#{oier.name}", oier 
           - Ojee::OJ_TYPES.each do |ojtype|
             %td= ojee_for(oier,ojtype).solved_count != 0 ? ojee_for(oier,ojtype).solved_count : 'N/A'      
