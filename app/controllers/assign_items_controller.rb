@@ -1,27 +1,29 @@
 class AssignItemsController < ApplicationController
   load_resource :instance_name => :item, :class => AssignItem 
-  authorize_resource :instance_name => :item, :class => AssignItem 
+  authorize_resource :instance_name => :item, :class => AssignItem, :except => [:new, :create]
+   
   def new
-    #@item = AssignItem.new
     @assignment = Assignment.find(params[:assignment_id])
-    #flash.now.notice = @assignment.title
+    if @assignment.setter != current_user.username
+      redirect_to :root, :alert => 'Permission Denied'
+    end
   end
   
   def destroy
     @assignment = Assignment.find(params[:assignment_id])
-    #@item = AssignItem.find(params[:id])
     @item.destroy
     redirect_to @assignment
   end
   
   
   def show
-    #@item = AssignItem.find(params[:id])  
   end
   
   def create
-    #@item = AssignItem.new(params[:id])
     @assignment = Assignment.find(params[:assignment_id])
+    if @assignment.setter != current_user.username
+      redirect_to :root, :alert => 'Permission Denied'
+    end
     @assignment.items << @item
     if @item.save
       flash[:notice] = 'Item was successfully created.'
@@ -56,25 +58,13 @@ class AssignItemsController < ApplicationController
   end
   
   def hand_in
-    if @item.assign_type == 'CODE'
-      #find if there exist a code first
-      @code ||= @item.codes.find_by_creator(current_oier.name)
-      if not @code
-        @code = Code.create(:title => @item.title, :description => @item.description, :creator => current_oier.name)      
-        @item.codes << @code 
-      end
-      render "hand_in_code"
-    elsif @item.assign_type == 'TEXT'
-      @tutorial = @item.tutorial 
-      if @tutorial.reader_list.include?(current_oier.name)
-        flash.now[:notice] = "You have already handed in this item!"
-      else
-        @tutorial.reader_list.push(current_oier.name)
-        @tutorial.save
-      end
-      render 'tutorials/show'
+    @code ||= @item.codes.find_by_oier_id(current_oier)
+    unless @code
+      @code = Code.create(:title => @item.title, :description => @item.description, :oier => current_oier)      
+      @code.tag_list << @item.ojtype << @item.ojtype + @item.prob_num
+      @item.codes << @code 
     end
-    
+    render :template => 'codes/edit'
   end
 
 end

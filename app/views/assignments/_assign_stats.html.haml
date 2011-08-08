@@ -1,20 +1,25 @@
-%table
-  %tr
-    %td
-      -@assigned_to.each do |oier|
-        %td= oier.name
-    -@items.each do |item|
-      %tr
-        %td= item.short_name
+.assign_stats
+  %table
+    %tr
+      %td
         -@assigned_to.each do |oier|
-          -status = item.status_by(oier)
-          %td
-            %p{:class =>['label',status]}= status 
-
-%p.label.AC AC
-Accepted by OJ
-%p.label.UF UF
-Uploaded but Failed
-%p.label.NA NA
-Nothing Available
-%br
+          %td=link_to oier.name, oier
+      -@items.each do |item|
+        %tr
+          %td= item.short_name
+          -@assigned_to.each do |oier|
+            -status = item.status_of(oier)
+            %td
+              %p{:class =>['label',status]}= status 
+  .intro_of_label
+    %p.label.AC AC
+    %em Accepted by OJ
+    %p.label.UF UF
+    %em Uploaded but Failed
+    %br
+    %br
+    %p.label.NA NA
+    %em Nothing Available
+    %p.label.SE SE
+    %em Synchronization Error
+    %br

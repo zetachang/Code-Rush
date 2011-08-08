@@ -54,4 +54,8 @@ module ApplicationHelper
       end
     end
   end
+  
+  def current_oier
+    current_user.oier
+  end
 end

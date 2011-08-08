@@ -7,25 +7,18 @@ class AssignItem < ActiveRecord::Base
   ASSIGN_TYPES = ['CODE','TEXT']
   ASSIGN_MAP = {'CODE' => 'code', 'TEXT' => 'tutorial'} 
   
-  def short_name
-    #return self.ojtype + self.number
-    if self.assign_type == 'CODE'
-      return self.ojtype + self.number
-    elsif self.assign_type == 'TEXT'
-      return 'TEXT'
-    end
+  
+  
+  def assignment_name
+    self.assignment.title
   end
   
-  def status_by(oier)
-    if self.assign_type == 'CODE'
-      return self.codes.find_by_creator(oier.name).try(:status) || 'NA'
-    elsif self.assign_type == 'TEXT'
-      if self.tutorial.reader_list.include?(oier.name)
-        return 'Read'
-      else
-        return 'Unread'
-      end
-    end
+  def short_name
+    self.ojtype + self.prob_num
+  end
+  
+  def status_of(oier)
+    self.codes.find_by_oier_id(oier).try(:status) || 'NA'
   end
 
   def handed_in_by?(oier)

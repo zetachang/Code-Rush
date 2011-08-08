@@ -19,6 +19,11 @@ class Assignment < ActiveRecord::Base
       errors.add(:assigned_to, "should not be assigned to youself") 
     end
   end
+  
+  def assigned_to?(oier)
+    self.assigned_to.include?(oier)
+  end
+  
   def locked?
     if self.due_time < DateTime.now
       return true

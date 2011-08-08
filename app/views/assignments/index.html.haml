@@ -4,27 +4,17 @@
       %li= link_to "Current Assignments", "#current_assignments", :class => 'selected'
       %li= link_to "Past Assignments", "#past_assignments"
 
-%article
-  - @assignments.each do |assign|
-    - class_list = gen_class_list(assign) 
-    %div{:class => ["assignment"] + class_list}
-      .title-bar
-        %h3=link_to assign.title, assign
-        .due-time
-          -if assign.due?
-            %em= "Already Ended"
-          -else
-            %em= "Ended in #{distance_of_time_in_words_to_now(assign.due_time)}"
-      %table.short_stats
-        %tbody
-          - assign.assigned_to.each do |oier|
-            %tr
-              %th= oier.name
-              %td
-                -assign.items.each do |item|
-                  -status = item.status_by(oier)
-                  - unless status == 'Unread' || status == 'NA'
-                    %p{:class =>['label',status]}= status
-      - if can? :destroy, assign
-        %td= link_to "Delete this assignment", assign, :confirm => 'Are you sure?', :method => :delete
-  = link_to "Create New" , new_assignment_path
+- @assignments.each do |assign|
+  - class_list = gen_class_list(assign) 
+  %div{:class => ["assignment"] + class_list}
+    .title-bar
+      %h3=link_to assign.title, assign
+      .due-time
+        -if assign.due?
+          %em= "Already Ended"
+        -else
+          %em= "Ended in #{distance_of_time_in_words_to_now(assign.due_time)}"
+    %p= truncate(assign.description, :length => 280)
+    - if can? :destroy, assign
+      %td= link_to "Delete this assignment", assign, :confirm => 'Are you sure?', :method => :delete
+= link_to "Create New" , new_assignment_path

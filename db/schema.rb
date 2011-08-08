@@ -10,18 +10,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110728090243) do
+ActiveRecord::Schema.define(:version => 20110808124646) do
 
   create_table "assign_items", :force => true do |t|
-    t.string   "assign_type"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "assign_id"
     t.string   "title"
-    t.text     "options"
+    t.text     "tags"
     t.text     "description"
     t.string   "ojtype"
-    t.string   "number"
+    t.string   "prob_num"
   end
 
   create_table "assigned_ships", :force => true do |t|
@@ -37,16 +36,17 @@ ActiveRecord::Schema.define(:version => 20110728090243) do
     t.string   "setter"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "description"
   end
 
   create_table "codes", :force => true do |t|
     t.string   "title"
-    t.string   "creator"
     t.text     "source"
     t.text     "description"
     t.integer  "item_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "oier_id"
   end
 
   create_table "comments", :force => true do |t|

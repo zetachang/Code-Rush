@@ -21,7 +21,8 @@ class Ability
     can :read, Assignment
     can :create, Assignment 
     can :modify, Assignment, :setter => user.username
-    can :manage, AssignItem, :assignment => {:setter => user.username} 
+    can :read, AssignItem
+    can :modify, AssignItem, :assignment => {:setter => user.username} 
     
     #About Code Handling
     can :read, Code

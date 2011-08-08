@@ -18,7 +18,7 @@
 @import "blueprint/interaction";
 @import "blueprint/fancy-type";
 
-@mixin title-bar {
+@mixin title-bar($options_color: red){
     h3{
         display: inline-block;
         margin: 0px;
@@ -29,7 +29,8 @@
     }
     .options{
         float: right;
-        color: red;
+        text-align: right;
+        color: $options_color;
     }
     padding-bottom: 5px;
     border-bottom: 1px solid #ddd;
@@ -92,13 +93,15 @@
 	    padding-top: 20px;
 	    border-top: 1px solid #bbb;
 	}
+	#page > article .title-bar{
+	    @include title-bar(black);
+	}
     .ui-autocomplete{
 	    list-style: none!important;
 	    margin: 0px!important;
 	    padding: 0px!important;
 	    font-size: 90%!important;
 	}
-	
 	//form{
 	//    margin: 5px;
     //	padding: 9px;
@@ -224,7 +227,22 @@
             width: 100%;
         }
     }
-    
+    .assign_items_table {
+        border-bottom: 1px solid #bbb;
+        padding-bottom: 5px;
+    }
+    .assign_stats {
+        border: 1px solid #d5e3f0;
+        margin-top: 10px;
+        padding: 10px;
+        background: #f8fcfe;
+        @include border-radius(5px);
+        .intro_of_label {
+            padding: 5px;
+            padding-top: 10px;
+            border-top: 1px solid #d5e3f0;
+        }
+    }
 	article > .assignment{
 	    .title-bar{
 	        h3{
@@ -432,6 +450,11 @@
 			background: #82CAFF;
 			color: white;
 			text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2);
+		}
+		&.SE {
+		    background: black;
+		    color: white;
+		    text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2);
 		}
 	}
 	body.bp{
