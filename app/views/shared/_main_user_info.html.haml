@@ -10,3 +10,8 @@
       = link_to "c#{code_num}", my_codes_codes_path
       - assign_num = current_user.oier.assignment.select{|a|a.due_time > DateTime.now}.size
       = link_to "a#{assign_num}", assigned_to_me_assignments_path
+  - else
+    .image_field
+      = image_tag User.new.gravatar_url(:size => 40), :class => 'gravatar'
+    .stats_field
+      Welcome!
