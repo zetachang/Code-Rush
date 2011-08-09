@@ -4,8 +4,6 @@
 - content_for :sidebar do
   %ul
     - menu_for "Main"
-    
-
 
 #page_user_info
   .image_field
@@ -23,10 +21,10 @@
             =link_to "#{oj} (#{@ojee[oj].solved_count})", "##{oj}"
       
 - Ojee::OJ_TYPES.each do |oj|
-  = render oj.downcase + "_stat",:ojee => @ojee[oj]  
-  -#%td= link_to 'Destroy', ojee, :confirm => 'Are you sure?', :method => :delete
+  - if @ojee[oj]
+    = render oj.downcase + "_stat",:ojee => @ojee[oj]  
 
 - opts = Ojee::OJ_TYPES.select{|p| [p,p] if not @ojee[p]}
 - unless opts.blank?
   = select_tag 'ojtype', options_for_select(opts)
-  = link_to 'New OJ Account', oier_ojees_path(@oier), :id => 'new_oj_link'
+  = link_to 'New OJ Account', new_oier_ojee_path(@oier), :id => 'new_oj_link'

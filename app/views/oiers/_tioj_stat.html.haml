@@ -1,13 +1,13 @@
-- if ojee
-  = javascript_include_tag "tioj.js"
-  .ojstats#tioj
-    .title-bar
-      %h3
-        =link_to "TIOJ", "#TIOJ", :name => 'TIOJ'
-      .options
-        = "#{ojee.solved_count} solved"
-    %p 
-      - ojee.problems_solved.each do |p|
-        %a{:class => ['prob_link','noicon']}= p
-    -#- if can? :edit , ojee
-    = link_to 'Edit', edit_oier_tioj_ojee_path(@oier,ojee) 
+= javascript_include_tag "tioj.js"
+.ojstats#tioj
+  .title-bar
+    %h3
+      =link_to "TIOJ", "#TIOJ", :name => 'TIOJ'
+    .options
+      = "#{ojee.solved_count} solved"
+  %p 
+    - ojee.problems_solved.each do |p|
+      %a{:class => ['prob_link','noicon']}= p
+  -#- if can? :edit , ojee
+  = link_to 'Edit', edit_oier_ojee_path(@oier,ojee)
+  = link_to 'Delete', oier_ojee_path(@oier,ojee), :confirm => 'Are you sure?', :method => :delete 

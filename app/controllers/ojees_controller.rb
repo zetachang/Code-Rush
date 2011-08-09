@@ -1,28 +1,55 @@
 
-class OjeesController < ApplicationController
+class OjeesController < ApplicationController 
   before_filter :authenticate_user!
   authorize_resource
-   
+  
+  def new
+    @oier = Oier.find_by_name(params[:oier_id])
+    ojtype = params[:ojtype]
+    if Ojee::OJ_TYPES.include?(ojtype)      
+      @ojee = Ojee::OJ_MAP[ojtype].constantize.new
+    else
+      redirect_to @oier, :alert => 'This OJ type is not supported.'
+    end
+  end
+
+  def create
+    @oier = Oier.find_by_name(params[:oier_id])
+    if Ojee::TYPES.include?(params[:type])
+      @ojee = params[:type].constantize.new(params[:ojee])
+      # ojtype => type, so this step will find the ojtype of the corresponding type
+      @ojee.ojtype = Ojee::OJ_MAP.find{|p| p.second == params[:type]}.first
+    else
+      redirect_to @oier, :alert => 'This OJ type is not supported.'
+    end
+    
+    if @ojee.save
+      @oier.ojees << @ojee
+      redirect_to @oier, :notice => 'OJ Account successfully created.'
+    else
+      render :action => :new
+    end
+  end
+
   def edit
     @oier = Oier.find_by_name(params[:oier_id])
-    @ojee = Ojee.find(params[:id])
-    render :template => "ojees/edit"
+    @ojee = @oier.ojees.find_by_ojtype(params[:id])
   end
   
   def update
-    @ojee = Ojee.find(params[:id])
     @oier = Oier.find_by_name(params[:oier_id])
+    @ojee = @oier.ojees.find_by_ojtype(params[:id])
     if @ojee.update_attributes(params[:ojee])
       redirect_to @oier, :notice => 'OJ Account was successfully updated.'
     else
-      render :template => "ojees/edit"
+      render :action => :edit
     end
   end
   
   def destroy
     @oier = Oier.find_by_name(params[:oier_id])
-    ojee = Ojee.find(params[:id])
-    ojee.destroy
+    @ojee = Ojee.find_by_ojtype(params[:id])
+    @ojee.destroy
     redirect_to @oier
   end
   
@@ -41,12 +68,4 @@ class OjeesController < ApplicationController
       redirect_to @oier, :alert => msg
     end
   end
-  
-  protected
-    
-    def current_oier?
-      if not current_user.oier or current_user.oier != Oier.find(params[:oier_id])
-        redirect_to oier_ojees_path(@oier), :alert => "Permission Denied!!"
-      end
-    end
 end

@@ -1,15 +1,13 @@
-- if ojee
-  = javascript_include_tag "pku.js"
-  .ojstats#pku
-    .title-bar
-      %h3
-        =link_to "PKU", "#PKU", :name => 'PKU'
-      .options
-        = "#{ojee.solved_count} solved"
-    %p 
-      - ojee.problems_solved.each do |p|
-        %a{:class => ['prob_link','noicon']}= p
-    - if can? :edit, ojee
-      = link_to 'Edit',edit_oier_pku_ojee_path(@oier,ojee)
-    -#= link_to 'Update', update_stat_oier_pku_ojee_path(@oier,ojee)
-    -#= button_to 'Delete', oier_pku_ojee_path(@oier,ojee), :confirm => "Are you sure?", :method => :delete
+= javascript_include_tag "pku.js"
+.ojstats#pku
+  .title-bar
+    %h3
+      =link_to "PKU", "#PKU", :name => 'PKU'
+    .options
+      = "#{ojee.solved_count} solved"
+  %p 
+    - ojee.problems_solved.each do |p|
+      %a{:class => ['prob_link','noicon']}= p
+    -#- if can? :edit, ojee
+  = link_to 'Edit',edit_oier_ojee_path(@oier,ojee)
+  = link_to 'Delete', oier_ojee_path(@oier,ojee), :confirm => "Are you sure?", :method => :delete

@@ -19,25 +19,10 @@ Blog::Application.routes.draw do
     get :all_tags, :on => :collection
     get :my_codes, :on => :collection
   end
+  
   resources :oiers do
      match :update_all, :via => [:get], :on => :collection
      resources :ojees, :except => [:index] 
-
-     resources :tioj_ojees, :except => [:index] do 
-       match :update_stat, :via => [:get], :on => :member
-     end
-
-     resources :pku_ojees, :except => [:index] do
-       match :update_stat, :via => [:get], :on => :member 
-     end
-
-     resources :uva_ojees, :except => [:index] do
-       match :update_stat, :via => [:get], :on => :member 
-     end
-
-     resources :zerojudge_ojees, :except => [:index] do
-       match :update_stat, :via => [:get], :on => :member 
-     end
   end
  
   

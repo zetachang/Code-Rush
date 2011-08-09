@@ -2,8 +2,16 @@ class Ojee < ActiveRecord::Base
   belongs_to :oier
   serialize :problems_solved
   validates_presence_of :name
-  OJ_TYPES = ['TIOJ','UVa','PKU','ZeroJudge']
-  OJ_MAP ={'TIOJ' => 'TiojOjee', 'UVa' => 'UvaOjee', 'PKU' => 'PkuOjee', 'ZeroJudge' => 'ZerojudgeOjee'}
+  validate :ojee_should_not_be_duplicated
+  OJ_TYPES = ['TIOJ', 'UVa', 'PKU', 'ZeroJudge']
+  TYPES = ['TiojOjee', 'UvaOjee', 'PkuOjee', 'ZerojudgeOjee']
+  OJ_MAP ={'TIOJ' => 'TiojOjee', 'UVa' => 'UvaOjee',
+           'PKU' => 'PkuOjee', 'ZeroJudge' => 'ZerojudgeOjee'}
+  
+  def ojee_should_not_be_duplicated
+    #TODO
+  end
+  
   def problems_solved
     self[:problems_solved] || []
   end
@@ -12,6 +20,9 @@ class Ojee < ActiveRecord::Base
     problems_solved.length
   end
   
+  def to_param
+    self.ojtype
+  end
   private
   
   def random_problem

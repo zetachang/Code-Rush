@@ -1,6 +1,6 @@
 - content_for :sidebar do
   %ul
     %li=link_to "<< Back", @oier
-%article
-  %h2 Edit Online Judge Account
-  = render "ojees/#{@ojee[:type].tableize}/form"
+
+%h2 Edit Online Judge Account
+= render "ojees/#{@ojee[:type].tableize}/form_edit"

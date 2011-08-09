@@ -1,13 +1,12 @@
 function bindSelected(){
-	var url = window.location.pathname + "/" + $('#ojtype :selected')[0].value.toLowerCase() + '_ojees/new';
-	console.log(url);
+	var url = $('a#new_oj_link').data('org_url') + "?ojtype=" + $('#ojtype :selected')[0].value;
 	$('a#new_oj_link')[0].href = url;
 }
 $(function(){
-	// TIOJ => oiers/1/tioj_ojees/new
-	// UVa => oier/1/uva_ojees/new
-	// PKu => oier/
+    // TIOJ => oiers/zeta/ojees/new?ojtype=TIOJ
+	// UVa => oier/zeta/ojees/new?ojtype=UVa
 	if($('#ojtype').length >0 ){
+	    $('a#new_oj_link').data('org_url', $('a#new_oj_link')[0].href);
 		bindSelected();
 		$('#ojtype').change(bindSelected);
 	}

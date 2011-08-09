@@ -1,15 +1,12 @@
-- if ojee
-  = javascript_include_tag "zerojudge.js"
-  .ojstats#zerojudge
-    .title-bar
-      %h3
-        =link_to "ZeroJudge", "#ZeroJudge", :name => 'ZeroJudge'
-      .options
-        = "#{ojee.solved_count} solved"
-    %p 
-      - ojee.problems_solved.each do |p|
-        %a{:class => ['prob_link','noicon']}= p
-    - if can? :edit, ojee
-      = link_to 'Edit', edit_oier_zerojudge_ojee_path(@oier,ojee)
-    -#= link_to 'Update', update_stat_oier_zerojudge_ojee_path(@oier,ojee)
-    -#= button_to 'Delete', oier_tioj_ojee_path(@oier,ojee), :confirm => "Are you sure?", :method => :delete
+= javascript_include_tag "zerojudge.js"
+.ojstats#zerojudge
+  .title-bar
+    %h3
+      =link_to "ZeroJudge", "#ZeroJudge", :name => 'ZeroJudge'
+    .options
+      = "#{ojee.solved_count} solved"
+  %p 
+    - ojee.problems_solved.each do |p|
+      %a{:class => ['prob_link','noicon']}= p
+  = link_to 'Edit', edit_oier_ojee_path(@oier,ojee)
+  = link_to 'Delete', oier_ojee_path(@oier,ojee), :confirm => "Are you sure?", :method => :delete
