@@ -3,13 +3,16 @@ class Ojee < ActiveRecord::Base
   serialize :problems_solved
   validates_presence_of :name
   validate :ojee_should_not_be_duplicated
+  attr_protected :ojtype
   OJ_TYPES = ['TIOJ', 'UVa', 'PKU', 'ZeroJudge']
   TYPES = ['TiojOjee', 'UvaOjee', 'PkuOjee', 'ZerojudgeOjee']
   OJ_MAP ={'TIOJ' => 'TiojOjee', 'UVa' => 'UvaOjee',
            'PKU' => 'PkuOjee', 'ZeroJudge' => 'ZerojudgeOjee'}
   
   def ojee_should_not_be_duplicated
-    #TODO
+    if self.oier.ojees.find_by_ojtype(self.ojtype)
+      errors.add(:ojtype,"should not be duplicated.")
+    end
   end
   
   def problems_solved
