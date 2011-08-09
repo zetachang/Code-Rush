@@ -56,6 +56,6 @@ module ApplicationHelper
   end
   
   def current_oier
-    current_user.oier
+    current_user.try(:oier)
   end
 end

@@ -11,33 +11,36 @@ class Ability
     # edit -> _form.html -> update 
     # new -> _form.html -> create
     # destroy 
+    
     user ||= User.new # guest user (not logged in)
     
     if user.admin?
       can :manage, :all
     end   
     
-    #About Assignment Handling
-    can :read, Assignment
-    can :create, Assignment 
-    can :modify, Assignment, :setter => user.username
-    can :read, AssignItem
-    can :modify, AssignItem, :assignment => {:setter => user.username} 
-    
-    #About Code Handling
-    can :read, Code
-    can :modify, Code, :creator => user.oier.try(:name)
-    #can :creat_comment, Code
     if user.is_oier?
+      #About Assignment Handling
+      can :read, Assignment
+      can :create, Assignment 
+      can :modify, Assignment, :setter => user.username
+      can :read, AssignItem
+      can :modify, AssignItem, :assignment => {:setter => user.username} 
+    
+      #About Code Handling
+      can :read, Code
+      can :modify, Code, :creator => user.oier.try(:name)
+    
       # Create his own code snippet
       can :create, Code
       can :all_tags, Code
+    
       # Managing his own Ojee items
-      can :manage, [Ojee, TiojOjee, UvaOjee, PkuOjee, ZerojudgeOjee], :oier_id => :oier_id
+      can :create, [TiojOjee, PkuOjee, UvaOjee, ZerojudgeOjee]
+      can :modify, [TiojOjee, PkuOjee, UvaOjee, ZerojudgeOjee], :oier_id => user.oier.id
+      
       can :hand_in, AssignItem do |item| 
         item.assignment.assigned_to.include?(user.oier)
       end
-    end
-   
+    end   
   end
 end

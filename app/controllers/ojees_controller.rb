@@ -1,7 +1,11 @@
 class OjeesController < ApplicationController 
   before_filter :authenticate_user!
-  authorize_resource
-  
+  before_filter :must_be_the_current_oier
+  authorize_resource :instance_name => :ojee, :class => TiojOjee
+  authorize_resource :instance_name => :ojee, :class => PkuOjee
+  authorize_resource :instance_name => :ojee, :class => UvaOjee
+  authorize_resource :instance_name => :ojee, :class => ZerojudgeOjee
+
   def new
     @oier = Oier.find_by_name(params[:oier_id])
     ojtype = params[:ojtype]
@@ -16,6 +20,7 @@ class OjeesController < ApplicationController
     @oier = Oier.find_by_name(params[:oier_id])
     if Ojee::TYPES.include?(params[:type])
       @ojee = params[:type].constantize.new(params[:ojee])
+      @ojee.oier = @oier
       # ojtype => type, so this step will find the ojtype of the corresponding type
       @ojee.ojtype = Ojee::OJ_MAP.find{|p| p.second == params[:type]}.first
     else
@@ -67,4 +72,13 @@ class OjeesController < ApplicationController
       redirect_to @oier, :alert => msg
     end
   end
+  
+  protected
+  
+    def must_be_the_current_oier
+      oier = Oier.find_by_name(params[:oier_id])
+      if oier != current_oier
+        redirect_to :root, :alert => 'Permission Denied'
+      end
+    end
 end

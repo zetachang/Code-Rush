@@ -10,7 +10,7 @@ class Ojee < ActiveRecord::Base
            'PKU' => 'PkuOjee', 'ZeroJudge' => 'ZerojudgeOjee'}
   
   def ojee_should_not_be_duplicated
-    if self.oier.ojees.find_by_ojtype(self.ojtype)
+    if self.new_record? && self.oier.ojees && self.oier.ojees.find_by_ojtype(self.ojtype)
       errors.add(:ojtype,"should not be duplicated.")
     end
   end

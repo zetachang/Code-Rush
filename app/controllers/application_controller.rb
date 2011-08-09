@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
   end
   
   protected
+  
     def current_shelf
       Bookshelf.find(session[:bookshelf_id])
     rescue  ActiveRecord::RecordNotFound

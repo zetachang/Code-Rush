@@ -8,6 +8,6 @@
   %p 
     - ojee.problems_solved.each do |p|
       %a{:class => ['prob_link','noicon']}= p
-    -#- if can? :edit, ojee
-  = link_to 'Edit',edit_oier_ojee_path(@oier,ojee)
-  = link_to 'Delete', oier_ojee_path(@oier,ojee), :confirm => "Are you sure?", :method => :delete
+  - if can? :modify, ojee
+    = link_to 'Edit',edit_oier_ojee_path(@oier,ojee)
+    = link_to 'Delete', oier_ojee_path(@oier,ojee), :confirm => "Are you sure?", :method => :delete

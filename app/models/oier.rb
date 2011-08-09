@@ -9,7 +9,7 @@ class Oier < ActiveRecord::Base
   def ojee
     hash = Hash.new
     Ojee::OJ_TYPES.each do |ojtype|
-      hash[ojtype] = self.ojees.find_by_type(Ojee::OJ_MAP[ojtype])
+      hash[ojtype] = self.ojees.find_by_ojtype(ojtype)
     end
     hash
   end

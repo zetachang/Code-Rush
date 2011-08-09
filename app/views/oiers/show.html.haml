@@ -19,12 +19,13 @@
         - if @ojee[oj]
           .short_stats
             =link_to "#{oj} (#{@ojee[oj].solved_count})", "##{oj}"
-      
+                    
 - Ojee::OJ_TYPES.each do |oj|
   - if @ojee[oj]
     = render oj.downcase + "_stat",:ojee => @ojee[oj]  
 
-- opts = Ojee::OJ_TYPES.select{|p| [p,p] if not @ojee[p]}
-- unless opts.blank?
-  = select_tag 'ojtype', options_for_select(opts)
-  = link_to 'New OJ Account', new_oier_ojee_path(@oier), :id => 'new_oj_link'
+- if current_oier && current_oier == @oier
+  - opts = Ojee::OJ_TYPES.select{|p| [p,p] if not @ojee[p]}
+  - unless opts.blank?
+    = select_tag 'ojtype', options_for_select(opts)
+    = link_to 'New OJ Account', new_oier_ojee_path(@oier), :id => 'new_oj_link'
