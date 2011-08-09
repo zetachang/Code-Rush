@@ -12,8 +12,7 @@
     = image_tag @oier.user.gravatar_url(:size => 120), :class => 'gravatar'
   .stats_field
     .field
-      %em Name:
-      =link_to "#{@oier.user.username}", current_user.oier 
+      %em Name: #{@oier.name}
     .field
       %em Reputation: 
       %b #{rand(100)}
