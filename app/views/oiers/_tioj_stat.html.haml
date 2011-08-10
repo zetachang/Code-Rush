@@ -1,4 +1,3 @@
-= javascript_include_tag "tioj.js"
 .ojstats#tioj
   .title-bar
     %h3
@@ -7,7 +6,7 @@
       #update_error{:style => "color:red;display:none"}
       #number{:style => "display:inline"}= "#{ojee.solved_count} solved"
       .button
-        = button_to "Update", update_stats_oier_ojee_path(@oier,ojee), :remote => true, :id => 'update_button'
+        = button_to "Update", update_stats_oier_ojee_path(@oier,ojee), :remote => true, :class => 'update_button'
   %p 
     - ojee.problems_solved.each do |p|
       %a{:class => ['prob_link','noicon']}= p

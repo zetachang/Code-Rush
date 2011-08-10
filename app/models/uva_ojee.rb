@@ -1,7 +1,7 @@
 class UvaOjee < Ojee
   validates_presence_of :userid
   URL = 'http://uhunt.felix-halim.net/api/subs/<userid>'
-  def update_stat
+  def update_stats
     require "open-uri"
     url = URL.sub(/<userid>/,self[:userid].to_s)
     begin

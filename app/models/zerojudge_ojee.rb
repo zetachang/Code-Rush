@@ -1,7 +1,7 @@
 class ZerojudgeOjee < Ojee
   URL = 'http://zerojudge.tw/ShowUserStatistic?account=<name>'
   
-  def update_stat
+  def update_stats
     require "open-uri"
     url = URL.sub(/<name>/,self[:name])
     begin

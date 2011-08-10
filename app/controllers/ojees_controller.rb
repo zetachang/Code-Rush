@@ -64,7 +64,7 @@ class OjeesController < ApplicationController
       @ojee.save
       render :json => @ojee
     else
-      render :json => "Syncronization Errors", :status => :unprocessable_entity
+      render :json => "Syncronization Error", :status => :unprocessable_entity
     end
   end
   

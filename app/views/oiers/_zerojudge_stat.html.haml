@@ -1,10 +1,12 @@
-= javascript_include_tag "zerojudge.js"
 .ojstats#zerojudge
   .title-bar
     %h3
       =link_to "ZeroJudge", "#ZeroJudge", :name => 'ZeroJudge'
     .options
-      = "#{ojee.solved_count} solved"
+      #update_error{:style => "color:red;display:none"}
+      #number{:style => "display:inline"}= "#{ojee.solved_count} solved"
+      .button
+        = button_to "Update", update_stats_oier_ojee_path(@oier,ojee), :remote => true, :class => 'update_button'
   %p 
     - ojee.problems_solved.each do |p|
       %a{:class => ['prob_link','noicon']}= p
