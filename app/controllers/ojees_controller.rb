@@ -57,19 +57,14 @@ class OjeesController < ApplicationController
     redirect_to @oier
   end
   
-  def update_stat 
+  def update_stats
     @oier = Oier.find_by_name(params[:oier_id])
-    ojee = Ojee.find(params[:id])
-    if ojee.update_stat
-      ojee.save
-      redirect_to @oier
+    @ojee = Ojee.find_by_ojtype(params[:id])
+    if @ojee.update_stats
+      @ojee.save
+      render :json => @ojee
     else
-      msg = <<-EOF
-        The updating failed. The reasons may be:
-        (1) Your account info provided may be wrong.
-        (2) The server side parsing problems. Contact the admin.
-      EOF
-      redirect_to @oier, :alert => msg
+      render :json => "Syncronization Errors", :status => :unprocessable_entity
     end
   end
   

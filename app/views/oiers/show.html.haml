@@ -19,7 +19,9 @@
         - if @ojee[oj]
           .short_stats
             =link_to "#{oj} (#{@ojee[oj].solved_count})", "##{oj}"
-                    
+  -##description  
+  -#  = @oier.description
+
 - Ojee::OJ_TYPES.each do |oj|
   - if @ojee[oj]
     = render oj.downcase + "_stat",:ojee => @ojee[oj]  

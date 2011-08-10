@@ -1,5 +1,7 @@
 Blog::Application.routes.draw do
- 
+  
+  root :to => "main#index"
+  
   resources :pages do
     get :new_comment, :on => :member
     post :create_comment, :on => :member
@@ -12,8 +14,6 @@ Blog::Application.routes.draw do
     delete :delete_comment, :on => :member 
   end
 
-  root :to => "main#index"
-  
   resources :codes do
     get :tags, :on => :collection
     get :all_tags, :on => :collection
@@ -21,16 +21,15 @@ Blog::Application.routes.draw do
   end
   
   resources :oiers do
-     match :update_all, :via => [:get], :on => :collection
-     resources :ojees, :except => [:index] 
+    resources :ojees, :except => [:index] do
+      post :update_stats, :on => :member
+    end
   end
  
-  
   devise_for :users
   resources :users, :only => [:destroy]
   match 'admin' => 'admin#index', :as => "admin" 
-  
-  
+   
   resources :assignments do
     resources :assign_items, :as => :items do
       match :hand_in, :via => [:post], :on => :member  

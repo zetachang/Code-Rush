@@ -8,7 +8,6 @@ class Ojee < ActiveRecord::Base
   TYPES = ['TiojOjee', 'UvaOjee', 'PkuOjee', 'ZerojudgeOjee']
   OJ_MAP ={'TIOJ' => 'TiojOjee', 'UVa' => 'UvaOjee',
            'PKU' => 'PkuOjee', 'ZeroJudge' => 'ZerojudgeOjee'}
-  
   def ojee_should_not_be_duplicated
     if self.new_record? && self.oier.ojees && self.oier.ojees.find_by_ojtype(self.ojtype)
       errors.add(:ojtype,"should not be duplicated.")
@@ -26,11 +25,12 @@ class Ojee < ActiveRecord::Base
   def to_param
     self.ojtype
   end
+  
   private
   
-  def random_problem
-    (1001..rand(100)+1001).to_a.collect{|a| a.to_s}
-  end 
+    def random_problem
+      (1001..rand(100)+1001).to_a.collect{|a| a.to_s}
+    end 
 end
 
 

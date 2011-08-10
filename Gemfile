@@ -12,9 +12,20 @@ gem 'simple_form'
 gem 'acts-as-taggable-on'
 gem 'jquery-rails', '>=1.0.3'
 gem 'devise','1.3.4'
-gem 'rails', '3.0.7'
+gem 'delayed_job'
 gem 'haml'
 gem 'sass'
+
+group :development, :test do
+  gem 'rspec'
+  gem "autotest"
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'spork', '~> 0.9.0.rc'
+  gem 'watchr'
+end
+
+gem 'rails', '3.0.7'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
@@ -39,11 +50,3 @@ gem 'sqlite3'
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators
 # and rake tasks are available in development mode:
-group :development, :test do
-  gem 'rspec'
-  gem "autotest"
-  gem 'rspec-rails'
-  gem 'factory_girl_rails'
-  gem 'spork', '~> 0.9.0.rc'
-  gem 'watchr'
-end

@@ -37,10 +37,11 @@ class Ability
       # Managing his own Ojee items
       can :create, [TiojOjee, PkuOjee, UvaOjee, ZerojudgeOjee]
       can :modify, [TiojOjee, PkuOjee, UvaOjee, ZerojudgeOjee], :oier_id => user.oier.id
-      
+      can :update_stats, [TiojOjee, PkuOjee, UvaOjee, ZerojudgeOjee], :oier_id => user.oier.id
       can :hand_in, AssignItem do |item| 
         item.assignment.assigned_to.include?(user.oier)
       end
     end   
+    
   end
 end

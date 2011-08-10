@@ -2,12 +2,16 @@
 .ojstats#tioj
   .title-bar
     %h3
-      =link_to "TIOJ", "#TIOJ", :name => 'TIOJ'
+      = link_to "TIOJ", "#TIOJ", :name => 'TIOJ'
     .options
-      = "#{ojee.solved_count} solved"
+      #update_error{:style => "color:red;display:none"}
+      #number{:style => "display:inline"}= "#{ojee.solved_count} solved"
+      .button
+        = button_to "Update", update_stats_oier_ojee_path(@oier,ojee), :remote => true, :id => 'update_button'
   %p 
     - ojee.problems_solved.each do |p|
       %a{:class => ['prob_link','noicon']}= p
-    - if can? :modify, ojee
-      = link_to 'Edit', edit_oier_ojee_path(@oier,ojee)
-      = link_to 'Delete', oier_ojee_path(@oier,ojee), :confirm => 'Are you sure?', :method => :delete 
+  - if can? :modify, ojee
+    = link_to 'Edit', edit_oier_ojee_path(@oier,ojee)
+    = link_to 'Delete', oier_ojee_path(@oier,ojee), :confirm => 'Are you sure?', :method => :delete
+    

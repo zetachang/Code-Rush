@@ -95,6 +95,9 @@
 	}
 	#page > article .title-bar{
 	    @include title-bar(black);
+	    .button {
+	        display: inline-block;
+	    }
 	}
     .ui-autocomplete{
 	    list-style: none!important;
@@ -336,6 +339,17 @@
         background: #e5ecf9;
         @include single-box-shadow(#c3d9ff, 0px, 1px, 1px, false);
     }
+    #description {
+        width: 210px;
+        //margin-right: auto;
+        //margin-left: auto;
+        display: inline-block;
+        font-size:90%;
+        margin-left: 20px;
+        border:1px solid black;
+        @include border-radius(5px);
+        padding: 5px;
+    }
     aside{
         margin-top: 0px;
         text-align: right;
@@ -457,6 +471,12 @@
 		    text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2);
 		}
 	}
+	.notice {
+	    @include border-radius(5px);
+	}
+	.alert {
+	    @include border-radius(5px);
+	}
 	body.bp{
 		@include blueprint-typography(true);
 	    //@include blueprint-utilities;
@@ -465,7 +485,6 @@
 	    //@include fancy-type;
 	    //@include blueprint-typography-defaults;
 	    .alt{@include alt;}
-		//a{@include hover-link;}
 		.caps{@include caps;}
 	    #accordion h5{margin-bottom: 0px;}
 	}
