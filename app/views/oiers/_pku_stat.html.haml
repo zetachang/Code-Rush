@@ -1,12 +1,5 @@
 .ojstats#pku
-  .title-bar
-    %h3
-      =link_to "PKU", "#PKU", :name => 'PKU'
-    .options
-      #update_error{:style => "color:red;display:none"}
-      #number{:style => "display:inline"}= "#{ojee.solved_count} solved"
-      .button
-        = button_to "Update", update_stats_oier_ojee_path(@oier,ojee), :remote => true, :class => 'update_button'
+  = render "ojees/title_bar", :ojee => ojee
   %p 
     - ojee.problems_solved.each do |p|
       %a{:class => ['prob_link','noicon']}= p

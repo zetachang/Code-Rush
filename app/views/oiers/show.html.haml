@@ -15,10 +15,11 @@
       %em Reputation: 
       %b #{rand(100)}
     .field
-      - Ojee::OJ_TYPES.each do |oj|
-        - if @ojee[oj]
+      - Ojee::OJ_TYPES.each do |type|
+        - if @ojee[type]
           .short_stats
-            =link_to "#{oj} (#{@ojee[oj].solved_count})", "##{oj}"
+            %div{:class => type.downcase, :style => "display:inline"}
+              =link_to "#{type} (#{@ojee[type].solved_count})", "##{type}"
   -##description  
   -#  = @oier.description
 

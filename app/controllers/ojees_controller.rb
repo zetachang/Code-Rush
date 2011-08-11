@@ -1,6 +1,6 @@
 class OjeesController < ApplicationController 
   before_filter :authenticate_user!
-  before_filter :must_be_the_current_oier
+  #before_filter :must_be_the_current_oier
   authorize_resource :instance_name => :ojee, :class => TiojOjee
   authorize_resource :instance_name => :ojee, :class => PkuOjee
   authorize_resource :instance_name => :ojee, :class => UvaOjee
@@ -52,14 +52,14 @@ class OjeesController < ApplicationController
   
   def destroy
     @oier = Oier.find_by_name(params[:oier_id])
-    @ojee = Ojee.find_by_ojtype(params[:id])
+    @ojee = @oier.ojees.find_by_ojtype(params[:id])
     @ojee.destroy
     redirect_to @oier
   end
   
   def update_stats
     @oier = Oier.find_by_name(params[:oier_id])
-    @ojee = Ojee.find_by_ojtype(params[:id])
+    @ojee = @oier.ojees.find_by_ojtype(params[:id])
     if @ojee.update_stats
       @ojee.save
       render :json => @ojee
@@ -73,7 +73,11 @@ class OjeesController < ApplicationController
     def must_be_the_current_oier
       oier = Oier.find_by_name(params[:oier_id])
       if oier != current_oier
-        redirect_to :root, :alert => 'Permission Denied'
+        if request.xhr?
+          render :json => 'Permission Denied', :status => :unauthorized
+        else
+          redirect_to :root, :alert => 'Permission Denied'
+        end
       end
     end
 end

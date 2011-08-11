@@ -84,7 +84,7 @@ $(document).ready(function(){
         var $ojstats = $(this).closest('.ojstats');
         var $probsDiv = $ojstats.find('p');
         var $numberField = $ojstats.find('.options #number');
-        console.log($numberField)
+        var $mainNumberField = $('.stats_field .short_stats .' + $ojstats.attr('id') + ' a');
         //clear all the prob  
         $probsDiv.empty();
         //insert new from json object
@@ -95,13 +95,14 @@ $(document).ready(function(){
             $probsDiv.html(dum + newLink);
         });
         //replace each link
-        console.log($ojstats.attr('id'));
         OJ[$ojstats.attr('id')].replaceEachProbLink();
         //change the number
         var number = ojee.problems_solved.length;
         $numberField.show();
         $numberField.html(number.toString() + ' solved');
         $numberField.effect("highlight",{},2000);
+        $mainNumberField.html($mainNumberField.html().replace(/([0-9]+)/,number.toString()));
+        //$mainNumberField.effect("highlight");
     })
     .bind("ajax:error",function(evt, xhr, status, error){
         //show error messgae beside the option

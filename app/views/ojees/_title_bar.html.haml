@@ -1,0 +1,9 @@
+.title-bar
+  %h3
+    =link_to ojee.ojtype, "##{ojee.ojtype}", :name => ojee.ojtype
+  .options
+    #update_error{:style => "color:red;display:none"}
+    #number{:style => "display:inline"}= "#{ojee.solved_count} solved"
+    - if can? :update_stats, ojee
+      .button
+        = button_to "Update", update_stats_oier_ojee_path(@oier,ojee), :remote => true, :class => 'update_button'
