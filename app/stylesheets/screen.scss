@@ -22,6 +22,7 @@
     h2, h3{
         display: inline-block;
         margin: 0px!important;
+        margin-right: 5px!important;
         a{
             text-decoration: none;
             color: black!important;
@@ -36,6 +37,7 @@
     border-bottom: 1px solid #ddd;
     margin-bottom: 5px;
 }
+
 
 	$sidebar-columns: $blueprint-grid-columns/4;
 	$article-columns: 15 * $blueprint-grid-columns/24;
@@ -114,6 +116,11 @@
 	//}
 	#code-title-bar{
 	    @include title-bar(black);
+	    .options {
+	        left: auto;
+	        float:none;
+	        margin: 0px;
+	    }
 	}
 	.ojstats {
 	    @include border-radius(5px);

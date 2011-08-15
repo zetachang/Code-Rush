@@ -8,11 +8,14 @@
     %br
     -@code.tag_list.each do |t|
       =link_to t, tags_codes_path(:id => t)
-%h2= @code.title
-%em created by #{@code.creator}
--#%em tagged with #{@code.tag_list} Make the tagged with look better
-- if can? :destroy, @code
-  = link_to "Delete this code", code_path(@code), :method => :delete, :confirm => "Are you sure?"
+
+#code-title-bar
+  %h2= @code.title
+  %em Author:
+  = link_to @code.creator, @code.oier
+  .options
+    - if can? :destroy, @code
+      = link_to "Delete this code", code_path(@code), :method => :delete, :confirm => "Are you sure?"
 - if can? :see_source, @code
   %pre{:class => "brush: cpp;"}
     - if @code.source
