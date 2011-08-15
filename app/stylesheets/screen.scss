@@ -19,9 +19,9 @@
 @import "blueprint/fancy-type";
 
 @mixin title-bar($options_color: red){
-    h3{
+    h2, h3{
         display: inline-block;
-        margin: 0px;
+        margin: 0px!important;
         a{
             text-decoration: none;
             color: black!important;
@@ -112,6 +112,9 @@
     //    border:1px solid #ddd;
     //   @include border-radius(5px);
 	//}
+	#code-title-bar{
+	    @include title-bar(black);
+	}
 	.ojstats {
 	    @include border-radius(5px);
 	    background: #fafafa;
@@ -365,6 +368,17 @@
               text-decoration: none!important;
               @include link-colors(black,black,black,black);
         }
+        #code-info{
+            border-top: 1px solid #bbb;
+            padding-top: 5px;
+            text-align: left;
+            a {
+                border: 1px solid #bbb;
+                text-decoration: none;
+                color: black;
+                font-weight: 500;
+            }
+        }
         ul{
             border-top: 1px solid #bbb;
             list-style: none!important;
@@ -440,6 +454,16 @@
 		font-weight: bold;
 		text-decoration: none;
 		@include border-radius(5px);
+		&.Public {
+		    background: #52D017;
+			color: white;
+			text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2);
+		}
+		&.Private {
+		    background: black;
+		    color: white;
+    		text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2);
+		}
 		&.Read{
 		    background: #7E587E;
 		    color: white;

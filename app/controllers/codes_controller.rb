@@ -9,6 +9,7 @@ class CodesController < ApplicationController
   end
 
   def new
+    @code.visiblity = false #Code is private by default
   end
 
   def edit

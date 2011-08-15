@@ -28,12 +28,13 @@ class Ability
     
       #About Code Handling
       can :read, Code
+      can :see_source, Code, :oier_id => user.oier.id
+      can :see_source, Code, :visibility => true
       can :modify, Code, :creator => user.oier.try(:name)
-    
-      # Create his own code snippet
       can :create, Code
+
       can :all_tags, Code
-    
+      can :tags, Code
       # Managing his own Ojee items
       can :create, [TiojOjee, PkuOjee, UvaOjee, ZerojudgeOjee]
       can :modify, [TiojOjee, PkuOjee, UvaOjee, ZerojudgeOjee], :oier_id => user.oier.id

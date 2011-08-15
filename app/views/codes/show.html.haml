@@ -1,10 +1,25 @@
+- content_for :sidebar do
+  #code-info
+    %b Visibility:
+    - status = visibility_to_human(@code.visibility)
+    %p{:class =>['label',status], :style => "font-size:95%"}= status
+    %br
+    %b Tags:
+    %br
+    -@code.tag_list.each do |t|
+      =link_to t, tags_codes_path(:id => t)
 %h2= @code.title
 %em created by #{@code.creator}
-%em tagged with #{@code.tag_list}
+-#%em tagged with #{@code.tag_list} Make the tagged with look better
 - if can? :destroy, @code
   = link_to "Delete this code", code_path(@code), :method => :delete, :confirm => "Are you sure?"
-%pre{:class => "brush: cpp;"}
-  = "\n" + @code.source
+- if can? :see_source, @code
+  %pre{:class => "brush: cpp;"}
+    - if @code.source
+      = "\n" + @code.source
+- else
+  .alert
+    The Code is Private.
 - if can? :update, @code
   = link_to 'Edit', edit_code_path(@code)
 = link_to 'Back', codes_path

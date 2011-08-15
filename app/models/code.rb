@@ -6,7 +6,6 @@ class Code < ActiveRecord::Base
   validate :tags_should_be_seperated_by_comma, :allow_blank => true
   validates_presence_of :title, :on => :create, :message => "can't be blank"
   #validates_presence_of :source, :on => :create, :message => "can't be blank"
-  
   def tags_should_be_seperated_by_comma
     return if self.tag_list == []
     self.tag_list.each do |tag|
@@ -25,6 +24,21 @@ class Code < ActiveRecord::Base
     return self.tag_list
   end
   
+#def visibility
+#  if self[:visibility] == true
+#    return "Public"
+#  else
+#    return "Private"
+#  end
+#end
+#
+#def visibility=(visi)
+#  if visi == "Public"
+#    self[:visibility] = true
+#  else
+#    self[:visibility] = false
+#  end
+#end
   def creator
     self.oier.name
   end
