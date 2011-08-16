@@ -4,7 +4,7 @@
 
 // This import applies a global reset to any page that imports this stylesheet.
 @import "blueprint/reset";
-
+@import "blueprint/reset/utilities";
 // To configure blueprint, edit the partials/base.sass file.
 @import "partials/base";
 @import "partials/simple_form";
@@ -12,7 +12,7 @@
 @import "blueprint";
 
 // Import the non-default scaffolding module.
-@import "blueprint/scaffolding";
+//@import "blueprint/scaffolding";
 @import "blueprint/grid";
 @import "blueprint/form";
 @import "blueprint/interaction";
@@ -38,7 +38,65 @@
     margin-bottom: 5px;
 }
 
-
+@mixin simple-style-form {
+    width: 95%;
+    th {
+        font-size: 110%;    
+        background: white!important;
+        border-bottom: 2px solid #bbb; 
+        padding-bottom: 11px;
+    }
+    tr:hover {
+        //background: $hover-color;
+    }
+    td {
+        padding:5px;
+        padding-right:6px;
+        padding-left: 6px;
+        border-bottom:1px solid #bbb;
+    }
+}
+.code_tag {
+    //@include border-radius(5px);
+    display: inline-block;
+    //border: 1px solid black;
+    a {
+        color: black!important;
+        text-decoration: none!important;
+    }
+}
+table#code_index {
+    $table-color: #d5e3f0;
+    $hover-color: #c3d9ff;
+    //@include blueprint-reset-table;
+    padding:10px;
+    th {
+        font-size: 110%;    
+        background: white!important;
+        border-bottom: 2px solid #bbb; 
+        padding-bottom: 11px;
+    }
+    width: 95%;
+    tr:hover {
+        //color:black;
+        //background: #bbb;
+        //color:white!important;
+    }
+    a {
+        text-decoration: none!important;
+        //color:black; 
+    }
+    td {
+        padding:5px;
+        padding-right:6px;
+        padding-left: 6px;
+        border-bottom:1px solid #bbb;
+    }
+    //background: $table-color!important;
+    //@include inner-table-borders(1px, darken($table-color, 40%));
+    //@include outer-table-borders(2px);
+    //@include alternating-rows-and-columns($table-color, white, #000000,adjust-lightness($table-color,-10deg)); 
+}
 	$sidebar-columns: $blueprint-grid-columns/4;
 	$article-columns: 15 * $blueprint-grid-columns/24;
 	body.two-col{
@@ -304,6 +362,13 @@
             margin-bottom: 3px;
             display: inline-block;
             float:left;
+            img {
+                padding: 3px;
+                background: white;
+                border-bottom: 1px solid #D7D7D7;
+                border-left: 1px solid #F2F2F2;
+                border-right: 1px solid #F2F2F2;
+            }
         }
         .stats_field {
             a {
