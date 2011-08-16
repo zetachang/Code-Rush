@@ -3,24 +3,25 @@
     - menu_for "Code Snippet" do
       %li.selected= link_to "All Codes", codes_path
       %li= link_to "My Codes", :action => 'my_codes'
-%article
-  %table#code_index
-    %thead
-      %th Title
-      %th Author
-      %th Created At
-      %th 
-    -@codes.each do |code| 
-      %tr
-        -#{:class => cycle('odd','even')}
-        %td= link_to code.title, code
-        %td= link_to code.creator, code.oier
-        %td
-          %em= distance_of_time_in_words_to_now(code.created_at) + " ago"
-        %td
-          - unless code.visibility
-            = image_tag "/images/iconset/lock_32x32.png", :size => "20x20", :alt => 'Private'
-          - else
-            = ""
-  %br
-  = link_to 'New Code', new_code_path
+
+%table#code_index
+  %thead
+    %th Title
+    %th Author
+    %th Created At
+    %th 
+  -@codes.each do |code| 
+    %tr
+      -#{:class => cycle('odd','even')}
+      %td= link_to code.title, code
+      %td= link_to code.creator, code.oier
+      %td
+        %em= distance_of_time_in_words_to_now(code.created_at) + " ago"
+      %td
+        - unless code.visibility
+          = image_tag "/images/iconset/lock_32x32.png", :size => "20x20", :alt => 'Private'
+        - else
+          = ""
+.flickr_pagination
+  = will_paginate @codes
+= link_to 'New Code', new_code_path

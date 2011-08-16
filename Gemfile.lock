@@ -121,6 +121,7 @@ GEM
     warden (1.0.4)
       rack (>= 1.0)
     watchr (0.7)
+    will_paginate (3.0.0)
 
 PLATFORMS
   ruby
@@ -149,3 +150,4 @@ DEPENDENCIES
   spork (~> 0.9.0.rc)
   sqlite3
   watchr
+  will_paginate (~> 3.0)

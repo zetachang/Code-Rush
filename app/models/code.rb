@@ -5,6 +5,7 @@ class Code < ActiveRecord::Base
   belongs_to :oier
   validate :tags_should_be_seperated_by_comma, :allow_blank => true
   validates_presence_of :title, :on => :create, :message => "can't be blank"
+  self.per_page = 30
   #validates_presence_of :source, :on => :create, :message => "can't be blank"
   def tags_should_be_seperated_by_comma
     return if self.tag_list == []

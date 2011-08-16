@@ -1,8 +1,8 @@
 class CodesController < ApplicationController
   load_resource :except => [:tags, :all_tags]
   authorize_resource 
-  
   def index
+    @codes = @codes.paginate(:page => params[:page])
   end
 
   def show
@@ -38,7 +38,7 @@ class CodesController < ApplicationController
   end
   
   def tags
-    @codes = Code.tagged_with(params[:id])
+    @codes = Code.tagged_with(params[:id]).paginate(:page => params[:page])
     render :action => :index
   end
   
@@ -48,7 +48,7 @@ class CodesController < ApplicationController
   end
 
   def my_codes
-    @codes = Code.where(:creator => current_oier.name)
+    @codes = Code.where(:creator => current_oier.name).paginate(:page => params[:page])
     render :action => 'index'
   end
 end
