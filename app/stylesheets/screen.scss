@@ -203,16 +203,14 @@ table#code_index {
 	    }
 	}
 	#sub-nav {
-	    margin-bottom: 5px;
+	    margin-bottom: 10px;
 	    height: 25px;
 	    border-bottom: solid 2px gray;
 	    h1{
 	        margin-bottom: 5px!important;
 	    }
-	    a{
-	        float: right;
-	        display: inline-block;
-	    }
+	    width:100%;
+        text-align: right;
 	}
 	#book {
 		p {

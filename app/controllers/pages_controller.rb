@@ -35,6 +35,9 @@ class PagesController < ApplicationController
   end
 
   def destroy
+    @page = Page.find_by_munged_title(params[:id])
+    @page.destroy
+    redirect_to pages_path
   end
   
   def create_comment

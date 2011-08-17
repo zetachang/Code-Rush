@@ -20,7 +20,7 @@ module ApplicationHelper
   
   def double_bracket_tag(text)
     url = "/pages/"
-    text.gsub!(/\[\[[a-zA-Z\|\-_\s]+\]\]/){
+    text.gsub!(/\[\[[a-zA-Z\|\-_\s']+\]\]/){
       result = $&.gsub(/\[/,"").gsub(/\]/,"")
       if result.include?("|")
         title = result.scan(/([^|]+)\|.+/)[0][0].strip
