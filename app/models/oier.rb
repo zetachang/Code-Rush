@@ -14,6 +14,16 @@ class Oier < ActiveRecord::Base
     hash
   end
   
+  def points
+    if self.ojees
+      sum = 0
+      self.ojees.map{|ojee| sum += Ojee::WEIGHT[ojee.ojtype] * ojee.solved_count }
+      return sum
+    else
+      return 0
+    end
+  end
+  
   def to_param
     self.name.parameterize
   end

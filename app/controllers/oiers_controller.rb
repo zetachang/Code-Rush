@@ -2,7 +2,7 @@ class OiersController < ApplicationController
   before_filter :authenticate_user! ,:except => [:index,:show]
   # GET /oiers
   def index
-    @oiers = Oier.all
+    @oiers = Oier.all.sort{|a,b| b.points <=> a.points}
 
     respond_to do |format|
       format.html # index.html.erb

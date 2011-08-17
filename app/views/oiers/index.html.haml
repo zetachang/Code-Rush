@@ -2,20 +2,32 @@
   %ul
     - menu_for "Oier Rank" do
       %li= link_to "PSCD Oier", oiers_path, :class => 'selected'
-      %li= link_to "My Oier Stats"
+      - if current_oier
+        %li= link_to "My Oier Stats", current_oier
       
-%article
-  %h2 Oier in PSCD
-  / TODO Modify the title of each page to the side bar 
-  %table
-    %thead
-      %tr.odd
+
+%h2 Oier Rank
+/ TODO Modify the title of each page to the side bar 
+%table#oier_rank
+  %thead
+    %tr.odd
+      %th
+        %em rank
+      %th
+        %em id
+      - Ojee::OJ_TYPES.each do |ojtype|
         %th
+          %em= ojtype
+      %th
+        %em points
+  %tbody
+    - @oiers.each_with_index do |oier,idx| 
+      %tr{:class => cycle('odd','even')}
+        %td= idx + 1
+        %td
+          = image_tag oier.user.gravatar_url(:size => 20), :class => 'gravatar'
+          = link_to "#{oier.name}", oier 
         - Ojee::OJ_TYPES.each do |ojtype|
-          %th= ojtype
-    %tbody
-      - @oiers.each do |oier| 
-        %tr{:class => cycle('odd','even')}
-          %td= link_to "#{oier.name}", oier 
-          - Ojee::OJ_TYPES.each do |ojtype|
-            %td= ojee_for(oier,ojtype).solved_count != 0 ? ojee_for(oier,ojtype).solved_count : 'N/A'      
+          %td= ojee_for(oier,ojtype).solved_count != 0 ? ojee_for(oier,ojtype).solved_count : 'N/A'
+        %td
+          %b{:style => "color:green"}= oier.points      

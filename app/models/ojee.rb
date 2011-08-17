@@ -8,6 +8,7 @@ class Ojee < ActiveRecord::Base
   TYPES = ['TiojOjee', 'UvaOjee', 'PkuOjee', 'ZerojudgeOjee']
   OJ_MAP ={'TIOJ' => 'TiojOjee', 'UVa' => 'UvaOjee',
            'PKU' => 'PkuOjee', 'ZeroJudge' => 'ZerojudgeOjee'}
+  WEIGHT = {'TIOJ' => 1, 'ZeroJudge' => 1, 'UVa' => 1, "PKU" => 1}
   def ojee_should_not_be_duplicated
     if self.new_record? && self.oier.ojees && self.oier.ojees.find_by_ojtype(self.ojtype)
       errors.add(:ojtype,"should not be duplicated.")

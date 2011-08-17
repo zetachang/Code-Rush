@@ -40,21 +40,32 @@
 }
 
 @mixin simple-style-form {
-    width: 95%;
+    padding:10px;
     th {
         font-size: 110%;    
         background: white!important;
         border-bottom: 2px solid #bbb; 
         padding-bottom: 11px;
     }
-    tr:hover {
-        //background: $hover-color;
+    a {
+        text-decoration: none!important;
     }
     td {
         padding:5px;
         padding-right:6px;
         padding-left: 6px;
         border-bottom:1px solid #bbb;
+    }
+}
+table#oier_rank {
+    @include simple-style-form;
+    img {
+        padding: 3px;
+        background: white;
+        border-bottom: 1px solid #D7D7D7;
+        border-left: 1px solid #F2F2F2;
+        border-right: 1px solid #F2F2F2;
+        vertical-align: -10px;
     }
 }
 .code_tag {
