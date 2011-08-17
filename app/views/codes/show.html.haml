@@ -4,25 +4,35 @@
     - status = visibility_to_human(@code.visibility)
     %p{:class =>['label',status], :style => "font-size:95%"}= status
     %br
-    %b Tags:
-    %br
-    -@code.tag_list.each do |t|
-      =link_to t, tags_codes_path(:id => t)
+    - if @code.tag_list.blank?
+      %b No tag
+    - else
+      %b Tags:
+      %br
+      -@code.tag_list.each do |t|
+        =link_to t, tags_codes_path(:id => t)
 
 #code-title-bar
+  - unless @code.visibility
+    = image_tag "iconset/lock_32x32.png", :class => 'title_lock_icon'
   %h2= @code.title
   %em Author:
   = link_to @code.creator, @code.oier
   .options
     - if can? :destroy, @code
       = link_to "Delete this code", code_path(@code), :method => :delete, :confirm => "Are you sure?"
+ 
 - if can? :see_source, @code
   %pre{:class => "brush: cpp;"}
     - if @code.source
       = "\n" + @code.source
 - else
-  .alert
-    The Code is Private.
+  - unless @code.visibility
+    %em{:style => "color:red"}This Code is Private
+  = submit_tag "Hint Me!"
+  %em << still under development
+  %br
+  %br
 - if can? :update, @code
   = link_to 'Edit', edit_code_path(@code)
 = link_to 'Back', codes_path
