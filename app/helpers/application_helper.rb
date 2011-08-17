@@ -18,11 +18,28 @@ module ApplicationHelper
     end
   end
   
+  def double_bracket_tag(text)
+    url = "/pages/"
+    text.gsub!(/\[\[[a-zA-Z\|\-_\s]+\]\]/){
+      result = $&.gsub(/\[/,"").gsub(/\]/,"")
+      if result.include?("|")
+        title = result.scan(/([^|]+)\|.+/)[0][0].strip
+        result = result.scan(/[^|]+\|(.+)/)[0][0].strip
+      else
+        title = result
+      end
+      link = url + result.parameterize
+      "<a href='#{link}'>#{title}</a>"
+    }
+  end
+  
   def markdown(text)
+    double_bracket_tag text
     options = [:hard_wrap, :autolink, :no_intraemphasis, :fenced_code]
     Redcarpet.new(text, *options).to_html.html_safe  
     
   end
+  
   
   def syntax_highlighter(html)
     doc = Nokogiri::HTML(html)
